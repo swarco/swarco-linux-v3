@@ -1,0 +1,5261 @@
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/configs/swarco_ccm2200_defconfig linux-3.4.17-ccm2200/arch/arm/configs/swarco_ccm2200_defconfig
+--- linux-3.4.17/arch/arm/configs/swarco_ccm2200_defconfig	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/configs/swarco_ccm2200_defconfig	2016-07-12 10:57:38.000000000 +0200
+@@ -0,0 +1,193 @@
++# CONFIG_ARM_PATCH_PHYS_VIRT is not set
++CONFIG_PHYS_OFFSET=0x20000000
++CONFIG_EXPERIMENTAL=y
++CONFIG_LOCALVERSION="-swarco-ccm2200"
++# CONFIG_SWAP is not set
++CONFIG_SYSVIPC=y
++CONFIG_RCU_BOOST=y
++CONFIG_LOG_BUF_SHIFT=14
++CONFIG_BLK_DEV_INITRD=y
++CONFIG_CC_OPTIMIZE_FOR_SIZE=y
++# CONFIG_UID16 is not set
++# CONFIG_BASE_FULL is not set
++CONFIG_EMBEDDED=y
++CONFIG_SLAB=y
++CONFIG_JUMP_LABEL=y
++CONFIG_MODULES=y
++CONFIG_MODULE_UNLOAD=y
++CONFIG_PARTITION_ADVANCED=y
++# CONFIG_IOSCHED_DEADLINE is not set
++CONFIG_ARCH_AT91=y
++CONFIG_MACH_CCM2200=y
++CONFIG_AT91_PROGRAMMABLE_CLOCKS=y
++CONFIG_AT91_EARLY_USART2=y
++# CONFIG_ARM_THUMB is not set
++CONFIG_HIGH_RES_TIMERS=y
++CONFIG_PREEMPT=y
++CONFIG_AEABI=y
++# CONFIG_OABI_COMPAT is not set
++CONFIG_ZBOOT_ROM_TEXT=0x0
++CONFIG_ZBOOT_ROM_BSS=0x0
++# CONFIG_CORE_DUMP_DEFAULT_ELF_HEADERS is not set
++# CONFIG_SUSPEND is not set
++CONFIG_NET=y
++CONFIG_PACKET=y
++CONFIG_UNIX=y
++CONFIG_INET=y
++CONFIG_IP_MULTICAST=y
++# CONFIG_IPV6 is not set
++CONFIG_NETFILTER=y
++CONFIG_NETFILTER_DEBUG=y
++CONFIG_NF_CONNTRACK=m
++CONFIG_NF_CONNTRACK_MARK=y
++CONFIG_NF_CONNTRACK_IPV4=m
++CONFIG_IP_NF_IPTABLES=m
++CONFIG_IP_NF_MATCH_ECN=m
++CONFIG_IP_NF_MATCH_TTL=m
++CONFIG_IP_NF_FILTER=m
++CONFIG_IP_NF_TARGET_REJECT=m
++CONFIG_IP_NF_TARGET_ULOG=m
++CONFIG_NF_NAT=m
++CONFIG_IP_NF_TARGET_MASQUERADE=m
++CONFIG_IP_NF_MANGLE=m
++CONFIG_IP_NF_TARGET_ECN=m
++CONFIG_IP_NF_RAW=m
++CONFIG_IP_NF_ARPTABLES=m
++CONFIG_IP_NF_ARPFILTER=m
++CONFIG_IP_NF_ARP_MANGLE=m
++CONFIG_BRIDGE=m
++CONFIG_VLAN_8021Q=m
++CONFIG_BT=m
++CONFIG_BT_RFCOMM=m
++CONFIG_BT_RFCOMM_TTY=y
++CONFIG_BT_BNEP=m
++CONFIG_BT_HCIBTUSB=m
++CONFIG_CFG80211=m
++CONFIG_LIB80211=m
++CONFIG_MAC80211=m
++CONFIG_MAC80211_LEDS=y
++# CONFIG_PREVENT_FIRMWARE_BUILD is not set
++CONFIG_FW_LOADER=m
++CONFIG_MTD=y
++CONFIG_MTD_CMDLINE_PARTS=y
++CONFIG_MTD_CHAR=y
++CONFIG_MTD_BLOCK=y
++CONFIG_MTD_CFI=y
++CONFIG_MTD_CFI_INTELEXT=y
++CONFIG_MTD_CFI_AMDSTD=y
++CONFIG_MTD_ABSENT=y
++CONFIG_MTD_PHYSMAP=y
++CONFIG_MTD_PLATRAM=y
++CONFIG_MTD_NAND=y
++CONFIG_MTD_NAND_ATMEL=y
++CONFIG_BLK_DEV_LOOP=m
++CONFIG_BLK_DEV_LOOP_MIN_COUNT=2
++CONFIG_BLK_DEV_RAM=m
++CONFIG_BLK_DEV_RAM_COUNT=8
++CONFIG_BLK_DEV_RAM_SIZE=8192
++CONFIG_ATMEL_TCLIB=y
++CONFIG_EEPROM_AT24=y
++CONFIG_SCSI=y
++# CONFIG_SCSI_PROC_FS is not set
++CONFIG_BLK_DEV_SD=y
++CONFIG_NETDEVICES=y
++CONFIG_TUN=m
++CONFIG_ARM_AT91_ETHER=y
++# CONFIG_NET_VENDOR_BROADCOM is not set
++# CONFIG_NET_VENDOR_CHELSIO is not set
++# CONFIG_NET_VENDOR_CIRRUS is not set
++# CONFIG_NET_VENDOR_FARADAY is not set
++# CONFIG_NET_VENDOR_INTEL is not set
++# CONFIG_NET_VENDOR_MARVELL is not set
++# CONFIG_NET_VENDOR_MICREL is not set
++# CONFIG_NET_VENDOR_NATSEMI is not set
++# CONFIG_NET_VENDOR_SEEQ is not set
++# CONFIG_NET_VENDOR_SMSC is not set
++# CONFIG_NET_VENDOR_STMICRO is not set
++CONFIG_PHYLIB=y
++CONFIG_LXT_PHY=y
++CONFIG_PPP=y
++CONFIG_PPP_BSDCOMP=y
++CONFIG_PPP_DEFLATE=y
++CONFIG_PPP_FILTER=y
++CONFIG_PPP_ASYNC=y
++CONFIG_SLIP=y
++CONFIG_USB_USBNET=m
++CONFIG_USB_NET_RNDIS_HOST=m
++# CONFIG_USB_NET_ZAURUS is not set
++CONFIG_RT2X00=m
++CONFIG_RT2800USB=m
++CONFIG_RT2800USB_RT53XX=y
++CONFIG_RT2X00_DEBUG=y
++# CONFIG_INPUT is not set
++# CONFIG_SERIO is not set
++# CONFIG_VT is not set
++# CONFIG_LEGACY_PTYS is not set
++CONFIG_SERIAL_8250=y
++CONFIG_SERIAL_8250_EXTENDED=y
++CONFIG_SERIAL_8250_SHARE_IRQ=y
++CONFIG_SERIAL_ATMEL=y
++CONFIG_SERIAL_ATMEL_CONSOLE=y
++# CONFIG_SERIAL_ATMEL_PDC is not set
++CONFIG_SERIAL_ATMEL_TTYAT=y
++CONFIG_I2C=y
++CONFIG_I2C_CHARDEV=y
++CONFIG_I2C_GPIO=y
++CONFIG_GPIO_SYSFS=y
++CONFIG_GPIO_GENERIC_PLATFORM=y
++CONFIG_WATCHDOG=y
++CONFIG_WATCHDOG_CORE=y
++CONFIG_WATCHDOG_NOWAYOUT=y
++CONFIG_AT91RM9200_WATCHDOG=y
++CONFIG_CCM2200_WATCHDOG=y
++CONFIG_SOUND=m
++CONFIG_SND=m
++CONFIG_SND_MIXER_OSS=m
++CONFIG_SND_PCM_OSS=m
++CONFIG_SND_USB_AUDIO=m
++CONFIG_USB=y
++CONFIG_USB_DEVICEFS=y
++CONFIG_USB_OHCI_HCD=y
++CONFIG_USB_ACM=y
++CONFIG_USB_STORAGE=y
++CONFIG_USB_SERIAL=m
++CONFIG_USB_SERIAL_GENERIC=y
++CONFIG_USB_SERIAL_FTDI_SIO=m
++CONFIG_USB_SERIAL_IPAQ=m
++CONFIG_USB_SERIAL_PL2303=m
++CONFIG_USB_GADGET=y
++CONFIG_USB_AT91=y
++CONFIG_USB_ZERO=m
++CONFIG_USB_ETH=m
++CONFIG_USB_G_SERIAL=m
++CONFIG_NEW_LEDS=y
++CONFIG_LEDS_CLASS=y
++CONFIG_LEDS_CCM2200=y
++CONFIG_LEDS_TRIGGER_TIMER=y
++CONFIG_LEDS_TRIGGER_HEARTBEAT=y
++CONFIG_RTC_CLASS=y
++# CONFIG_RTC_HCTOSYS is not set
++CONFIG_RTC_DRV_DS1307=y
++# CONFIG_IOMMU_SUPPORT is not set
++CONFIG_EXT2_FS=y
++CONFIG_EXT2_FS_XATTR=y
++CONFIG_EXT3_FS=y
++# CONFIG_EXT3_DEFAULTS_TO_ORDERED is not set
++# CONFIG_DNOTIFY is not set
++CONFIG_FANOTIFY=y
++CONFIG_VFAT_FS=y
++CONFIG_TMPFS=y
++CONFIG_JFFS2_FS=y
++CONFIG_JFFS2_FS_WBUF_VERIFY=y
++CONFIG_JFFS2_COMPRESSION_OPTIONS=y
++CONFIG_NFS_FS=m
++CONFIG_CIFS=m
++CONFIG_CIFS_STATS=y
++CONFIG_CIFS_XATTR=y
++CONFIG_CIFS_POSIX=y
++CONFIG_NLS_CODEPAGE_437=y
++CONFIG_NLS_ISO8859_1=y
++CONFIG_MAGIC_SYSRQ=y
++# CONFIG_DEBUG_PREEMPT is not set
++# CONFIG_EVENT_POWER_TRACING_DEPRECATED is not set
++CONFIG_IRQSOFF_TRACER=y
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/mach-at91/at91rm9200_smc.c linux-3.4.17-ccm2200/arch/arm/mach-at91/at91rm9200_smc.c
+--- linux-3.4.17/arch/arm/mach-at91/at91rm9200_smc.c	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/mach-at91/at91rm9200_smc.c	2012-11-09 17:06:50.000000000 +0100
+@@ -0,0 +1,91 @@
++/*
++ * linux/arch/arm/mach-at91/at91rm9200_smc.c
++ *
++ * Copyright (C) 2010 Guido Classen
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307	 USA
++ *
++ */
++
++#include <linux/module.h>
++#include <linux/io.h>
++
++#include <mach/at91-util.h>
++#include <mach/at91rm9200_mc.h>
++#include <mach/at91_pio.h>
++#include <mach/at91_ramc.h>
++
++#include "mach/at91rm9200_smc.h"
++
++int __init at91rm9200_smc_configure(int chip_select,
++				    const struct at91rm9200_smc_config *config)
++{
++	unsigned int mask;
++
++	/* check parameters */
++	if (chip_select < 0 || chip_select > 7
++	    || config->wait_states > 128
++	    || config->data_float_time > 15
++	    || (config->byte_access_type != AT91RM9200_BAT_TWO_8_BIT
++		&& config->byte_access_type != AT91RM9200_BAT_16_BIT)
++	    || (config->data_read_protocol != AT91RM9200_DRP_STANDARD
++		&& config->data_read_protocol != AT91RM9200_DRP_EARLY)
++	    || config->address_to_cs_setup < AT91RM9200_ACSS_STANDARD
++	    || config->address_to_cs_setup > AT91RM9200_ACSS_3_CYCLES
++	    || config->rw_setup > 7
++	    || config->rw_hold > 7)
++		return -EINVAL;
++
++
++	// configure gpios, if necessary
++	if (chip_select > 3)
++	{
++#define AT91C_PC10_NCS4_CFCS  (1<<10)
++#define AT91C_PC11_NCS5_CFCE1 (1<<11)
++#define AT91C_PC12_NCS6_CFCE2 (1<<12)
++#define AT91C_PC13_NCS7	      (1<<13)
++		switch (chip_select)
++		{
++		case 4:	mask = AT91C_PC10_NCS4_CFCS;	break;
++		case 5:	mask = AT91C_PC11_NCS5_CFCE1;	break;
++		case 6:	mask = AT91C_PC12_NCS6_CFCE2;	break;
++		case 7:	mask = AT91C_PC13_NCS7;		break;
++		default: mask = 0;
++		}
++		/* select peripheral a function */
++		__raw_writel(mask, AT91C_VA_BASE_PIOC + PIO_ASR);
++
++
++		/* disable pio controller and enable peripheral */
++		__raw_writel(mask, AT91C_VA_BASE_PIOC + PIO_PDR);
++	}
++
++	/* write the new configuration to SMC chip select register */
++	at91_ramc_write(0, AT91_SMC_CSR(chip_select),
++			(config->wait_states > 0
++			 ? (AT91_SMC_NWS & (config->wait_states-1))
++			 | AT91_SMC_WSEN
++			 : 0)
++			| AT91_SMC_TDF_(config->data_float_time)
++			| (config->byte_access_type == AT91RM9200_BAT_16_BIT
++			   ? AT91_SMC_BAT : 0)
++			| ((int)config->data_bus_width << 13)
++			| (config->data_read_protocol == AT91RM9200_DRP_EARLY
++			   ? AT91_SMC_DPR : 0)
++			| ((int)config->address_to_cs_setup << 16)
++			| AT91_SMC_RWSETUP_(config->rw_setup)
++			| AT91_SMC_RWHOLD_(config->rw_hold) );
++	return 0;
++}
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/mach-at91/ccm2200/at91-uart-ccm2200.c linux-3.4.17-ccm2200/arch/arm/mach-at91/ccm2200/at91-uart-ccm2200.c
+--- linux-3.4.17/arch/arm/mach-at91/ccm2200/at91-uart-ccm2200.c	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/mach-at91/ccm2200/at91-uart-ccm2200.c	2012-11-12 12:36:02.000000000 +0100
+@@ -0,0 +1,562 @@
++/*
++ * linux/arch/arm/mach-at91rm9200/at91-uart-ccm2200.c
++ *
++ * Copyright (C) 2006 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      Subclass driver for AT91RM9200 UARTs on CCM2200
++ *              This module drives the additional modem control lines
++ *              over AT91 GPIO ports
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2006-05-04 gc: initial version
++ */
++
++#include <linux/types.h>
++#include <linux/init.h>
++#include <linux/mm.h>
++#include <linux/module.h>
++#include <linux/device.h>
++#include <linux/delay.h>
++
++
++#include <mach/hardware.h>
++#include <asm/setup.h>
++#include <asm/irq.h>
++
++
++#include <mach/board.h>
++#include <mach/board-ccm2200.h>
++#include <mach/at91-util.h>
++#include <mach/at91_pio.h>
++#include <asm/mach/serial_at91.h> /* must be here, why? */
++
++#include <linux/serial_core.h>
++//#include <asm/mach/serial_at91rm9200.h>
++//#include <asm/arch/AT91RM9200_USART.h>
++
++#include <linux/atmel_serial.h>
++//#include <asm/arch/pio.h>
++
++/* only use this module if AT91 serial support is compiled in */
++#ifdef CONFIG_SERIAL_ATMEL
++
++
++#define CCM2200_AT91_USART0     0
++#define CCM2200_AT91_USART1     1
++#define CCM2200_AT91_USART2     2
++#define CCM2200_AT91_USART3     3
++#define CCM2200_AT91_USART_DBG  4
++
++/*
++ * Serial port configuration.
++ * The AT91RM9200 serial ports are used as follows on the CCM2200 board:
++ *
++ *   USART0: COM2
++ *   USART1: COM1
++ *   USART2: COM5 Console
++ *   USART3: COM6
++ *   USART_DBG: optional available on COM5 connector instead of hardware flow
++ *              control signals RTS/CTS. These pins will be automatically
++ *              switched to the Debug USART if the correponding device is
++ *              opended!
++ *
++ */
++
++/*
++ * Serial port configuration.
++ *    ttyS0 .. ttyS3 = USART0 .. USART3
++ *    ttyS4      = DBGU
++ */
++/* 2007-05-30 gc: no __initdata used by at91_get_usart */
++#if 0
++static struct at91_uart_config ccm2200_uart_config = {
++	.console_tty	= 2,				/* ttyS2 */
++	.nr_tty		= 5,
++        /* ttyS0, ..., ttyS4 */ 
++	.tty_map	= { CCM2200_AT91_USART0,          
++                            CCM2200_AT91_USART1,
++                            CCM2200_AT91_USART2,
++                            CCM2200_AT91_USART3,
++                            CCM2200_AT91_USART_DBG }
++};
++#else
++static const int ccm2200_tty_map[] = { CCM2200_AT91_USART0,          
++                                       CCM2200_AT91_USART1,
++                                       CCM2200_AT91_USART2,
++                                       CCM2200_AT91_USART3,
++                                       CCM2200_AT91_USART_DBG };
++
++#endif
++
++
++
++static inline int at91_get_usart(struct uart_port *port)
++{
++//        return ccm2200_uart_config.tty_map[port->line];
++        return ccm2200_tty_map[port->line];
++}
++
++#define UART_PUT_CR(port,v)	__raw_writel(v, (port)->membase + ATMEL_US_CR)
++#define UART_GET_MR(port)	__raw_readl((port)->membase + ATMEL_US_MR)
++#define UART_PUT_MR(port,v)	__raw_writel(v, (port)->membase + ATMEL_US_MR)
++#define UART_PUT_IER(port,v)	__raw_writel(v, (port)->membase + ATMEL_US_IER)
++#define UART_PUT_IDR(port,v)	__raw_writel(v, (port)->membase + ATMEL_US_IDR)
++#define UART_GET_IMR(port)	__raw_readl((port)->membase + ATMEL_US_IMR)
++#define UART_GET_CSR(port)	__raw_readl((port)->membase + ATMEL_US_CSR)
++#define UART_GET_CHAR(port)	__raw_readl((port)->membase + ATMEL_US_RHR)
++#define UART_PUT_CHAR(port,v)	__raw_writel(v, (port)->membase + ATMEL_US_THR)
++#define UART_GET_BRGR(port)	__raw_readl((port)->membase + ATMEL_US_BRGR)
++#define UART_PUT_BRGR(port,v)	__raw_writel(v, (port)->membase + ATMEL_US_BRGR)
++#define UART_PUT_RTOR(port,v)	__raw_writel(v, (port)->membase + ATMEL_US_RTOR)
++
++
++
++enum at91_dbg_uart_pin_cfg {
++        AT91_USART2_RTS_CTS,
++        AT91_USART_DBG_RX_TX
++};
++
++#define AT91C_PA17_TXD0		(1<<17)         //  USART 0 Transmit Data
++#define AT91C_PA18_RXD0		(1<<18)         //  USART 0 Receive Data
++#define AT91C_PA20_CTS0		(1<<20)         //  USART 0 Clear To Send
++#define AT91C_PD21_RTS0		(1<<21)         //  Usart 0 Ready To Send
++#define AT91C_PB20_TXD1		(1<<20)         //  USART 1 Transmit Data
++#define AT91C_PB21_RXD1		(1<<21)         //  USART 1 Receive Data
++#define AT91C_PB23_DCD1		(1<<23)         //  USART 1 Data Carrier Detect
++#define AT91C_PB24_CTS1		(1<<24)         //  USART 1 Clear To Send
++#define AT91C_PB25_DSR1		(1<<25)         //  USART 1 Data Set ready
++#define AT91C_PB26_RTS1		(1<<26)         //  USART 1 Ready To Send
++#define AT91C_PD25_DTR1		(1<<25)         //  USART 1 Data Terminal ready
++#define AT91C_PA22_RXD2		(1<<22)         //  USART 2 Receive Data
++#define AT91C_PA23_TXD2		(1<<23)         //  USART 2 Transmit Data
++#define AT91C_PA5_TXD3		(1<<5)          //  USART 3 Transmit Data
++#define AT91C_PA6_RXD3          (1<<6)          //  USART 3 Receive Data
++#define AT91C_PB0_RTS3          (1<<0)          //  USART 3 Ready To Send
++#define AT91C_PB1_CTS3		(1<<1)          //  USART 3 Clear To Send
++#define AT91C_PA30_CTS2         (1<<30)
++#define AT91C_PA31_RTS2         (1<<31)
++#define AT91C_PA30_DRXD         (1<<30)
++#define AT91C_PA31_DTXD         (1<<31)
++
++/* 2012-11-05 gc: todo: use new kernel infrastructure for this */
++#define at91_sys_write(addr, val) __raw_writel((val), (addr))
++
++static void at91_config_dbg_uart_pins( enum at91_dbg_uart_pin_cfg cfg)
++{
++        switch (cfg) {
++        case AT91_USART2_RTS_CTS:
++/*                 AT91_SYS->PIOA_PDR = AT91C_PA30_CTS2 | AT91C_PA31_RTS2; */
++/*                 AT91_SYS->PIOA_BSR = AT91C_PA30_CTS2 | AT91C_PA31_RTS2; */
++                at91_sys_write(AT91C_VA_BASE_PIOA + PIO_PDR, 
++                               AT91C_PA30_CTS2 | AT91C_PA31_RTS2);
++                at91_sys_write(AT91C_VA_BASE_PIOA + PIO_BSR, 
++                               AT91C_PA30_CTS2 | AT91C_PA31_RTS2);
++                break;
++
++        case AT91_USART_DBG_RX_TX:
++/*                 AT91_SYS->PIOA_PDR = AT91C_PA30_DRXD | AT91C_PA31_DTXD; */
++/*                 AT91_SYS->PIOA_ASR = AT91C_PA30_DRXD | AT91C_PA31_DTXD; */
++                at91_sys_write(AT91C_VA_BASE_PIOA + PIO_PDR, 
++                               AT91C_PA30_DRXD | AT91C_PA31_DTXD);
++                at91_sys_write(AT91C_VA_BASE_PIOA + PIO_ASR, 
++                               AT91C_PA30_DRXD | AT91C_PA31_DTXD);
++                break;
++        }
++}
++
++static void ccm2200_at91_uart_enable_pins(int uart_num)
++{
++        switch (uart_num) {
++        case 0:
++                /* USART 0 */
++                /* on CCM2200 errata pin PA21 not used, instead: 
++                 * CTS0 on PA20
++                 * DTR  on PD20 (gpio)
++                 * RTS0 on PD21
++                 * DCD  on PD22 (gpio)
++                 * DSR  on PC14 (gpio)
++                 * RI   on PC15 (gpio)
++                 */
++                at91_sys_write(AT91C_VA_BASE_PIOA + PIO_PDR, 
++                               AT91C_PA17_TXD0 | AT91C_PA18_RXD0
++                               | AT91C_PA20_CTS0);
++
++                at91_sys_write(AT91C_VA_BASE_PIOD + PIO_PDR,
++                               AT91C_PD21_RTS0);
++                break;
++
++        case 1:
++                /* USART 1 */
++                /* on CCM2200: 
++                 * CTS1 on PB24
++                 * DTR1 on PD25
++                 * RTS1 on PB26
++                 * DCD1 on PB23 
++                 * DSR1 on PB25
++                 * RI   on PB27 (gpio)
++                 */                             
++                at91_sys_write(AT91C_VA_BASE_PIOB + PIO_PDR, 
++                               AT91C_PB20_TXD1 | AT91C_PB21_RXD1
++                               | AT91C_PB23_DCD1 | AT91C_PB24_CTS1
++                               | AT91C_PB25_DSR1 | AT91C_PB26_RTS1);
++                at91_sys_write(AT91C_VA_BASE_PIOD + PIO_PDR, AT91C_PD25_DTR1);
++                break;
++
++        
++        case 2:
++                /* USART 2 */
++                /* on CCM2200: 
++                 * CTS2 on PA30 (Periph B)
++                 * RTS2 on PA31 (Periph B)
++                 * (Console Port has no more modem control lines! )
++                 */                             
++                at91_sys_write(AT91C_VA_BASE_PIOA + PIO_PDR, 
++                               AT91C_PA22_RXD2 | AT91C_PA23_TXD2
++                               | AT91C_PA30_CTS2 | AT91C_PA31_RTS2);
++                at91_sys_write(AT91C_VA_BASE_PIOA + PIO_BSR, 
++                               AT91C_PA30_CTS2 | AT91C_PA31_RTS2);
++                break;
++
++        case 3:
++                /* USART 3 */
++                /* on CCM2200: 
++                 * CTS3 on PB1 (Periph B)
++                 * DTR  on PC3 (gpio)
++                 * RTS3 on PB0 (Periph B)
++                 * DCD  on PC0 (gpio)
++                 * DSR  on PC1 (gpio)
++                 * RI   on PC2 (gpio)
++                 */                             
++                at91_sys_write(AT91C_VA_BASE_PIOA + PIO_PDR, 
++                               AT91C_PA5_TXD3 | AT91C_PA6_RXD3);
++                at91_sys_write(AT91C_VA_BASE_PIOA + PIO_BSR, 
++                               AT91C_PA5_TXD3 | AT91C_PA6_RXD3);
++                at91_sys_write(AT91C_VA_BASE_PIOB + PIO_PDR, 
++                               AT91C_PB0_RTS3 | AT91C_PB1_CTS3);
++
++                at91_sys_write(AT91C_VA_BASE_PIOB + PIO_BSR, 
++                               AT91C_PB0_RTS3 | AT91C_PB1_CTS3);
++                break;
++        }
++}
++
++struct usart_mctrl_pins {
++        /* RxD/TxD and RTS/CTS are controlled by the USART */
++        struct at91_pio_pins dtr; /* output */
++        struct at91_pio_pins dcd; /* input */
++        struct at91_pio_pins dsr; /* input */
++        struct at91_pio_pins ri;  /* input */
++};
++
++static struct usart_mctrl_pins ccm2200_mctrl_cfg[ATMEL_MAX_UART] =
++{
++        /* USART0: COM2 */
++        {
++                .dtr = { AT91_PIO_BASE(AT91_PIOD), 1<<20 },
++                .dcd = { AT91_PIO_BASE(AT91_PIOD), 1<<22 },
++                .dsr = { AT91_PIO_BASE(AT91_PIOC), 1<<14 },
++                .ri  = { AT91_PIO_BASE(AT91_PIOC), 1<<15 }
++        },
++        /* USART1: COM1 (all modem control lines except RI can be controlled
++         *               by the USART) */
++
++        /* 2006-05-08 gc: control modem ctrl lines by software, since
++         *                USART seams not correctly work with DCD and DSR
++         *                in modem mode!
++         */
++#if 0
++        {
++                .dtr = { AT91_PIO_BASE(AT91_PIOA), 0 },
++                .dcd = { AT91_PIO_BASE(AT91_PIOA), 0 },
++                .dsr = { AT91_PIO_BASE(AT91_PIOA), 0 },
++                .ri  = { AT91_PIO_BASE(AT91_PIOB), 1<<27 }
++        },
++#else
++        /* for testing: modem control lines controled manually */
++        {
++                .dtr = { AT91_PIO_BASE(AT91_PIOD), 1<<25 },
++                .dcd = { AT91_PIO_BASE(AT91_PIOB), 1<<23 },
++                .dsr = { AT91_PIO_BASE(AT91_PIOB), 1<<25 },
++                .ri  = { AT91_PIO_BASE(AT91_PIOB), 1<<27 }
++        },
++#endif
++
++        /* USART2: COM5 Console: no additional modem control lines */
++        {
++                .dtr = { AT91_PIO_BASE(AT91_PIOA), 0 },
++                .dcd = { AT91_PIO_BASE(AT91_PIOA), 0 },
++                .dsr = { AT91_PIO_BASE(AT91_PIOA), 0 },
++                .ri  = { AT91_PIO_BASE(AT91_PIOA), 0 }
++        },
++
++        /* USART3: COM6 */
++        {
++                .dtr = { AT91_PIO_BASE(AT91_PIOC), 1<<3 },
++                .dcd = { AT91_PIO_BASE(AT91_PIOC), 1<<0 },
++                .dsr = { AT91_PIO_BASE(AT91_PIOC), 1<<1 },
++                .ri  = { AT91_PIO_BASE(AT91_PIOC), 1<<2 }
++        },
++        /* USART_DBG */
++        {
++                .dtr = { AT91_PIO_BASE(AT91_PIOA), 0 },
++                .dcd = { AT91_PIO_BASE(AT91_PIOA), 0 },
++                .dsr = { AT91_PIO_BASE(AT91_PIOA), 0 },
++                .ri  = { AT91_PIO_BASE(AT91_PIOA), 0 }
++        }
++};
++
++
++
++static inline
++int at91_have_modem_ctrl_pin(const struct at91_pio_pins *mctrl)
++{
++        register void __iomem *pio = mctrl->pio;
++
++        if (pio) {
++                return 1;
++        }
++        return 0;
++}
++
++
++static void ccm2200_at91_set_mctrl(struct uart_port *port, u_int mctrl)
++{
++	unsigned int control = 0;
++        register struct usart_mctrl_pins *mctrl_pins =
++                &ccm2200_mctrl_cfg[at91_get_usart(port)];
++
++
++        /* 
++         * printk("ccm2200_at91_set_mctrl[%d]  RTS: %d, DTR: %d\n",
++         *        port->line,
++         *        !!(mctrl & TIOCM_RTS),
++         *        !!(mctrl & TIOCM_DTR));
++         */
++ 
++	if (mctrl & TIOCM_RTS)
++		control |= ATMEL_US_RTSEN;
++	else
++		control |= ATMEL_US_RTSDIS;
++
++	if (mctrl & TIOCM_DTR) {
++		control |= ATMEL_US_DTREN;
++                /* activated pin via GPIO if necessary, PIN is low active! */
++                at91_pio_clear_all_pins(&mctrl_pins->dtr);
++        } else {
++		control |=  ATMEL_US_DTRDIS;
++                /* deactivate pin via GPIO if necessary, PIN is low active! */
++                at91_pio_set_all_pins(&mctrl_pins->dtr);
++        }
++
++	UART_PUT_CR(port, control);
++}
++
++/*
++ * Get state of the modem control input lines
++ */
++static u_int ccm2200_at91_get_mctrl(struct uart_port *port)
++{
++	unsigned int status, ret = 0;
++        int usart_num = at91_get_usart(port);
++        register struct usart_mctrl_pins *mctrl_pins =
++                &ccm2200_mctrl_cfg[usart_num];
++
++        /* 
++         * if (usart_num == CCM2200_AT91_USART1 ) {
++         *         /\* enable modem mode for USART 1 *\/
++         *         UART_PUT_MR(port, (UART_GET_MR(port) & ~AT91C_US_USMODE) 
++         *                     | AT91C_US_USMODE_MODEM);
++         * }
++         */
++	status = UART_GET_CSR(port);
++
++        if (at91_have_modem_ctrl_pin(&mctrl_pins->dcd)) {
++                /* PIN is low active! */
++                if (!at91_pio_get_pins(&mctrl_pins->dcd))
++                        ret |= TIOCM_CD;
++        } else {
++                /* bug in at91_serial.c: all modem control signals are low
++                 *                       active!!!!
++                 */
++                if ((status & ATMEL_US_DCD) == 0)
++                        ret |= TIOCM_CD;
++        }
++        
++        /* bug in at91_serial.c: all modem control signals are low
++         *                       active on at91rm92000!!!!
++         */
++	if ((status & ATMEL_US_CTS) == 0)
++		ret |= TIOCM_CTS;
++
++        if (at91_have_modem_ctrl_pin(&mctrl_pins->dsr)) {
++                /* PIN is low active! */
++                if (!at91_pio_get_pins(&mctrl_pins->dsr))
++                        ret |= TIOCM_DSR;
++        } else {
++                /* bug in at91_serial.c: all modem control signals are low
++                 *                       active on at91rm92000!!!!
++                 */
++                if ((status & ATMEL_US_DSR) == 0)
++                        ret |= TIOCM_DSR;
++        }
++        if (at91_have_modem_ctrl_pin(&mctrl_pins->ri)) {
++                /* PIN is low active! */
++                if (!at91_pio_get_pins(&mctrl_pins->ri))
++                        ret |= TIOCM_RI;
++        } else {
++                /* bug in at91_serial.c: all modem control signals are low
++                 *                       active on at91rm92000!!!!
++                 */
++                if ((status & ATMEL_US_RI) == 0)
++                        ret |= TIOCM_RI;
++        }
++	return ret;
++}
++
++/*
++ * Enable modem status interrupts
++ */
++static void ccm2200_at91_enable_ms(struct uart_port *port)
++{
++        /* @todo: interrupt support for additional modem control lines */
++	/* printk("ccm2200_at91_enable_ms(%d)\n", port->line); */
++	UART_PUT_IER(port, ATMEL_US_RIIC | ATMEL_US_DSRIC 
++                     | ATMEL_US_DCDIC | ATMEL_US_CTSIC);
++
++        /* 2007-02-07 gc: bugfix, also set port->read_status_mask to enable
++         * additional sources in interrupt!!!!
++         */
++        port->read_status_mask |= ATMEL_US_RIIC | ATMEL_US_DSRIC 
++                | ATMEL_US_DCDIC | ATMEL_US_CTSIC;
++}
++
++static int ccm2200_at91_uart_open(struct uart_port *port)
++{
++        int usart_num = at91_get_usart(port);
++
++        /* printk("ccm2200_at91_uart_open: port: %d\n", port->line); */
++        ccm2200_at91_uart_enable_pins(usart_num);
++
++        /* route RXD/TXD from debug USART to CTS/RTS from USART0 as long
++         * the corresponding device is opened
++         */
++        if (usart_num ==  CCM2200_AT91_USART_DBG ) {
++                at91_config_dbg_uart_pins( AT91_USART_DBG_RX_TX );
++        }
++
++        {
++                register struct usart_mctrl_pins *mctrl_pins =
++                        &ccm2200_mctrl_cfg[usart_num];
++                at91_pio_set_all_pins(&mctrl_pins->dtr);
++                at91_pio_config_output_pins(&mctrl_pins->dtr);
++                at91_pio_config_input_pins(&mctrl_pins->dcd);
++                at91_pio_config_input_pins(&mctrl_pins->dsr);
++                at91_pio_config_input_pins(&mctrl_pins->ri);
++        }
++        return 0;
++};
++
++static void ccm2200_at91_uart_close(struct uart_port *port)
++{
++        /* printk("ccm2200_at91_uart_close: port: %d\n", port->line); */
++        /* restore routing of USART0 CTS/RTS */
++        if (at91_get_usart(port) ==  CCM2200_AT91_USART_DBG ) {
++                at91_config_dbg_uart_pins( AT91_USART2_RTS_CTS );
++        }
++}
++
++struct atmel_port_fns __initdata ccm2200_at91_port_fns = {
++        .set_mctrl = ccm2200_at91_set_mctrl,
++        .get_mctrl = ccm2200_at91_get_mctrl,
++        .enable_ms = ccm2200_at91_enable_ms,
++        .open      = ccm2200_at91_uart_open,
++        .close     = ccm2200_at91_uart_close
++};
++
++
++int __init ccm2200_at91_uart_init(void)
++{
++        /* Setup the serial ports and console */
++        //at91_init_serial(&ccm2200_uart_config);
++        /*
++         * Serial port configuration.
++         *    ttyS0 .. ttyS3 = USART0 .. USART3
++         *    ttyS4      = DBGU
++         */
++	/* USART0 on ttyS0. (Rx, Tx, CTS, RTS) */
++	at91_register_uart(AT91RM9200_ID_US0, 0, ATMEL_UART_CTS |
++		ATMEL_UART_RTS);
++
++	/* USART1 on ttyS1. (Rx, Tx, CTS, RTS, DTR, DSR, DCD, RI) */
++	at91_register_uart(AT91RM9200_ID_US1, 1, ATMEL_UART_CTS | ATMEL_UART_RTS
++			   | ATMEL_UART_DTR | ATMEL_UART_DSR | ATMEL_UART_DCD
++			   | ATMEL_UART_RI);
++
++	/* USART2 on ttyS2 (Rx, Tx, CTS, RTS) */
++	at91_register_uart(AT91RM9200_ID_US2, 2, ATMEL_UART_CTS |
++                           ATMEL_UART_RTS);
++
++	/* USART3 on ttyS3 (Rx, Tx, CTS, RTS) */
++	at91_register_uart(AT91RM9200_ID_US3, 3, ATMEL_UART_CTS |
++                           ATMEL_UART_RTS);
++
++
++	/* DBGU on ttyS4. (Rx & Tx only) */
++	at91_register_uart(0, 4, 0);
++
++	/* set serial console to ttyS2 */
++	at91_set_serial_console(2);
++
++	/* register UARTs */
++        atmel_register_uart_fns(&ccm2200_at91_port_fns);
++
++        /* confige modem control pins to USART2 they are reconfigured to
++         * the DEBUG USART if the coresponding device is opened
++         */
++        at91_config_dbg_uart_pins(AT91_USART2_RTS_CTS);
++ 	/* set serial console to ttyS0 (ie, DBGU) */
++        printk("CCM2200 AT91RM9200 internal UARTs successfully initialized\n");
++        return 0;
++}
++
++
++static void __exit ccm2200_at91_uart_exit(void)
++{
++}
++
++/*
++ * we must call the init function in board-ccm2200.c to use the UART
++ * as serial console!
++ * module_init(ccm2200_at91_uart_init);
++ * module_exit(ccm2200_at91_uart_exit);
++ */
++
++MODULE_AUTHOR("Guido Classen");
++MODULE_DESCRIPTION("CCM2200 AT91RM9200 UART subclass driver");
++MODULE_LICENSE("GPL");
++
++#endif /* CONFIG_SERIAL_AT91 */
++
++/*
++ *Local Variables:
++ * mode: c
++ * c-file-style: "linux"
++ * End:
++ */
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/mach-at91/ccm2200/board-ccm2200.c linux-3.4.17-ccm2200/arch/arm/mach-at91/ccm2200/board-ccm2200.c
+--- linux-3.4.17/arch/arm/mach-at91/ccm2200/board-ccm2200.c	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/mach-at91/ccm2200/board-ccm2200.c	2012-11-13 11:38:06.000000000 +0100
+@@ -0,0 +1,702 @@
++/*
++ * linux/arch/arm/mach-at91rm9200/board-ccm2200.c
++ *
++ * Copyright (C) 2006-2010 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010-2012 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      Configuation settings for the CCM2200 board.
++ * @references: [1] board-unc90.c
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2006-04-24 gc: initial version (taken from board-unc90.c)
++ */
++
++#include <linux/types.h>
++#include <linux/gpio.h>
++#include <linux/init.h>
++#include <linux/mm.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/i2c-gpio.h>
++#include <linux/mtd/physmap.h>
++#include <linux/mtd/plat-ram.h>
++
++#include <asm/setup.h>
++#include <asm/mach-types.h>
++#include <asm/irq.h>
++
++#include <asm/mach/arch.h>
++#include <asm/mach/map.h>
++#include <asm/mach/irq.h>
++
++#include <mach/hardware.h>
++#include <asm/mach/serial_at91.h> /* must be here, why? */
++#include <mach/board.h>
++#include <mach/cpu.h>
++
++#include <mach/at91-util.h>
++
++#include <mach/gpio.h>
++
++#include <mach/at91_pio.h>
++#include <mach/at91rm9200_mc.h>
++#include <mach/at91_pmc.h>
++#include <mach/at91rm9200_smc.h>
++#include <mach/at91_ramc.h>
++
++
++#include <mach/board-ccm2200.h>
++
++#include "../generic.h"
++
++
++
++//#define UART_BASE AT91RM9200_BASE_US2
++#define UART_BASE AT91_IO_P2V(AT91RM9200_BASE_US2)
++#define UART_SR   (UART_BASE+0x14)
++#define UART_THR   (UART_BASE+0x1c)
++#include <mach/at91_dbgu.h>
++
++static void uputc(int c)
++{
++	while (!(__raw_readl(UART_SR) & AT91_DBGU_TXRDY))
++		barrier();
++	__raw_writel(c, UART_THR);
++}
++static inline void flush(void)
++{
++	/* wait for transmission to complete */
++	while (!(__raw_readl(UART_SR) & AT91_DBGU_TXEMPTY))
++		barrier();
++}
++static void putstr(const char *ptr)
++{
++	char c;
++
++	while ((c = *ptr++) != '\0') {
++		if (c == '\n')
++			uputc('\r');
++		uputc(c);
++	}
++
++	flush();
++}
++
++
++/* 
++ * static inline void dbg_led(unsigned led)
++ * {
++ * 
++ * /\*                 ldr     r0,=0xfffffa30 *\/
++ * /\*                 ldr     r1,=0x0000ffff *\/
++ * /\*                 str     r1,[r0] *\/
++ * /\*                 ldr     r0,=0xfffffa34 *\/
++ * /\*                 ldr     r1,=(1<<0) *\/
++ * /\*                 str     r1,[r0] *\/
++ * /\* 1:              b       1b *\/
++ *         *(volatile unsigned *)AT91_IO_P2V(0xfffffa30) = ~led & 0xffff;
++ *         *(volatile unsigned *)AT91_IO_P2V(0xfffffa34) = led & 0xffff;
++ * }
++ */
++
++
++/* Macros for PLL setup (maybe to hardware.h) */
++#define AT91_PLL_VALUE_FAST(div,mult)	((div) | (1024 << 8) | ((mult-1) << 16) | (1 << 15) | (1 << 29))
++#define AT91_PLLB_VALUE_USB(div,mult)	((div) | (63 << 8) | ((mult-1) << 16) | (1 << 28))
++
++
++#define AT91_SLOW_CLOCK         32768
++#define AT91_MAIN_CLOCK         18432000
++static void measure_and_set_clocks(void)
++{
++	unsigned long mainf_counter = at91_pmc_read(AT91_CKGR_MCFR) & AT91_PMC_MAINF;
++	unsigned long main_clock = mainf_counter * (AT91_SLOW_CLOCK / 16);
++	unsigned long main_clock_measured;
++	unsigned long plla_clock;
++	unsigned long pllb_clock;
++
++	unsigned long master_clock;
++	unsigned long cpu_clock;
++
++	main_clock_measured = main_clock;
++
++	if (main_clock_measured > (unsigned long) (AT91_MAIN_CLOCK * 0.99)
++	    && main_clock_measured < (unsigned long) (AT91_MAIN_CLOCK * 1.01)) {
++	    main_clock = AT91_MAIN_CLOCK;
++	}
++
++
++	{
++			unsigned div_a = at91_pmc_read(AT91_CKGR_PLLAR) & AT91_PMC_DIV;
++			unsigned mul_a = (at91_pmc_read(AT91_CKGR_PLLAR) & AT91_PMC_MUL) >> 16;
++			
++			if (div_a == 0 || mul_a == 0) {
++				plla_clock = 0;
++			} else {
++				plla_clock = (((unsigned /*long*/ long) main_clock)
++					      *  (mul_a+1) / div_a);
++			}
++	}
++			
++	{
++                unsigned div_b = at91_pmc_read(AT91_CKGR_PLLBR) & AT91_PMC_DIV;
++                unsigned mul_b = (at91_pmc_read(AT91_CKGR_PLLBR) & AT91_PMC_MUL) >> 16;
++		
++		if (div_b == 0 || mul_b == 0) {
++			pllb_clock = 0;
++		} else {
++			pllb_clock = (((unsigned /*long*/ long) main_clock)
++				      *  (mul_b+1) / div_b);
++		}
++	}
++
++	switch (at91_pmc_read(AT91_PMC_MCKR) & AT91_PMC_CSS) {
++	case AT91_PMC_CSS_SLOW:
++		master_clock = AT91_SLOW_CLOCK;
++		break;
++
++	case AT91_PMC_CSS_MAIN:
++		master_clock = main_clock;
++		break;
++
++	case AT91_PMC_CSS_PLLA:
++		master_clock = plla_clock;
++		break;
++
++	case AT91_PMC_CSS_PLLB:
++		master_clock = pllb_clock;
++		break;
++
++	default:
++		master_clock = 0;
++	}
++
++
++	switch (at91_pmc_read(AT91_PMC_MCKR) & AT91_PMC_PRES) {
++	default:
++	case AT91_PMC_PRES_1:
++		break;
++	case AT91_PMC_PRES_2:
++		master_clock >>= 1;
++		break;
++
++	case AT91_PMC_PRES_4:
++		master_clock >>= 2;
++		break;
++
++	case AT91_PMC_PRES_8:
++		master_clock >>= 3;
++		break;
++
++	case AT91_PMC_PRES_16:
++		master_clock >>= 4;
++		break;
++
++	case AT91_PMC_PRES_32:
++		master_clock >>= 5;
++		break;
++
++	case AT91_PMC_PRES_64:
++		master_clock >>= 6;
++		break;
++	}
++
++	cpu_clock = master_clock;
++
++	switch (at91_pmc_read(AT91_PMC_MCKR) & AT91_PMC_MDIV) {
++	default:
++	case AT91RM9200_PMC_MDIV_1:
++		break;
++
++	case AT91RM9200_PMC_MDIV_2:
++		master_clock >>= 1;
++		break;
++
++	case AT91RM9200_PMC_MDIV_3:
++		master_clock /= 3;
++		break;
++
++	case AT91RM9200_PMC_MDIV_4:
++		master_clock >>= 2;
++		break;
++	}
++
++  /* 2006-10-17 gc: save measured clock values in global variables */
++//  at91_master_clock = master_clock;
++//  at91_main_clock   = cpu_clock;
++
++  printk("CCM2200 Main   Clock: %9lu Hz (measured: %9lu Hz)\n", 
++	 main_clock, main_clock_measured);
++  printk("        PLLA   Clock: %9lu Hz\n", plla_clock);
++  printk("        PLLB   Clock: %9lu Hz\n", pllb_clock);
++  printk("        CPU    Clock: %9lu Hz\n", cpu_clock);
++  printk("        Master Clock: %9lu Hz\n", master_clock);
++  printk("Kernel timer frequency: %6u HZ\n", (unsigned) HZ);
++
++}
++
++static void __init ccm2200_init_early(void)
++{
++	/* Set cpu type: BGA */
++	at91rm9200_set_type(ARCH_REVISON_9200_BGA);
++
++	/* Initialize processor: 18.432 MHz crystal */
++	at91_initialize(18432000);
++
++	/* Setup the LEDs */
++	at91_set_gpio_output(AT91_PIN_PD8, 1);
++	at91_set_gpio_output(AT91_PIN_PD9, 1);
++	at91_set_gpio_output(AT91_PIN_PD10, 1);
++	at91_set_gpio_output(AT91_PIN_PD11, 1);
++	at91_set_gpio_value(AT91_PIN_PD8, 1);
++	at91_set_gpio_value(AT91_PIN_PD9, 0);
++	at91_set_gpio_value(AT91_PIN_PD10, 1);
++	at91_set_gpio_value(AT91_PIN_PD11, 0);
++
++
++        ccm2200_at91_uart_init();
++        /* 
++         * /\*
++         *  * Serial port configuration.
++         *  *    ttyS0 .. ttyS3 = USART0 .. USART3
++         *  *    ttyS4      = DBGU
++         *  *\/
++	 * /\* USART0 on ttyS0. (Rx, Tx, CTS, RTS) *\/
++	 * at91_register_uart(AT91RM9200_ID_US0, 0, ATMEL_UART_CTS |
++	 * 	ATMEL_UART_RTS);
++	 * 
++	 * /\* USART1 on ttyS1. (Rx, Tx, CTS, RTS, DTR, DSR, DCD, RI) *\/
++	 * at91_register_uart(AT91RM9200_ID_US1, 1, ATMEL_UART_CTS | ATMEL_UART_RTS
++	 * 		   | ATMEL_UART_DTR | ATMEL_UART_DSR | ATMEL_UART_DCD
++	 * 		   | ATMEL_UART_RI);
++	 * 
++	 * /\* USART2 on ttyS2 (Rx, Tx, CTS, RTS) *\/
++	 * at91_register_uart(AT91RM9200_ID_US2, 2, ATMEL_UART_CTS |
++         *                    ATMEL_UART_RTS);
++	 * 
++	 * /\* USART3 on ttyS3 (Rx, Tx, CTS, RTS) *\/
++	 * at91_register_uart(AT91RM9200_ID_US3, 3, ATMEL_UART_CTS |
++         *                    ATMEL_UART_RTS);
++	 * 
++	 * 
++	 * /\* DBGU on ttyS4. (Rx & Tx only) *\/
++	 * at91_register_uart(0, 4, 0);
++	 * 
++	 * /\* set serial console to ttyS2 *\/
++	 * at91_set_serial_console(2);
++         */
++	
++	//measure_and_set_clocks();
++}
++
++
++static struct macb_platform_data __initdata ccm2200_eth_data = {
++	.phy_irq_pin	= AT91_PIN_PC4,
++	.is_rmii	= 0,
++};
++
++
++#if defined(CONFIG_USB_OHCI_HCD) || defined(CONFIG_USB_OHCI_HCD_MODULE)
++static struct at91_usbh_data __initdata ccm2200_usbh_data = {
++	.ports		= 2,
++	.vbus_pin	= {-EINVAL, -EINVAL},
++	.overcurrent_pin= {-EINVAL, -EINVAL},
++};
++#endif
++
++
++#if defined(CONFIG_USB_AT91) || defined(CONFIG_USB_AT91_MODULE)
++static struct at91_udc_data __initdata ccm2200_udc_data = {
++	.vbus_pin	= -EINVAL,
++        /* 
++         * 2010-06-09 gc: in newer kernels we must set a USB device pullup
++         * pin
++         *
++         * We use the SCONF3 signal. This signal can be accessed on
++         * DIP-Switch 8
++         */
++	.pullup_pin	= AT91_PIN_PB28,
++};
++#endif
++
++static struct spi_board_info ccm2200_spi_devices[] = {
++	{ /* User accessable spi - cs0 (10Mhz) */
++		.modalias = "spi-cs0",
++		.chip_select  = 0,
++		.max_speed_hz = 10 * 1000 * 1000,
++	},
++	{ /* User accessable spi - cs1 (250KHz) */
++		.modalias = "spi-cs1",
++		.chip_select  = 1,
++		.max_speed_hz = 250 *  1000,
++	},
++	{ /* User accessable spi - cs2 (1MHz) */
++		.modalias = "spi-cs2",
++		.chip_select  = 2,
++		.max_speed_hz = 1 * 1000 *  1000,
++	},
++	{ /* User accessable spi - cs3 (10MHz) */
++		.modalias = "spi-cs3",
++		.chip_select  = 3,
++		.max_speed_hz = 10 * 1000 *  1000,
++	},
++};
++
++
++static struct i2c_board_info __initdata ccm2200_i2c_devices[] = {
++	{
++		I2C_BOARD_INFO("24c64", 0x50),
++	},
++	{
++		I2C_BOARD_INFO("ds1337", 0x68),
++	}
++};
++
++
++static struct mtd_partition ccm2200_nand_partition[] = {
++        {
++                .name   = "nand-all", /* for Memory Validation Test */
++                .offset = 0,
++                .size   = MTDPART_SIZ_FULL,
++        }
++};
++
++
++static struct atmel_nand_data __initdata ccm2200_nand_data = {
++	.ale		= 13,
++	.cle		= 14,
++	.det_pin	= -EINVAL,
++	.rdy_pin	= AT91_PIN_PA19,
++	.enable_pin	= -EINVAL,
++	.bus_width_16	= 0,
++	.ecc_mode	= NAND_ECC_SOFT,
++	/// ????   .on_flash_bbt	= 1,
++	.parts		= ccm2200_nand_partition,
++	.num_parts	= ARRAY_SIZE(ccm2200_nand_partition),
++};
++
++
++/*
++ * Setup static memory controller chip select for NAND Flash
++ *
++ */
++static /* const */ 
++struct at91rm9200_smc_config __initdata ccm2200_nand_cs_config = {
++  .wait_states          = 5,
++  .data_float_time      = 2,
++  .byte_access_type     = AT91RM9200_BAT_8_BIT,
++  .data_bus_width       = AT91RM9200_DATA_BUS_WIDTH_8,
++  .data_read_protocol   = AT91RM9200_DRP_STANDARD,
++  .address_to_cs_setup  = AT91RM9200_ACSS_STANDARD,
++  .rw_setup             = 1,
++  .rw_hold              = 1
++};
++
++
++#ifdef CONFIG_MTD_PHYSMAP
++
++#define CCM2200_FLASH_BASE	AT91_CHIPSELECT_0
++#define CCM2200_FLASH_SIZE	SZ_2M
++
++/* 2006-04-24 gc: SWARCO Traffic Systems CCM2200 mapping */
++static struct mtd_partition ccm2200_nor_flash_partitions[] = {
++	{
++		.name       = "all-ccm2200",
++		.offset     = 0x00000000,
++	},
++	{
++		.name       = "u-boot",
++		.offset     = 0x00000000,
++		.size       = 4 * SZ_64K,	// 4 * 64kB for u-boot and boot.bin 
++	},
++	{
++		.name       = "kernel",		// default kernel image (1.75MB)
++		.offset     = 4 * SZ_64K,
++		.size       = 0x1c0000,
++	},
++	{
++		.name       = "dummy",		// dummy partion to get nand at MTD5
++		.offset     = SZ_2M,
++		.size       = 0x00000000,
++	},
++};
++
++static struct physmap_flash_data ccm2200_nor_flash_data = {
++	.width		= 2,
++	.parts		= ccm2200_nor_flash_partitions,
++	.nr_parts	= ARRAY_SIZE(ccm2200_nor_flash_partitions)
++};
++
++static struct resource ccm2200_nor_flash_resource = {
++	.start		= CCM2200_FLASH_BASE,
++	.end		= CCM2200_FLASH_BASE + CCM2200_FLASH_SIZE - 1,
++	.flags		= IORESOURCE_MEM,
++};
++
++static struct platform_device ccm2200_nor_flash = {
++	.name		= "physmap-flash", 
++	.id		= 0,
++	.dev		= {
++				.platform_data	= &ccm2200_nor_flash_data,
++			},
++	.resource	= &ccm2200_nor_flash_resource,
++	.num_resources	= 1,
++};
++#endif /* CONFIG_MTD_PHYSMAP */
++
++#ifdef CONFIG_MTD_PLATRAM
++/*
++ * Setup static memory controller chip select for SRAM
++ *
++ */
++static struct  at91rm9200_smc_config __initdata sram_cs_config = {
++	.wait_states          = 15, /* SRAM needs at least 3 wait states! */
++	.data_float_time      = 2,
++	.byte_access_type     = AT91RM9200_BAT_16_BIT,
++	.data_bus_width       = AT91RM9200_DATA_BUS_WIDTH_16,
++	.data_read_protocol   = AT91RM9200_DRP_EARLY, //AT91_DRP_STANDARD,
++	.address_to_cs_setup  = AT91RM9200_ACSS_STANDARD,
++	.rw_setup             = 2, /* SRAM needs 1 cycle rw_setup! */
++	.rw_hold              = 2  /* SRAM needs 1 cycle rw_hold! */
++};
++
++struct platdata_mtd_ram ccm2200_sram_pdata = {
++	.mapname	= "ccm2200-SRAM",
++	.bankwidth	= 4,	/* use 32bit access for more speed! */
++};
++
++static struct resource ccm2200_sram_resource[] = {
++	[0] = {
++		.start = CCM2200_SRAM_PHYS,
++		.end   = CCM2200_SRAM_PHYS + CCM2200_SRAM_SIZE - 1,
++		.flags = IORESOURCE_MEM,
++	},
++};
++
++static struct platform_device ccm2200_sram = {
++	.name		= "mtd-ram",
++	.id		= 0,
++	.resource	= ccm2200_sram_resource,
++	.num_resources	= ARRAY_SIZE(ccm2200_sram_resource),
++	.dev	= {
++		.platform_data = &ccm2200_sram_pdata,
++	},
++};
++#endif /* MTD_PLATRAM */
++
++
++/* we use ccm2200 specific LED driver (drivers/leds/leds-ccm2200.c) which
++ * allows intermixing of old led API (ccm2200_set_frontpanel_leds) and
++ * Linux led API (/sys/class/led/...) 
++ */
++#undef CCM2200_USE_AT91_LEDS
++
++#ifdef CCM2200_USE_AT91_LEDS
++
++/* 2007-09-10 gc: make usage of new Linux kernel LED framework! */
++static struct at91_gpio_led ccm2200_leds[] = {
++	{
++		.name		= "led0",
++		.gpio		= AT91_PIN_PD0,
++		//.trigger	= "heartbeat",
++	},
++	{
++		.name		= "led1",
++		.gpio		= AT91_PIN_PD1,
++		//.trigger	= "timer",
++	},
++	{
++		.name		= "led2",
++		.gpio		= AT91_PIN_PD2,
++	},
++	{
++		.name		= "led3",
++		.gpio		= AT91_PIN_PD3,
++	},
++	{
++		.name		= "led4",
++		.gpio		= AT91_PIN_PD4,
++	},
++	{
++		.name		= "led5",
++		.gpio		= AT91_PIN_PD5,
++	},
++	{
++		.name		= "led6",
++		.gpio		= AT91_PIN_PD6,
++	},
++	{
++		.name		= "led7",
++		.gpio		= AT91_PIN_PD7,
++	},
++	{
++		.name		= "led8",
++		.gpio		= AT91_PIN_PD8,
++	},
++	{
++		.name		= "led9",
++		.gpio		= AT91_PIN_PD9,
++	},
++	{
++		.name		= "led10",
++		.gpio		= AT91_PIN_PD10,
++	},
++	{
++		.name		= "led11",
++		.gpio		= AT91_PIN_PD11,
++	},
++	{
++		.name		= "led12",
++		.gpio		= AT91_PIN_PD12,
++	},
++	{
++		.name		= "led13",
++		.gpio		= AT91_PIN_PD13,
++	},
++	{
++		.name		= "led14",
++		.gpio		= AT91_PIN_PD14,
++	},
++	{
++		.name		= "led15",
++		.gpio		= AT91_PIN_PD15,
++	}
++};
++
++#else
++static struct platform_device ccm2200_leds = {
++	.name		= "ccm2200_leds",
++	.id		= -1,
++};
++#endif
++
++
++/* 
++ * static struct i2c_gpio_platform_data ccm2200_i2c_gpio_data = {
++ *      .sda_pin    = AT91_PIN_PA25,
++ *      .scl_pin    = AT91_PIN_PA26,
++ * };
++ * 
++ * static struct platform_device ccm2200_i2c_gpio_controller = {
++ *      .name       = "i2c-gpio",
++ *      .id     = 0,
++ *      .dev        = {
++ *          .platform_data  = &ccm2200_i2c_gpio_data,
++ *      },
++ * };
++ * 
++ * static void ccm2200_add_device_soft_i2c(void)
++ * {
++ *         /\* i2c GPIO bit bang *\/
++ *         at91_set_gpio_input(ccm2200_i2c_gpio_data.sda_pin, 1);
++ *         at91_set_gpio_input(ccm2200_i2c_gpio_data.scl_pin, 1);
++ *         platform_device_register(&ccm2200_i2c_gpio_controller);
++ * }
++ */
++
++
++static void __init ccm2200_board_init(void)
++{
++	/* Serial */
++	at91_add_device_serial();
++	/* Ethernet */
++	at91_add_device_eth(&ccm2200_eth_data);
++
++#if defined(CONFIG_USB_OHCI_HCD) || defined(CONFIG_USB_OHCI_HCD_MODULE)
++	/* USB Host */
++	at91_add_device_usbh(&ccm2200_usbh_data);
++#endif
++
++#if defined(CONFIG_USB_AT91) || defined(CONFIG_USB_AT91_MODULE)
++	/* USB Device */
++	at91_add_device_udc(&ccm2200_udc_data);
++#endif
++
++	/* I2C */
++        /* 2007-11-13 gc: use software (bit bang) i2c, because hardware
++         * two wire controller on AT91RM9200 dosn't work reliable!
++         */
++	at91_add_device_i2c(ccm2200_i2c_devices, 
++                            ARRAY_SIZE(ccm2200_i2c_devices));
++
++	/* SPI */
++	at91_add_device_spi(ccm2200_spi_devices, 
++			    ARRAY_SIZE(ccm2200_spi_devices));
++
++#ifdef CONFIG_MTD_PHYSMAP
++	/* NOR Flash */
++	platform_device_register(&ccm2200_nor_flash);
++#endif /* CONFIG_MTD_PHYSMAP */
++
++#ifdef CONFIG_MTD_PLATRAM
++	/* battery backuped SRAM */
++        if ( at91rm9200_smc_configure( CCM2200_SRAM_CS, 
++				       &sram_cs_config ) != 0 ) {
++	    printk( KERN_ERR 
++                    "Unable to configure SRAM chip select signal\n" );
++            return -EIO;
++	} else {
++		platform_device_register(&ccm2200_sram);
++	}
++#endif
++
++	/* NAND */
++        if ( at91rm9200_smc_configure( CCM2200_NAND_FLASH_CS, 
++				       &ccm2200_nand_cs_config ) != 0 ) {
++	    printk( KERN_ERR 
++                    "Unable to configure NAND flash chip select signal\n" );
++	} else {
++          at91_add_device_nand(&ccm2200_nand_data);
++        }
++
++        /* 2007-09-10 gc: LEDs: standard Linux LED driver */
++#ifdef CCM2200_USE_AT91_LEDS
++	at91_gpio_leds(ccm2200_leds, ARRAY_SIZE(ccm2200_leds));
++#else
++	platform_device_register(&ccm2200_leds);
++#endif
++
++}
++
++#include <linux/console.h>
++static int __init ccm2200_console_init(void)
++{
++	if (!machine_is_ccm2200())
++		return 0;
++
++	return add_preferred_console("ttyAT", 2, "38400");
++}
++console_initcall(ccm2200_console_init);
++
++MACHINE_START(CCM2200, "SWARCO CCM2200")
++	/* Maintainer: SWARCO Traffic Systems GmbH */
++	.timer		= &at91rm9200_timer,
++	.map_io		= at91_map_io,
++	.init_early	= ccm2200_init_early,
++	.init_irq	= at91_init_irq_default,
++	.init_machine	= ccm2200_board_init,
++MACHINE_END
++
++
++/*
++ *Local Variables:
++ * mode: c
++ * c-file-style: "linux"
++ * End:
++ */
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/mach-at91/ccm2200/Makefile linux-3.4.17-ccm2200/arch/arm/mach-at91/ccm2200/Makefile
+--- linux-3.4.17/arch/arm/mach-at91/ccm2200/Makefile	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/mach-at91/ccm2200/Makefile	2012-11-09 17:06:50.000000000 +0100
+@@ -0,0 +1,12 @@
++#
++# Makefile for CCM2200 board support
++#
++
++
++# Board-specific support
++obj-$(CONFIG_MACH_CCM2200)      += ccm2200.o
++
++ccm2200-objs			 = board-ccm2200.o		\
++				   at91-uart-ccm2200.o		\
++				   quad-uart-ccm2200.o		\
++				   serial-ccm2200.o
+\ No newline at end of file
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/mach-at91/ccm2200/quad-uart-ccm2200.c linux-3.4.17-ccm2200/arch/arm/mach-at91/ccm2200/quad-uart-ccm2200.c
+--- linux-3.4.17/arch/arm/mach-at91/ccm2200/quad-uart-ccm2200.c	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/mach-at91/ccm2200/quad-uart-ccm2200.c	2012-11-09 17:06:50.000000000 +0100
+@@ -0,0 +1,298 @@
++/*
++ * linux/arch/arm/mach-at91rm9200/quad-uart-ccm2200.c
++ *
++ * Copyright (C) 2006 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      Support for external Quad UART SC16C754 on CCM2200 board.
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2006-04-29 gc: removed wrong AT91C_ID_IRQ0 in ds1337.c, now we have it
++ *     2006-04-28 gc: initial version (partly derived from mach-a9m2410.c
++ *                    written by Jonas Dietsche, Joachim Jaeger)
++ */
++
++#include <linux/types.h>
++#include <linux/init.h>
++#include <linux/mm.h>
++#include <linux/module.h>
++#include <linux/device.h>
++#include <linux/delay.h>
++#include <linux/irq.h>
++#include <linux/interrupt.h>
++#include <linux/gpio.h>
++
++
++#include <mach/hardware.h>
++#include <asm/setup.h>
++#include <asm/irq.h>
++
++
++#include <asm/io.h>		/* ioremap */
++#include <mach/board.h>
++#include <mach/at91-util.h>
++#include <mach/at91rm9200_smc.h>
++#include <mach/board-ccm2200.h>
++
++#include <linux/serial_core.h>
++#include <linux/serial_8250.h>
++#include <mach/irqs.h>
++#include <mach/at91_pmc.h>
++#include <mach/gpio.h>
++
++#include <linux/clk.h>          /* clk_get */
++
++
++static struct 
++plat_serial8250_port serial_platform_data[CCM2200_QUAD_UART_NUM_PORTS+1];
++static struct platform_device serial_device = {
++        .name			= "serial8250",
++        .id			= 0,
++        .dev			= {
++                .platform_data	= serial_platform_data,
++        }
++};
++
++
++
++#ifndef CONFIG_AT91_PROGRAMMABLE_CLOCKS
++
++/** 2006-04-28 gc: configure an at91rm9200 programable clock output 
++ * <br>
++ * @param pck_number    number of pck pin (0...3 for AT91RM9200)
++ * @return              Errorcode: 
++ *                        0  ok (Service terminated)
++ *                        -1 error occurred
++ */
++enum at91rm9200_clock_source {
++        AT91RM9200_SLOW_CLOCK = 0,
++        AT91RM9200_MAIN_CLOCK = 1,
++        AT91RM9200_PLLA_CLOCK = 2,
++        AT91RM9200_PLLB_CLOCK = 3
++};
++
++enum at91rm9200_pck_prescaler {
++        PCK_SELECTED_CLOCK = 0,
++        PCK_SELECTED_CLOCK_DIV_2 = 1,
++        PCK_SELECTED_CLOCK_DIV_4 = 2,
++        PCK_SELECTED_CLOCK_DIV_8 = 3,
++        PCK_SELECTED_CLOCK_DIV_16 = 4,
++        PCK_SELECTED_CLOCK_DIV_32 = 5,
++        PCK_SELECTED_CLOCK_DIV_64 = 6
++};
++
++int at91rm9200_config_prg_clk_generator(int pck_number,
++                                        enum at91rm9200_clock_source source,
++                                        enum at91rm9200_pck_prescaler prescaler)
++{
++        /* program source and prescaler */
++        //AT91_SYS->PMC_PCKR[pck_number] = source | (prescaler << 2);
++        at91_sys_write(AT91_PMC_PCKR(pck_number), source | (prescaler << 2));
++  
++        /* enable programmable Clock Output */
++        switch (pck_number) {
++#define		AT91_PMC_PCK4		(1 << 12)		/* Programmable Clock 4 */
++#define		AT91_PMC_PCK5		(1 << 13)		/* Programmable Clock 5 */
++#define		AT91_PMC_PCK6		(1 << 14)		/* Programmable Clock 6 */
++#define		AT91_PMC_PCK7		(1 << 15)		/* Programmable Clock 7 */
++
++        case 0: at91_sys_write(AT91_PMC_SCER, AT91_PMC_PCK0); break;
++        case 1: at91_sys_write(AT91_PMC_SCER, AT91_PMC_PCK1); break;
++        case 2: at91_sys_write(AT91_PMC_SCER, AT91_PMC_PCK2); break;
++        case 3: at91_sys_write(AT91_PMC_SCER, AT91_PMC_PCK3); break;
++        case 4: at91_sys_write(AT91_PMC_SCER, AT91_PMC_PCK4); break;
++        case 5: at91_sys_write(AT91_PMC_SCER, AT91_PMC_PCK5); break;
++        case 6: at91_sys_write(AT91_PMC_SCER, AT91_PMC_PCK6); break;
++        case 7: at91_sys_write(AT91_PMC_SCER, AT91_PMC_PCK7); break;
++        }
++        return 0;
++}
++
++#endif
++
++static struct gpio ccm2200_quad_uart_gpios[] = {
++	{ CCM2200_PIN_PCK1_UART_CLOCK,	GPIOF_IN, "UART clock" },
++	{ CCM2200_PIN_UART_RESET,	GPIOF_IN, "UART reset" },
++	{ CCM2200_PIN_UART_IRQ,         GPIOF_IN, "UART irq" },
++};
++
++
++static int __init ccm2200_quad_uart_init(void) 
++{
++	void __iomem *quad_uart_virt_base;
++        struct plat_serial8250_port *port_iter;
++        int i;
++
++#if 0
++        /*
++         * Setup static memory controller chip select for external quad UART
++         *
++         */
++        static const struct __initdata at91_smc_cs_info quad_uart_cs_config = {
++                .chip_select          = CCM2200_QUAD_UART_CS,
++                .wait_states          = 16,
++                .data_float_time      = 0,
++                .byte_access_type     = AT91_BAT_8_BIT,
++                .data_bus_width       = AT91_DATA_BUS_WIDTH_8,
++                .data_read_protocol   = AT91_DRP_STANDARD,
++                .address_to_cs_setup  = AT91_ACSS_STANDARD,
++                .rw_setup             = 2,
++                .rw_hold              = 2
++        };
++
++        if ( at91_config_smc_cs( &quad_uart_cs_config ) != 0 ) {
++                printk( KERN_ERR 
++                        "Unable to configure external quad UART chip select "
++                        "signal\n" );
++                return -EIO;
++	}
++#else
++        /* new static memory controller initialization */
++
++        /*
++         * Setup static memory controller chip select for external quad UART
++         *
++         */
++        static const struct __initdata at91rm9200_smc_config
++                quad_uart_cs_config = {
++                .wait_states          = 16,
++                .data_float_time      = 0,
++                .byte_access_type     = AT91RM9200_BAT_8_BIT,
++                .data_bus_width       = AT91RM9200_DATA_BUS_WIDTH_8,
++                .data_read_protocol   = AT91RM9200_DRP_STANDARD,
++                .address_to_cs_setup  = AT91RM9200_ACSS_STANDARD,
++                .rw_setup             = 2,
++                .rw_hold              = 2
++        };
++
++        if (at91rm9200_smc_configure(CCM2200_QUAD_UART_CS,
++                                     &quad_uart_cs_config ) != 0 ) {
++                printk( KERN_ERR 
++                        "Unable to configure external quad UART chip select "
++                        "signal\n" );
++                return -EIO;
++	}
++#endif
++	quad_uart_virt_base = ioremap_nocache( CCM2200_QUAD_UART_PHYS, 
++                                               CCM2200_QUAD_UART_SIZE);
++	if (!quad_uart_virt_base ) {
++		printk( "ioremap CCM2200 quad UART failed\n" );
++		return -EIO;
++	}
++
++        memset(serial_platform_data, 0, sizeof(serial_platform_data));
++        /* insert virtual base address in serial_platform_data */
++        for (port_iter = serial_platform_data, i = 0;
++             i < CCM2200_QUAD_UART_NUM_PORTS;
++             ++port_iter, ++i) {
++                port_iter->membase      = quad_uart_virt_base
++                        + i * CCM2200_QUAD_UART_PORT_OFFSET;
++                
++                port_iter->iobase       = (unsigned) port_iter->membase;
++                port_iter->mapbase      = (unsigned) port_iter->membase;
++                port_iter->irq          = CCM2200_QUAD_UART_IRQ;
++                port_iter->iotype       = UPIO_MEM;
++                port_iter->uartclk      = CCM2200_QUAD_UART_CLOCK_RATE;
++                port_iter->regshift     = 0;
++                port_iter->flags        = UPF_BOOT_AUTOCONF;
++        }
++
++        /* configure 18.432 MHz crystal main clock divided by 2 for
++         * UART over PCK1 */
++#ifdef CONFIG_AT91_PROGRAMMABLE_CLOCKS
++        /* 2007-06-12 gc: Support for "A91 Programmable Clocks" feature
++         * in Kernels since 2.6.21.
++         * Subject for testing! Then remove old code!
++         */
++        {
++                struct clk *clk_pck1 = clk_get(NULL, "pck1");
++                struct clk *clk_main = clk_get(NULL, "main");
++                if (!clk_pck1 || !clk_main) {
++                        printk("ERROR getting PCK1 or Main clock sources\n");
++                        return -EIO;
++                } else {
++
++                        clk_set_parent(clk_pck1, clk_main);
++                        clk_set_rate(clk_pck1, CCM2200_QUAD_UART_CLOCK_RATE);
++                        clk_enable(clk_pck1);
++                }
++        }
++
++
++#else
++        at91rm9200_config_prg_clk_generator(1,
++                                            AT91RM9200_MAIN_CLOCK,
++                                            //PCK_SELECTED_CLOCK
++                                            // 2006-06-26 gc:
++                                            // we must use a divider of 2 here
++                                            // on account of EMI....
++                                            PCK_SELECTED_CLOCK_DIV_2
++                );
++#endif /* CONFIG_AT91_PROGRAMMABLE_CLOCKS */
++
++
++        gpio_request_array(ccm2200_quad_uart_gpios, 
++                           ARRAY_SIZE(ccm2200_quad_uart_gpios));
++
++        /* switch gpio PIN to the PCK1 output */
++        at91_set_B_periph(CCM2200_PIN_PCK1_UART_CLOCK, GPIO_NO_PULLUP);
++        /* reset UART */
++        gpio_direction_output(CCM2200_PIN_UART_RESET, GPIO_INIT_1);
++        udelay(10);
++        at91_set_gpio_value(CCM2200_PIN_UART_RESET, 0);
++
++        /* initialize IRQ0 pin */
++        gpio_direction_input(CCM2200_PIN_UART_IRQ);
++        at91_set_deglitch(CCM2200_PIN_UART_IRQ, 1);
++
++        /* testweise */
++	at91_set_A_periph(CCM2200_PIN_UART_IRQ, 1);
++        at91_set_gpio_input(CCM2200_PIN_UART_IRQ, 1);
++        at91_set_deglitch(CCM2200_PIN_UART_IRQ, 1);
++#if 1
++
++	irq_set_irq_type(CCM2200_QUAD_UART_IRQ, IRQ_TYPE_LEVEL_HIGH);
++/* 	set_irq_type(CCM2200_QUAD_UART_IRQ, IRQ_TYPE_EDGE_RISING); */
++
++	platform_device_register(&serial_device);
++        printk( "CCM2200 SC16C754 quad UART successfully initialized\n" );
++#endif
++        return 0;
++}
++
++
++static void __exit ccm2200_quad_uart_exit(void)
++{
++        gpio_free_array(ccm2200_quad_uart_gpios, 
++                        ARRAY_SIZE(ccm2200_quad_uart_gpios));
++}
++
++module_init(ccm2200_quad_uart_init);
++module_exit(ccm2200_quad_uart_exit);
++
++MODULE_AUTHOR("Guido Classen");
++MODULE_DESCRIPTION("CCM2200 external quad UART configuration");
++MODULE_LICENSE("GPL");
++
++/*
++ *Local Variables:
++ * mode: c
++ * c-file-style: "linux"
++ * End:
++ */
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/mach-at91/ccm2200/serial-ccm2200.c linux-3.4.17-ccm2200/arch/arm/mach-at91/ccm2200/serial-ccm2200.c
+--- linux-3.4.17/arch/arm/mach-at91/ccm2200/serial-ccm2200.c	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/mach-at91/ccm2200/serial-ccm2200.c	2012-11-09 17:06:50.000000000 +0100
+@@ -0,0 +1,738 @@
++/*
++ * linux/arch/arm/mach-at91rm9200/serial-ccm2200.c
++ *
++ * Copyright (C) 2007 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      CCM2200 Board specific serial port functions 
++ *              (LED and RS485 support)
++ * @references: 
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2007-02-01 gc: initial version
++ */
++
++#include <linux/types.h>
++#include <linux/module.h>
++#include <linux/device.h>
++#include <linux/serial_core.h>
++#include <linux/ccm2200_serial.h>
++
++#include <mach/hardware.h>
++#include <asm/uaccess.h>		/* copy_to_user */
++#include <linux/atmel_serial.h>
++#include <mach/board.h>
++
++#include <mach/board-ccm2200.h>
++
++
++#define LED_INTERVAL   msecs_to_jiffies(30)
++static void ccm2200_board_serial_led_stop(struct ccm2200_led_handler *led);
++static int ccm2200_board_serial_ioctl_set_led(struct ccm2200_led_handler *led,
++                                              unsigned long arg);
++static void ccm2200_board_serial_turn_on_off_timer_handler(unsigned long data);
++
++/******************************************************************************
++ * CCM2200 RS485 piggyback support
++ *****************************************************************************/
++
++#define UART_PUT_CR(port,v)	__raw_writel(v, (port)->membase + ATMEL_US_CR)
++#define UART_GET_MR(port)	__raw_readl((port)->membase + ATMEL_US_MR)
++#define UART_PUT_MR(port,v)	__raw_writel(v, (port)->membase + ATMEL_US_MR)
++
++/* turn on piggyback RS485 transmitter */
++static inline 
++void ccm2200_board_serial_turn_on(register struct uart_port *port)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++        /* struct tty_port *tty_port = &port->state->port; */
++        
++        if (se->conf.mode != CCM2200_SERIAL_MODE_RS485KERN_NEG) {
++                se->orig_ops->set_mctrl(port, TIOCM_RTS | port->mctrl);
++        } else {
++                se->orig_ops->set_mctrl(port, ~TIOCM_RTS & port->mctrl);
++        }
++        /* wait for CTS in send mode */
++/*         tty_port->flags |= ASYNC_CTS_FLOW; */
++}
++
++/* turn off piggyback RS485 transmitter */
++static inline 
++void ccm2200_board_serial_turn_off(register struct uart_port *port)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++        register struct tty_port *tty_port = &port->state->port;
++
++        /* ignore CTS in receive mode */
++        tty_port->flags &= ~ASYNC_CTS_FLOW & ~ASYNC_CHECK_CD;
++        tty_port->tty->hw_stopped = 0;
++
++        if (se->conf.mode != CCM2200_SERIAL_MODE_RS485KERN_NEG) {
++                se->orig_ops->set_mctrl(port, ~TIOCM_RTS & port->mctrl);
++        } else {
++                se->orig_ops->set_mctrl(port, TIOCM_RTS | port->mctrl);
++        }
++        se->state = CCM2200_BS_RECEIVE;
++}
++
++
++static void ccm2200_board_serial_at91_rs485_mode(struct uart_port *port,
++                                                int enable)
++{
++        unsigned mode = UART_GET_MR(port);
++
++        mode &= ~ATMEL_US_USMODE;
++        if (enable) {
++                mode |= ATMEL_US_USMODE_RS485;
++        } else {
++                mode |= ATMEL_US_USMODE_NORMAL;
++        }
++        UART_PUT_MR(port, mode);
++	UART_PUT_CR(port, ATMEL_US_RSTSTA | ATMEL_US_RSTRX);
++	UART_PUT_CR(port, ATMEL_US_TXEN | ATMEL_US_RXEN);
++}
++
++
++
++static
++int ccm2200_board_serial_chg_conf(struct uart_port *port, 
++                                  struct ccm2200_serial_config *new_conf)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++        
++        /* 
++         * printk("ccm2200_board_serial_ioctl(%d): %08x set conf\n",
++         *        port->line, (int)se);
++         */
++
++        if (new_conf->mode != se->conf.mode) {
++                /* mode was changed */
++
++                /* switch of HW RS485 mode if previously enabled */
++                if (se->conf.mode == CCM2200_SERIAL_MODE_RS485HW)
++                        ccm2200_board_serial_at91_rs485_mode(port, 0);
++
++                switch (new_conf->mode) {
++                case CCM2200_SERIAL_MODE_NORMAL:
++                        if (new_conf->turn_on_delay != 0 ||
++                            new_conf->turn_off_delay != 0) {
++                                /* turn on/off delay not support in this mode*/
++                                return -EINVAL;
++                        }
++                        break;
++
++                case CCM2200_SERIAL_MODE_RS485HW: {
++                        /* this mode is only supported on ports from
++                         * ATMEL AT91 UART */
++                        struct tty_driver *driver = port->state->port.tty->driver;
++                        if (new_conf->turn_on_delay != 0 ||
++                            new_conf->turn_off_delay != 0) {
++                                /* turn on/off delay not support in this mode*/
++                                return -EINVAL;
++                        }
++                        if (!strcmp(driver->driver_name, "ttyS")
++                            || !strcmp(driver->driver_name, "at91")
++                            || !strcmp(driver->driver_name, "atmel_serial")) {
++
++                                ccm2200_board_serial_at91_rs485_mode(port, 1);
++
++                                break;
++
++                        } else {
++                                printk(KERN_WARNING
++                                       "CCM2200_SERIAL_MODE_RS485HW "
++                                       "not supported on "
++                                       "this device, using "
++                                       "CCM2200_SERIAL_MODE_RS485KERN\n");
++                                new_conf->mode =
++                                        CCM2200_SERIAL_MODE_RS485KERN;
++                        }
++                        /* no break */
++                }
++
++                case CCM2200_SERIAL_MODE_RS485KERN:
++                case CCM2200_SERIAL_MODE_RS485KERN_NEG:
++                case CCM2200_SERIAL_MODE_MODEM_MD:
++                case CCM2200_SERIAL_MODE_MODEM_MD_DCD:
++                        /* clear RTS, it will be set from now on by sending
++                         * RS485 data
++                         */
++                        ccm2200_board_serial_turn_off(port);
++                        break;
++
++                case CCM2200_SERIAL_MODE_RS485INT:
++                        return -ENOIOCTLCMD;
++
++                default:
++                        return -EFAULT;
++                }
++        }
++
++        new_conf->turn_on_delay = msecs_to_jiffies(new_conf->turn_on_delay);
++        new_conf->turn_off_delay = msecs_to_jiffies(new_conf->turn_off_delay);
++        memcpy(&se->conf, new_conf, sizeof(se->conf));
++
++        return 0;
++}
++
++
++/* this array contains a list of all port currently sending .
++ * We wait for end of transmission and subsequently turn off RTS
++ */
++/* 
++ * #define MAX_TX_PORTS    10
++ * static struct uart_port *volatile tx_ports[MAX_TX_PORTS];
++ * static volatile unsigned tx_ports_size = 0;
++ * static spinlock_t tx_ports_lock;
++ * static struct timer_list tx_timer;
++ * 
++ * static inline void add_tx_port(struct uart_port *port)
++ * {
++ * 	unsigned long flags;
++ *         unsigned old_tx_ports_size;
++ * 
++ * /\*         printk("add_tx_port(%d)\n", tx_ports_size); *\/
++ * 
++ * 	spin_lock_irqsave(&tx_ports_lock, flags);
++ *         old_tx_ports_size = tx_ports_size;
++ *         if (tx_ports_size < MAX_TX_PORTS) {
++ *                 tx_ports[tx_ports_size++] = port;
++ *         }
++ * 
++ * 	spin_unlock_irqrestore(&tx_ports_lock, flags);
++ *         if (old_tx_ports_size == 0) {
++ *                 //printk("add_tx_port(add_timer)\n");
++ *                 tx_timer.expires = jiffies + 1;
++ *                 add_timer(&tx_timer);
++ *         }
++ * }
++ */
++
++static inline 
++void ccm2200_board_serial_on_tx_empty(register struct uart_port *port)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++
++/*
++  achtung Ausgabe braucht zu lange!!!
++  printk("ccm2200_board_serial_on_tx_empty(%d)\n", port->line); */
++    
++        if (se->conf.turn_off_delay > 0) {
++                /* we have a configured followup delay, 
++                 * so defer resetting RTS
++                 */
++                se->state = CCM2200_BS_TURN_OFF_DELAY;
++                mod_timer(&se->turn_on_off_timer, 
++                          jiffies + se->conf.turn_off_delay);
++ 
++        } else {
++                /* no followup delay, immediately reset RTS */
++                ccm2200_board_serial_turn_off(port);
++        }
++}
++
++static 
++void ccm2200_board_serial_goto_turn_on_state(struct uart_port *port)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++        
++        ccm2200_board_serial_turn_on(port);
++        
++        se->state = CCM2200_BS_TURN_ON_DELAY;
++        if (se->conf.turn_on_delay > 0) {
++                /* start turn-on delay timer */                
++                mod_timer(&se->turn_on_off_timer,
++                          jiffies + se->conf.turn_on_delay); 
++        } else {
++                ccm2200_board_serial_turn_on_off_timer_handler(
++                        (unsigned long) port);
++        }
++}
++
++static
++void ccm2200_board_serial_change_to_transmit_state(struct uart_port *port)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++        register struct tty_port *tty_port = &port->state->port;
++                        
++        se->state = CCM2200_BS_TRANSMIT;
++        /* reread current CTS status
++         *
++         * uart_handle_cts_change will call start_tx() if
++         * we are ready to send
++         */
++        tty_port->tty->hw_stopped = 0;
++        se->orig_ops->start_tx(port);        
++}
++
++
++static void ccm2200_board_serial_turn_on_off_timer_handler(unsigned long data)
++{
++        register struct uart_port *port = (struct uart_port *)data;
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++                switch (se->state) {
++                case CCM2200_BS_DCD_WAIT: { 
++                        /* wait for absent carrier detect (only
++                         * Mulit-drop modem mode) */
++                        if ((se->orig_ops->get_mctrl(port) & TIOCM_CD) == 0) {
++                                ccm2200_board_serial_goto_turn_on_state(port);
++                        } else {
++                                mod_timer(&se->turn_on_off_timer, jiffies + 1);
++                        }
++                        return;
++                }
++
++                case CCM2200_BS_TURN_ON_DELAY: 
++/*                         printk("turn on timer expired\n"); */
++                        if (se->conf.mode == CCM2200_SERIAL_MODE_RS485KERN
++                            || se->conf.mode == CCM2200_SERIAL_MODE_RS485KERN_NEG) {
++                                ccm2200_board_serial_change_to_transmit_state(port);
++                                return;
++                        } else {
++                                
++                                se->state = CCM2200_BS_CTS_WAIT;
++                        }
++                        /* no break */
++
++                case CCM2200_BS_CTS_WAIT: {
++                        /* wait for CTS control signal */
++                        if (se->orig_ops->get_mctrl(port) & TIOCM_CTS) {
++                                //port->ops->enable_ms(port);
++                                ccm2200_board_serial_change_to_transmit_state(port);/*                         uart_handle_cts_change(port, */
++/*                                                port->ops->get_mctrl(port) */
++/*                                                & TIOCM_CTS); */
++                        } else {
++                                mod_timer(&se->turn_on_off_timer, jiffies + 1);
++                        }
++                        return;
++                }
++
++
++                case CCM2200_BS_TURN_OFF_DELAY:
++                        se->state = CCM2200_BS_TRANSMIT;
++                        ccm2200_board_serial_turn_off(port);
++                        return;
++                
++                case CCM2200_BS_RECEIVE:
++                        break;
++
++                case CCM2200_BS_TRANSMIT:  {
++                        register struct tty_port *tty_port = &port->state->port;
++
++                        if (!tty_port->tty->hw_stopped
++                            && port->ops->tx_empty(port) != 0) {
++                                ccm2200_board_serial_on_tx_empty(port);
++                        } else {
++                                mod_timer(&se->turn_on_off_timer, jiffies + 1);
++                        }
++                        break;
++                   }
++
++                default:
++                        ;
++        }
++
++}
++
++void ccm2200_board_serial_rs485_tx(struct uart_port *port)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++        if (se->conf.mode == CCM2200_SERIAL_MODE_RS485KERN
++            || se->conf.mode == CCM2200_SERIAL_MODE_RS485KERN_NEG
++            || se->conf.mode == CCM2200_SERIAL_MODE_MODEM_MD
++            || se->conf.mode == CCM2200_SERIAL_MODE_MODEM_MD_DCD) {
++/*                 printk("rs485_tx\n"); */
++                
++                /* add to timer list to check for transmitter empty */
++                //add_tx_port(port);
++
++                se->state = CCM2200_BS_TRANSMIT;
++                mod_timer(&se->turn_on_off_timer, jiffies + 1);
++        }
++}
++
++
++
++/* uart_ops hook / filter functions */
++static 
++void ccm2200_board_serial_start_tx(struct uart_port *port)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++        if (se->conf.mode == CCM2200_SERIAL_MODE_RS485KERN
++            || se->conf.mode == CCM2200_SERIAL_MODE_RS485KERN_NEG
++            || se->conf.mode == CCM2200_SERIAL_MODE_MODEM_MD
++            || se->conf.mode == CCM2200_SERIAL_MODE_MODEM_MD_DCD) {
++/*                 printk("ccm2200_board_serial_start_tx(%d) state=%d\n",  */
++/*                        port->line, */
++/*                        se->state); */
++
++                switch (se->state) {
++                case CCM2200_BS_RECEIVE: {
++                        struct tty_port *tty_port = &port->state->port;
++                        if (se->conf.mode == CCM2200_SERIAL_MODE_MODEM_MD_DCD) {
++                                se->state = CCM2200_BS_DCD_WAIT;
++
++                                /* stop transmitter */
++                                tty_port->tty->hw_stopped = 1;
++                                se->orig_ops->stop_tx(port);
++                                ccm2200_board_serial_turn_on_off_timer_handler(
++                                        (unsigned long) port);
++                                break;
++                                
++                        } else {
++                                ccm2200_board_serial_goto_turn_on_state(port);
++                                return;
++                        }
++                }
++
++                case CCM2200_BS_TURN_ON_DELAY:
++                        return;  /* wait for timer */
++
++
++                case CCM2200_BS_TURN_OFF_DELAY: 
++                        del_timer_sync(&se->turn_on_off_timer); 
++                        se->state = CCM2200_BS_TRANSMIT;
++                        break;
++                
++                case CCM2200_BS_TRANSMIT: 
++                        break;
++
++                default:
++                        ;
++                }
++        }
++        se->orig_ops->start_tx(port);
++}
++
++static 
++void ccm2200_board_serial_stop_tx(struct uart_port *port)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++/*         printk("ccm2200_board_serial_stop_tx(%d)\n", port->line); */
++        se->orig_ops->stop_tx(port);
++        if (se->conf.mode == CCM2200_SERIAL_MODE_RS485KERN
++            || se->conf.mode == CCM2200_SERIAL_MODE_RS485KERN_NEG
++            || se->conf.mode == CCM2200_SERIAL_MODE_MODEM_MD
++            || se->conf.mode == CCM2200_SERIAL_MODE_MODEM_MD_DCD) {
++                ccm2200_board_serial_turn_off(port);
++        }
++}
++
++
++static 
++void ccm2200_board_serial_set_mctrl(struct uart_port *port, 
++                                    unsigned int mctrl)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++        if (se->conf.mode == CCM2200_SERIAL_MODE_RS485KERN
++            || se->conf.mode == CCM2200_SERIAL_MODE_MODEM_MD
++            || se->conf.mode == CCM2200_SERIAL_MODE_MODEM_MD_DCD) {
++                /* make shure application can't change our turn on signal! */
++                if (se->state == CCM2200_BS_RECEIVE)
++                        mctrl &= ~TIOCM_RTS;
++                else
++                        mctrl |= TIOCM_RTS;
++        }
++        if (se->conf.mode == CCM2200_SERIAL_MODE_RS485KERN_NEG) {
++          /* make shure application can't change our turn on signal! */
++          if (se->state == CCM2200_BS_RECEIVE)
++            mctrl |= TIOCM_RTS;
++          else
++            mctrl &= ~TIOCM_RTS;
++        }
++        se->orig_ops->set_mctrl(port, mctrl);
++}
++
++static 
++void ccm2200_board_serial_set_termios(struct uart_port *port, 
++                                      struct ktermios *new,
++                                      struct ktermios *old)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++        se->orig_ops->set_termios(port, new, old);
++        if (se->conf.mode == CCM2200_SERIAL_MODE_RS485KERN
++            || se->conf.mode == CCM2200_SERIAL_MODE_RS485KERN_NEG
++            || se->conf.mode == CCM2200_SERIAL_MODE_MODEM_MD
++            || se->conf.mode == CCM2200_SERIAL_MODE_MODEM_MD_DCD) {
++                ccm2200_board_serial_turn_off(port);
++        }
++}
++
++
++int ccm2200_board_serial_startup(struct uart_port *port)
++{
++/*         printk("serial startup %d\n", port->line); */
++        return port->ccm2200_serial->orig_ops->startup(port);
++}
++
++
++/* 
++ * static void ccm2200_board_serial_tx_timer_handler(unsigned long data)
++ * {
++ *         struct uart_port *volatile  *iter;
++ * 	unsigned long flags;
++ * 
++ * 	spin_lock_irqsave(&tx_ports_lock, flags);
++ *         iter = tx_ports; 
++ *         while (iter < tx_ports + tx_ports_size) {
++ *                 register struct tty_port *tty_port = &(*iter)->state->port;
++ *                 
++ *                 /\* if hw_stopped is set, we wait for CTS... *\/
++ *                 if (!tty_port->tty->hw_stopped
++ *                       && (*iter)->ops->tx_empty(*iter) != 0) {
++ *                         ccm2200_board_serial_on_tx_empty(*iter);
++ *                         /\* remove from list *\/
++ *                         --tx_ports_size;
++ *                         /\* 2007-06-05 gc: bugfix: memcpy -> memmove *\/
++ *                         memmove((void*)iter, (void*)(iter+1),
++ *                                sizeof(struct uart_port *) *
++ *                                (tx_ports_size - (iter - tx_ports))); 
++ *                 } else {
++ *                         ++iter;
++ *                 }
++ *         }
++ * 	spin_unlock_irqrestore(&tx_ports_lock, flags);
++ *         if (tx_ports_size > 0)
++ *                 mod_timer(&tx_timer, jiffies + 1);
++ * }
++ */
++
++
++/******************************************************************************
++ * CCM2200 serial RX / TX indicator LED support
++ *****************************************************************************/
++
++static void ccm2200_board_serial_led_timer_handler(unsigned long data);
++
++static void ccm2200_board_serial_led_init(struct ccm2200_led_handler *led)
++{
++        led->led.mask = 0;
++        led->led.delay = LED_INTERVAL;
++        init_timer(&led->led_timer);
++	led->led_timer.function = ccm2200_board_serial_led_timer_handler;
++	led->led_timer.data = (unsigned long) led;
++        led->led_timer.expires = jiffies + led->led.delay;        
++}
++
++
++static int ccm2200_board_serial_ioctl_set_led(struct ccm2200_led_handler *led,
++                                              unsigned long arg)
++{
++        ccm2200_board_serial_led_stop(led);
++        if (copy_from_user(&led->led, 
++                           (struct ccm2200_serial_led *)arg,
++                           sizeof(led->led)))
++                return -EFAULT;
++        ;
++        
++        if (led->led.delay == 0) {
++                led->led.delay = LED_INTERVAL;
++        }
++        return 0;
++}
++
++
++static void ccm2200_board_serial_led_stop(struct ccm2200_led_handler *led)
++{
++        if (led->led.mask != 0) {
++                del_timer_sync(&led->led_timer);
++
++                /* switch off led */
++                ccm2200_set_frontpanel_leds(0, led->led.mask);
++        }
++}
++
++static void ccm2200_board_serial_led_timer_handler(unsigned long data)
++{
++        register struct ccm2200_led_handler *led 
++                = (struct ccm2200_led_handler *)data;
++        /* clear led */
++        ccm2200_set_frontpanel_leds(0, led->led.mask);
++}
++
++void ccm2200_board_serial_trigger_led(struct ccm2200_led_handler *led)
++{
++        if (led->led.mask != 0 && led->led.delay != 0) {
++                /* switch on led */
++                ccm2200_set_frontpanel_leds(led->led.mask, led->led.mask);
++
++                mod_timer(&led->led_timer, jiffies + led->led.delay);
++        }
++}
++
++
++/******************************************************************************
++ * miscellaneous CCM2200 serial driver hook code
++ *****************************************************************************/
++
++int ccm2200_board_serial_ioctl(struct uart_port *port, 
++                               unsigned int cmd, 
++                               unsigned long arg)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++        /* printk("ccm2200_board_serial_ioctl: cmd: %d\n", cmd); */
++
++        if (!se) 
++                return -ENOIOCTLCMD;
++
++
++        switch (cmd) {
++        case CCM2200_SERIAL_GET_CONF: {
++                struct ccm2200_serial_config new_conf;
++                memcpy(&new_conf, &se->conf, sizeof(se->conf));
++                new_conf.turn_on_delay 
++                        = jiffies_to_msecs(new_conf.turn_on_delay);
++                new_conf.turn_off_delay 
++                        = jiffies_to_msecs(new_conf.turn_off_delay);
++
++                if (copy_to_user((struct ccm2200_serial_config *)arg,
++                                 &new_conf, sizeof(new_conf)))
++                        return -EFAULT;
++                break;
++        }
++
++        case CCM2200_SERIAL_SET_CONF: {
++                struct ccm2200_serial_config new_conf;
++                int result;
++                
++                if (copy_from_user(&new_conf, 
++                                   (struct ccm2200_serial_config *)arg,
++                                   sizeof(new_conf)))
++                        return -EFAULT;
++
++                /* 
++                 * printk("ccm2200_board_serial_ioctl(%d): set conf\n",
++                 *         port->line);
++                 */
++                result = ccm2200_board_serial_chg_conf(port, &new_conf);
++                if (result != 0) 
++                        return result;
++
++                break;
++        }
++        case CCM2200_SERIAL_GET_TX_LED:
++                if (copy_to_user((struct ccm2200_serial_led *)arg,
++                                 &se->txLed.led, sizeof(se->txLed.led)))
++                        return -EFAULT;
++                break;
++
++        case CCM2200_SERIAL_SET_TX_LED:
++                /* printk("ccm2200_board_serial_ioctl: set tx led\n"); */
++                return ccm2200_board_serial_ioctl_set_led(&se->txLed, arg);
++
++        case CCM2200_SERIAL_GET_RX_LED:
++                if (copy_to_user((struct ccm2200_serial_led *)arg,
++                                 &se->rxLed.led, sizeof(se->rxLed.led)))
++                        return -EFAULT;
++                break;
++
++        case CCM2200_SERIAL_SET_RX_LED:
++                /* printk("ccm2200_board_serial_ioctl: set rx led\n"); */
++                return ccm2200_board_serial_ioctl_set_led(&se->rxLed, arg);
++                
++        default:
++                return -ENOIOCTLCMD;
++        }
++        return 0;
++}
++
++
++void ccm2200_board_serial_init(struct uart_port *port,
++                               struct ccm2200_board_serial *se)
++{
++        /* printk("ccm2200_board_serial_init\n"); */
++        if (se->state != CCM2200_BS_RECEIVE) {
++                memset(se, 0, sizeof(*se));
++                se->conf.mode = CCM2200_SERIAL_MODE_NORMAL;
++                se->conf.turn_on_delay = 0;
++                se->conf.turn_off_delay = 0;
++                ccm2200_board_serial_led_init(&se->rxLed);
++                ccm2200_board_serial_led_init(&se->txLed);
++                port->ccm2200_serial = se;
++
++                /* alloc and hang in subclassed uart_ops structure */
++                memcpy(&se->ccm2200_ops, port->ops,
++                       sizeof(se->ccm2200_ops));
++
++                se->ccm2200_ops.start_tx = ccm2200_board_serial_start_tx;
++                se->ccm2200_ops.stop_tx = ccm2200_board_serial_stop_tx;
++                se->ccm2200_ops.set_mctrl = ccm2200_board_serial_set_mctrl;
++                se->ccm2200_ops.set_termios = ccm2200_board_serial_set_termios;
++                se->ccm2200_ops.startup = ccm2200_board_serial_startup;
++
++                se->orig_ops = port->ops;
++/*                 printk("----gc 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx\n"); */
++                port->ops = &se->ccm2200_ops;
++                init_timer(&se->turn_on_off_timer);
++                se->turn_on_off_timer.function = ccm2200_board_serial_turn_on_off_timer_handler;
++                se->turn_on_off_timer.data = (unsigned long) port;
++
++                se->state = CCM2200_BS_RECEIVE;
++        }
++}
++
++
++void ccm2200_board_serial_remove(struct uart_port *port)
++{
++        register struct ccm2200_board_serial *se = port->ccm2200_serial;
++        if (se->state != CCM2200_BS_NOT_INITIALIZED) {
++                
++                del_timer_sync(&se->rxLed.led_timer);
++                del_timer_sync(&se->txLed.led_timer);
++                se->state = CCM2200_BS_NOT_INITIALIZED;
++                port->ops = se->orig_ops;
++        }
++}
++
++
++static int __init ccm2200_serial_init(void)
++{
++	/* 
++         * spin_lock_init(&tx_ports_lock);
++         * tx_ports_size = 0;
++         * 
++         * init_timer(&tx_timer);
++	 * tx_timer.function = ccm2200_board_serial_tx_timer_handler;
++	 * tx_timer.data = (unsigned long) 0;
++         * tx_timer.expires = jiffies + 1;
++         */
++
++        printk("CCM2200 board specific serial handling enabled\n");
++        
++        return 0;
++}
++
++static void __exit ccm2200_serial_exit(void)
++{
++}
++
++
++module_init(ccm2200_serial_init);
++module_exit(ccm2200_serial_exit);
++
++MODULE_AUTHOR("Guido Classen");
++MODULE_DESCRIPTION("CCM2200 serial LED and piggyback handling ");
++MODULE_LICENSE("GPL");
++
++/*
++ *Local Variables:
++ * mode: c
++ * c-file-style: "linux"
++ * End:
++ */
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/mach-at91/include/mach/at91rm9200_smc.h linux-3.4.17-ccm2200/arch/arm/mach-at91/include/mach/at91rm9200_smc.h
+--- linux-3.4.17/arch/arm/mach-at91/include/mach/at91rm9200_smc.h	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/mach-at91/include/mach/at91rm9200_smc.h	2012-11-09 17:06:50.000000000 +0100
+@@ -0,0 +1,66 @@
++/*
++ * linux/arch/arm/mach-at91/at91rm9200_smc.h
++ *
++ * Copyright (C) 2010 Guido Classen
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307	 USA
++ *
++ */
++
++struct at91rm9200_smc_config {
++	/* wait states 0...128 (0 = no wait states) */
++	u8 wait_states;
++	/* 0...15 wait states after memory read cycle */
++	u8 data_float_time;
++
++	/* only valid for data_bus_width=AT91RM9200_DATA_BUS_WIDTH_16 */
++	enum byte_access_type {
++		/* dummy value for 8 bit device (ignored) */
++		AT91RM9200_BAT_8_BIT = 0,
++		/* chip select is connected to two/four 8-bit
++		 * devices */
++		AT91RM9200_BAT_TWO_8_BIT = 0,
++		/* chip select is connected too a 16 bit device */
++		AT91RM9200_BAT_16_BIT = 1
++	} byte_access_type;
++
++	enum data_bus_width {
++		AT91RM9200_DATA_BUS_WIDTH_8 = 2,  /* 8 bit data bus */
++		AT91RM9200_DATA_BUS_WIDTH_16 = 1, /* 16 bit data bus */
++	} data_bus_width;
++	enum data_read_protocol {
++		AT91RM9200_DRP_STANDARD = 0, /* standard data read protocol */
++		AT91RM9200_DRP_EARLY	= 1  /* early data read protocol */
++	} data_read_protocol;
++
++	enum address_to_cs_setup {
++		/* standard: address asserted at the beginning of the
++		 * access and deasserted at the end */
++		AT91RM9200_ACSS_STANDARD   = 0,
++		/* one cycle less at the beginning and end */
++		AT91RM9200_ACSS_1_CYCLE	   = 1,
++		/* two cycles less at the beginning and end */
++		AT91RM9200_ACSS_2_CYCLES   = 2,
++		/* three cycles less at the beginning and end */
++		AT91RM9200_ACSS_3_CYCLES   = 3
++	} address_to_cs_setup;
++	/* 0...7 number of read/write setup cycles */
++	u8 rw_setup;
++	/* 0...7 number of read/write hold cycles */
++	u8 rw_hold;
++};
++
++extern int __init at91rm9200_smc_configure(int chip_select,
++					   const struct at91rm9200_smc_config *config);
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/mach-at91/include/mach/at91-util.h linux-3.4.17-ccm2200/arch/arm/mach-at91/include/mach/at91-util.h
+--- linux-3.4.17/arch/arm/mach-at91/include/mach/at91-util.h	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/mach-at91/include/mach/at91-util.h	2012-11-28 10:31:03.000000000 +0100
+@@ -0,0 +1,242 @@
++/*
++ * linux/include/asm-arm/arch-at91rm9200/at91-util.h
++ *
++ * Copyright (C) 2006 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      Generic utitliy functions for AT91RM9200 CPU 
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2006-05-05 gc: initial version
++ */
++
++#ifndef __ASM_ARCH_AT91_UTIL_H
++#define __ASM_ARCH_AT91_UTIL_H
++
++#include <mach/hardware.h>
++#include <mach/at91_pio.h>
++
++/****************************************************************************
++ * define some constants for easer usage of at91_set_gpio_direction() 
++ ****************************************************************************/
++
++#define GPIO_OUTPUT     0
++#define GPIO_INPUT      1
++#define GPIO_NO_PULLUP  0
++#define GPIO_USE_PULLUP 1
++#define GPIO_INIT_0     0
++#define GPIO_INIT_1     1
++
++
++/****************************************************************************
++ * generic AT91RM9200 specific functions
++ ****************************************************************************/
++#if 0
++// moved to at91rm9200_smc.h
++
++struct at91_smc_cs_info
++{
++        int chip_select;              /* number of chip select pin */
++        int wait_states;              /* wait states 0...128 (0 = no wait
++                                       * states) */
++        int data_float_time;          /* 0...15 wait states after memory read
++                                           cycle */
++        enum byte_access_type {       /* only valid for
++                                       * data_bus_width=16bit */
++                AT91_BAT_8_BIT  = 0,  /* dummy value for 8 bit device
++                                       * (ignored) */
++                AT91_BAT_TWO_8_BIT = 0,     /* chip select is connected to
++                                             * two/four 8-bit devices */
++                AT91_BAT_16_BIT = 1   /* chip select is connected toone 16 bit
++                                       * device */
++        } byte_access_type;
++
++        enum data_bus_width {
++                AT91_DATA_BUS_WIDTH_8 = 2,  /* 8 bit data bus */
++                AT91_DATA_BUS_WIDTH_16 = 1, /* 16 bit data bus */
++        } data_bus_width;
++        enum data_read_protocol {
++                AT91_DRP_STANDARD = 0,      /* standard data read protocol */
++                AT91_DRP_EARLY    = 1,      /* early data read protocol */
++        } data_read_protocol;
++
++        enum address_to_cs_setup {
++                AT91_ACSS_STANDARD   = 0,   /* standard: address asserted at
++                                             * the beginning of the access and
++                                             * deasserted at the end */
++                AT91_ACSS_1_CYCLE    = 1,   /* one cycle less at the beginning
++                                             * and end */
++                AT91_ACSS_2_CYCLES   = 2,   /* two cycles less at the
++                                             * beginning and end */
++                AT91_ACSS_3_CYCLES   = 3    /* three cycles less at the
++                                             * beginning and end */
++        } address_to_cs_setup;
++        int rw_setup;                       /* 0...7 number of read/write
++                                                 setup cycles */
++        int rw_hold;                        /* 0...7 number of read/write hold
++                                                 cycles */
++};
++
++
++/* 
++ * Configure the static memory controller chip select register using
++ * values in struct at91_smc_cs_info
++ */
++int at91_config_smc_cs( const struct at91_smc_cs_info *info );
++#endif
++
++
++/****************************************************************************
++ * multiple bits capable access to PIO controller ports
++ ****************************************************************************/
++typedef unsigned AT91_REG;
++
++/* relative address PIOs */
++/* 
++ * typedef struct _AT91S_PIO {
++ * 	AT91_REG	 PIO_PER;	// PIO Enable Register
++ * 	AT91_REG	 PIO_PDR;	// PIO Disable Register
++ * 	AT91_REG	 PIO_PSR;	// PIO Status Register
++ * 	AT91_REG	 Reserved6[1];	//
++ * 	AT91_REG	 PIO_OER;	// Output Enable Register
++ * 	AT91_REG	 PIO_ODR;	// Output Disable Registerr
++ * 	AT91_REG	 PIO_OSR;	// Output Status Register
++ * 	AT91_REG	 Reserved7[1];	//
++ * 	AT91_REG	 PIO_IFER;	// Input Filter Enable Register
++ * 	AT91_REG	 PIO_IFDR;	// Input Filter Disable Register
++ * 	AT91_REG	 PIO_IFSR;	// Input Filter Status Register
++ * 	AT91_REG	 Reserved8[1];	//
++ * 	AT91_REG	 PIO_SODR;	// Set Output Data Register
++ * 	AT91_REG	 PIO_CODR;	// Clear Output Data Register
++ * 	AT91_REG	 PIO_ODSR;	// Output Data Status Register
++ * 	AT91_REG	 PIO_PDSR;	// Pin Data Status Register
++ * 	AT91_REG	 PIO_IER;	// Interrupt Enable Register
++ * 	AT91_REG	 PIO_IDR;	// Interrupt Disable Register
++ * 	AT91_REG	 PIO_IMR;	// Interrupt Mask Register
++ * 	AT91_REG	 PIO_ISR;	// Interrupt Status Register
++ * 	AT91_REG	 PIO_MDER;	// Multi-driver Enable Register
++ * 	AT91_REG	 PIO_MDDR;	// Multi-driver Disable Register
++ * 	AT91_REG	 PIO_MDSR;	// Multi-driver Status Register
++ * 	AT91_REG	 Reserved9[1];	//
++ * 	AT91_REG	 PIO_PPUDR;	// Pull-up Disable Register
++ * 	AT91_REG	 PIO_PPUER;	// Pull-up Enable Register
++ * 	AT91_REG	 PIO_PPUSR;	// Pad Pull-up Status Register
++ * 	AT91_REG	 Reserved10[1];	//
++ * 	AT91_REG	 PIO_ASR;	// Select A Register
++ * 	AT91_REG	 PIO_BSR;	// Select B Register
++ * 	AT91_REG	 PIO_ABSR;	// AB Select Status Register
++ * } AT91S_PIO, *AT91PS_PIO;
++ */
++
++#define AT91C_BASE_PIOA		AT91RM9200_BASE_PIOA /* base PIO controller A */
++#define AT91C_BASE_PIOB		AT91RM9200_BASE_PIOB /* base PIO controller B */
++#define AT91C_BASE_PIOC		AT91RM9200_BASE_PIOC /* base PIO controller C */
++#define AT91C_BASE_PIOD		AT91RM9200_BASE_PIOD /* base PIO controller D */
++
++
++#define AT91C_VA_BASE_PIOA	AT91_IO_P2V(AT91C_BASE_PIOA)
++#define AT91C_VA_BASE_PIOB	AT91_IO_P2V(AT91C_BASE_PIOB)
++#define AT91C_VA_BASE_PIOC	AT91_IO_P2V(AT91C_BASE_PIOC)
++#define AT91C_VA_BASE_PIOD	AT91_IO_P2V(AT91C_BASE_PIOD)
++
++#define AT91_PIOA		AT91C_BASE_PIOA         
++#define AT91_PIOB               AT91C_BASE_PIOB
++#define AT91_PIOC               AT91C_BASE_PIOC
++#define AT91_PIOD               AT91C_BASE_PIOD
++//#define AT91_PIO_BASE(pio)      ((AT91S_PIO __iomem *) ((unsigned char __iomem *) AT91_VA_BASE_SYS + (pio)))
++
++
++#define AT91_PIO_BASE(pio) ((void __iomem *)AT91_IO_P2V((unsigned long) (pio)))
++/* describe 1...32 pins of a PIO port */
++struct at91_pio_pins {
++        void __iomem *pio;
++        u32 signal_bit;
++};
++
++static inline
++void at91_pio_clear_all_pins(const struct at91_pio_pins *pins)
++{
++	__raw_writel(pins->signal_bit, pins->pio + PIO_CODR); /* set pin to 0 */
++}
++
++static inline
++void at91_pio_set_all_pins(const struct at91_pio_pins *pins)
++{
++	__raw_writel(pins->signal_bit, pins->pio + PIO_SODR); /* set pin to 1 */
++}
++
++static inline
++void at91_pio_assign_pins(const struct at91_pio_pins *pins, u32 value)
++{
++	__raw_writel(value & pins->signal_bit, 
++		     pins->pio + PIO_SODR); /* set pin to value */
++}
++
++static inline
++int at91_pio_get_pins(const struct at91_pio_pins *pins)
++{
++        return __raw_readl(pins->pio + PIO_PDSR) & pins->signal_bit;
++}
++
++static inline
++void at91_pio_config_output_pins(const struct at91_pio_pins *pins)
++{
++        register void __iomem *pio = pins->pio;
++        register u32 signal_bit = pins->signal_bit;
++
++	__raw_writel(signal_bit, pio + PIO_IDR);	/* disable interrupt */
++	__raw_writel(signal_bit, pio + PIO_PUDR);	/* disable pull up */
++	__raw_writel(signal_bit, pio + PIO_OER);	/* enable output */
++	__raw_writel(signal_bit, pio + PIO_PER);	/* assign gpio to pin */
++}
++
++static inline
++void at91_pio_config_input_pins(const struct at91_pio_pins *pins)
++{
++        register void __iomem *pio = pins->pio;
++        register u32 signal_bit = pins->signal_bit;
++
++	__raw_writel(signal_bit, pio + PIO_IDR);	/* disable interrupt */
++	__raw_writel(signal_bit, pio + PIO_PUDR);	/* disable pull up */
++	__raw_writel(signal_bit, pio + PIO_ODR);	/* disable output */
++	__raw_writel(signal_bit, pio + PIO_PER);	/* assign gpio to pin */
++}
++
++/* enable open drain output (multi drive) */
++static inline
++void at91_pio_enable_open_drain_pins(const struct at91_pio_pins *pins)
++{
++	__raw_writel(pins->signal_bit, pins->pio+PIO_MDER); 
++}
++
++/* disable open drain output (multi drive) */
++static inline
++void at91_pio_disable_open_drain_pins(const struct at91_pio_pins *pins)
++{
++	__raw_writel(pins->signal_bit, pins->pio+PIO_MDDR); 
++}
++
++#endif /* __ASM_ARCH_BOARD_CCM2200_H */
++
++/*
++ *Local Variables:
++ * mode: c
++ * c-file-style: "linux"
++ * End:
++ */
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/mach-at91/include/mach/board-ccm2200.h linux-3.4.17-ccm2200/arch/arm/mach-at91/include/mach/board-ccm2200.h
+--- linux-3.4.17/arch/arm/mach-at91/include/mach/board-ccm2200.h	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/mach-at91/include/mach/board-ccm2200.h	2012-11-09 17:06:50.000000000 +0100
+@@ -0,0 +1,155 @@
++/*
++ * linux/include/asm-arm/arch-at91rm9200/board-ccm2200.h
++ *
++ * Copyright (C) 2006 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      bord specific defines for the CCM2200 board
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2006-05-02 gc: initial version
++ */
++
++#ifndef __ASM_ARCH_BOARD_CCM2200_H
++#define __ASM_ARCH_BOARD_CCM2200_H
++
++
++/****************************************************************************
++ * Constants for CCM2200 memory map
++ ****************************************************************************/
++
++/* 
++ * PHYS 0: internal memory, CS0: NOR-Flash, CS1: SD-RAM common defined in
++ * hardware.h for all AT91RM9200 based boards 
++ */
++
++
++/* CS2: SRAM */
++#define CCM2200_SRAM_CS                 2
++#define CCM2200_SRAM_PHYS               AT91_CHIPSELECT_2
++#define CCM2200_SRAM_SIZE               (2*1024*1024)
++
++
++/* CS3: NAND-Flash */
++#define CCM2200_NAND_FLASH_CS           3
++#define CCM2200_NAND_FLASH_PHYS         AT91_CHIPSELECT_3
++#define CCM2200_NAND_FLASH_SIZE         0x8000
++
++/* CS4: external quad UART */
++#define CCM2200_QUAD_UART_CS            4
++#define CCM2200_QUAD_UART_PHYS          AT91_CHIPSELECT_4
++#define CCM2200_QUAD_UART_SIZE          0x20
++
++/* CS5: digital output */
++#define CCM2200_DIG_OUT_CS              5
++#define CCM2200_DIG_OUT_PHYS            AT91_CHIPSELECT_5
++#define CCM2200_DIG_OUT_SIZE            0x1
++
++/* CS6: extension board */
++#define CCM2200_EXT_A_CS                6
++#define CCM2200_EXT_A_PHYS              AT91_CHIPSELECT_6
++
++/* CS7: extension board */
++#define CCM2200_EXT_B_CS                7
++#define CCM2200_EXT_B_PHYS              AT91_CHIPSELECT_7
++
++/****************************************************************************
++ * Definitions for external SC16C754 quad UART
++ ****************************************************************************/
++
++#define CCM2200_QUAD_UART_IRQ           AT91RM9200_ID_IRQ0
++#define CCM2200_QUAD_UART_CLOCK_RATE    (18432000/2)
++
++#define CCM2200_PIN_PCK1_UART_CLOCK     AT91_PIN_PA24
++#define CCM2200_PIN_UART_RESET          AT91_PIN_PB2
++#define CCM2200_PIN_UART_IRQ            AT91_PIN_PB29
++
++#define CCM2200_QUAD_UART_PORT_OFFSET   0x8
++#define CCM2200_QUAD_UART_NUM_PORTS     4
++
++
++/* initialize AT91 UART subclass driver and configure ports */
++int __init ccm2200_at91_uart_init(void);
++#define AT91RM9200_PIN_DBG_UART_TXD     AT91_PIN_PA31
++#define AT91RM9200_PIN_DBG_UART_RXD     AT91_PIN_PA30
++
++
++/****************************************************************************
++ * access to CCM2200 frontpanel LEDs and digital outputs
++ * (defined in ccm2200_gpio.c)
++ ****************************************************************************/
++void ccm2200_set_digital_output(register __u32 data, register __u32 mask);
++void ccm2200_set_frontpanel_leds(register __u32 data, register __u32 mask);
++__u32 ccm2200_get_sconf_input(void);
++__u32 ccm2200_get_digital_input(void);
++
++/****************************************************************************
++ * CCM2200 board specific serial extended functions (RS485 and LED support)
++ ****************************************************************************/
++
++#include <linux/ccm2200_serial.h>
++#include <linux/timer.h>
++
++struct ccm2200_led_handler {
++        struct ccm2200_serial_led led;
++        struct timer_list led_timer;
++};
++
++struct uart_port;
++#include <linux/serial_core.h>  /* struct uart_ops */
++
++struct ccm2200_board_serial
++{
++        /* 
++         * remember state for kernel driven RS485 modes,
++         * in normal RS232 operation we stay always in 
++         * CCM2200_BS_RECEIVE
++         */
++        enum ccm2200_board_serial_state {
++                CCM2200_BS_NOT_INITIALIZED = 0,
++                CCM2200_BS_RECEIVE,
++                CCM2200_BS_DCD_WAIT, /* DCD wait on in multi-drop modem mode */
++                CCM2200_BS_TURN_ON_DELAY,
++                CCM2200_BS_CTS_WAIT,
++                CCM2200_BS_TRANSMIT,
++                CCM2200_BS_TURN_OFF_DELAY
++        } state;
++
++        struct ccm2200_serial_config conf;
++        struct ccm2200_led_handler rxLed;
++        struct ccm2200_led_handler txLed;
++        struct uart_ops ccm2200_ops;
++        const struct uart_ops *orig_ops;
++        struct timer_list turn_on_off_timer;
++};
++
++void ccm2200_board_serial_init(struct uart_port *port,
++                               struct ccm2200_board_serial *se);
++void ccm2200_board_serial_remove(struct uart_port *port);
++void ccm2200_board_serial_trigger_led(struct ccm2200_led_handler *led);
++void ccm2200_board_serial_rs485_tx(struct uart_port *port);
++
++#endif /* __ASM_ARCH_BOARD_CCM2200_H */
++
++/*
++ *Local Variables:
++ * mode: c
++ * c-file-style: "linux"
++ * End:
++ */
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/mach-at91/Kconfig linux-3.4.17-ccm2200/arch/arm/mach-at91/Kconfig
+--- linux-3.4.17/arch/arm/mach-at91/Kconfig	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/mach-at91/Kconfig	2012-11-09 17:06:50.000000000 +0100
+@@ -210,6 +210,12 @@
+ 	depends on ARCH_AT91RM9200
+ 	help
+ 	  Select this if you are using RSIs EWS board.
++
++config MACH_CCM2200
++	bool "SWARCO Traffic Systems CCM2200 board"
++	help
++	  Select this if you are using the SWARCO Traffic Systems GmbH CCM2200 board
++
+ endif
+ 
+ # ----------------------------------------------------------
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/mach-at91/Makefile linux-3.4.17-ccm2200/arch/arm/mach-at91/Makefile
+--- linux-3.4.17/arch/arm/mach-at91/Makefile	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/mach-at91/Makefile	2012-11-09 17:06:50.000000000 +0100
+@@ -12,7 +12,7 @@
+ obj-$(CONFIG_AT91_SAM9G45_RESET) += at91sam9g45_reset.o
+ 
+ # CPU-specific support
+-obj-$(CONFIG_ARCH_AT91RM9200)	+= at91rm9200.o at91rm9200_time.o at91rm9200_devices.o
++obj-$(CONFIG_ARCH_AT91RM9200)	+= at91rm9200.o at91rm9200_time.o at91rm9200_devices.o  at91rm9200_smc.o
+ obj-$(CONFIG_ARCH_AT91SAM9260)	+= at91sam9260.o at91sam926x_time.o at91sam9260_devices.o sam9_smc.o
+ obj-$(CONFIG_ARCH_AT91SAM9261)	+= at91sam9261.o at91sam926x_time.o at91sam9261_devices.o sam9_smc.o
+ obj-$(CONFIG_ARCH_AT91SAM9G10)	+= at91sam9261.o at91sam926x_time.o at91sam9261_devices.o sam9_smc.o
+@@ -38,6 +38,7 @@
+ obj-$(CONFIG_MACH_YL9200)	+= board-yl-9200.o
+ obj-$(CONFIG_MACH_CPUAT91)	+= board-cpuat91.o
+ obj-$(CONFIG_MACH_ECO920)	+= board-eco920.o
++obj-$(CONFIG_MACH_CCM2200)      += ccm2200/
+ obj-$(CONFIG_MACH_RSI_EWS)	+= board-rsi-ews.o
+ 
+ # AT91SAM9260 board-specific support
+diff -Nrub '--exclude=*~' linux-3.4.17/arch/arm/tools/mach-types linux-3.4.17-ccm2200/arch/arm/tools/mach-types
+--- linux-3.4.17/arch/arm/tools/mach-types	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/arch/arm/tools/mach-types	2012-11-09 17:06:50.000000000 +0100
+@@ -205,6 +205,7 @@
+ snapper_cl15		MACH_SNAPPER_CL15	SNAPPER_CL15		986
+ omap_palmz71		MACH_OMAP_PALMZ71	OMAP_PALMZ71		993
+ smdk2412		MACH_SMDK2412		SMDK2412		1009
++ccm2200			MACH_CCM2200		CCM2200			1014
+ smdk2413		MACH_SMDK2413		SMDK2413		1022
+ aml_m5900		MACH_AML_M5900		AML_M5900		1024
+ balloon3		MACH_BALLOON3		BALLOON3		1029
+diff -Nrub '--exclude=*~' linux-3.4.17/build-ccm2200.sh linux-3.4.17-ccm2200/build-ccm2200.sh
+--- linux-3.4.17/build-ccm2200.sh	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/build-ccm2200.sh	2012-11-09 17:06:50.000000000 +0100
+@@ -0,0 +1,34 @@
++KERNEL_DIR=.
++INSTALL_MOD_PATH=$PWD/../../buildroot/swarco_ch_conf
++OUTPUT_DIR=$PWD/../output-${PWD##*linux-}
++IMAGE_DIR=../../tftp_root/
++
++
++test -d $OUTPUT_DIR || mkdir -p $OUTPUT_DIR
++test -d $INSTALL_MOD_PATH || mkdir -p $INSTALL_MOD_PATH
++
++CPU=arm
++TOOLCHAIN=$PWD/../../buildroot/buildroot-2.0/build_${CPU}/staging_dir/
++PATH=$PATH:$TOOLCHAIN/usr/bin
++export PATH
++
++# add path for u-boot mkimage tool
++PATH=$PATH:$PWD/../../u-boot/u-boot-v2010.09-ccm2200/tools
++export PATH
++
++if [ -z "$1" ]; then
++    set uImage modules modules_install
++fi
++
++
++# KBUILD_VERBOSE=1
++make -C "$KERNEL_DIR" ARCH=arm CROSS_COMPILE="arm-linux-"       \
++                      INSTALL_MOD_PATH=$INSTALL_MOD_PATH        \
++                      O=$OUTPUT_DIR $@ || exit $?
++
++cp $OUTPUT_DIR/arch/arm/boot/uImage $IMAGE_DIR/uImage-ccm2200dev.bin
++
++# Local Variables:
++# mode: shell-script
++# compile-command: "./build-ccm2200.sh"
++# End:
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/char/ccm2200_gpio.c linux-3.4.17-ccm2200/drivers/char/ccm2200_gpio.c
+--- linux-3.4.17/drivers/char/ccm2200_gpio.c	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/char/ccm2200_gpio.c	2012-11-12 12:25:59.000000000 +0100
+@@ -0,0 +1,337 @@
++/*
++ * linux/drivers/char/ccm2200_gpio.c
++ *
++ * Copyright (C) 2006 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      Userspace access to CCM2200 digital in-/output lines
++ *              and indicator LEDs
++ * @todo:       sophisticated, interrupt driven IO support
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2006-05-04 gc: initial version (partly derived from ite_gpio.c
++ *                    written by Hai-Pao Fan <haipao@mvista.com>)
++ */
++
++#include <linux/module.h>
++#include <linux/types.h>
++#include <linux/kernel.h>
++#include <linux/miscdevice.h>
++#include <linux/init.h>
++#include <linux/ioport.h>
++#include <linux/sched.h>
++#include <linux/fs.h>
++#include <linux/cdev.h>
++#include <linux/delay.h>
++
++#include <linux/ccm2200_gpio.h>
++
++#include <asm/io.h>       		/* ioremap */
++#include <asm/uaccess.h>		/* copy_to_user */
++#include <mach/hardware.h>
++#include <mach/board.h>
++#include <mach/at91-util.h>
++#include <mach/at91rm9200_smc.h>
++#include <mach/board-ccm2200.h>
++#include <mach/at91_pio.h>
++#include <mach/at91rm9200_mc.h>
++#include <mach/at91_pmc.h>
++
++
++//#define debug(format, ...) printk(format, ## __VA_ARGS__)
++#define debug(format, ...) 
++
++#define CCM2200_PIOB_IN0_7_MASK         0x00000ff0
++#define CCM2200_PIOB_IN0_7_SHIFT        4
++
++#define CCM2200_PIOD_IN8_9_MASK         (1<<23 | 1<<24)
++#define CCM2200_PIOD_IN8_9_SHIFT        (23-8)
++
++#define CCM2200_PIOD_IN10_11_MASK       (1<<26 | 1<<27)
++#define CCM2200_PIOD_IN10_11_SHIFT      (26-10)
++
++#define CCM2200_PIOD_LED_MASK           0x0000ffff
++#define CCM2200_PIOD_LED_SHIFT          0
++
++
++#define CCM2200_BUS_OUT0_7_MASK         0x000000ff
++#define CCM2200_PIOD_OUT8_11_MASK       0x000f0000
++#define CCM2200_PIOD_OUT8_11_SHIFT      (16-8)
++
++
++/* SCONF0: PIOA27 */
++/* SCONF1: PIOA28 */
++#define CCM2200_PIOA_SCONF0_1_MASK      (1<<27 | 1<<28)
++#define CCM2200_PIOA_SCONF0_1_SHIFT     27
++
++/* preliminary for testing */
++/* SCONF2: PIOC5 */
++#define CCM2200_PIOC_SCONF2_MASK        (1<<5)
++#define CCM2200_PIOC_SCONF2_SHIFT       (5-2)
++
++/* preliminary for testing */
++/* SCONF3: PB28 */
++#define CCM2200_PIOB_SCONF3_MASK        (1<<28)
++#define CCM2200_PIOB_SCONF3_SHIFT       (28-3)
++
++
++static volatile u8 *ccm2200_digital_out_virt = NULL;
++static u32 current_output = 0xf00;
++static u32 current_leds = 0x000;
++
++
++/* 2012-11-05 gc: todo: use new kernel infrastructure for this */
++#define at91_sys_write(addr, val) __raw_writel((val), (addr))
++#define at91_sys_read(addr)  __raw_readl((addr))
++
++__u32 ccm2200_get_digital_input(void)
++{
++        
++        return ( (at91_sys_read(AT91C_VA_BASE_PIOB + PIO_PDSR)&CCM2200_PIOB_IN0_7_MASK) 
++                 >> CCM2200_PIOB_IN0_7_SHIFT )
++                | ( (at91_sys_read(AT91C_VA_BASE_PIOD + PIO_PDSR) & CCM2200_PIOD_IN8_9_MASK) 
++                   >> CCM2200_PIOD_IN8_9_SHIFT )
++                | ( (at91_sys_read(AT91C_VA_BASE_PIOD + PIO_PDSR) & CCM2200_PIOD_IN10_11_MASK) 
++                   >> CCM2200_PIOD_IN10_11_SHIFT );
++}
++
++__u32 ccm2200_get_sconf_input(void)
++{
++        return ( (at91_sys_read(AT91C_VA_BASE_PIOA + PIO_PDSR) & CCM2200_PIOA_SCONF0_1_MASK) 
++                 >> CCM2200_PIOA_SCONF0_1_SHIFT )
++                | ( (at91_sys_read(AT91C_VA_BASE_PIOC + PIO_PDSR) & CCM2200_PIOC_SCONF2_MASK) 
++                   >> CCM2200_PIOC_SCONF2_SHIFT )
++                | ( (at91_sys_read(AT91C_VA_BASE_PIOB + PIO_PDSR) & CCM2200_PIOB_SCONF3_MASK) 
++                   >> CCM2200_PIOB_SCONF3_SHIFT );
++}
++
++void ccm2200_set_digital_output(register __u32 data, register __u32 mask)
++{
++        current_output = (current_output & ~mask) | (data & mask);
++
++        /* write lower 8 bits over external bus in latch */
++        *ccm2200_digital_out_virt = current_output & CCM2200_BUS_OUT0_7_MASK;
++        /* write upper bit 8...11 to PD16...19 over AT91RM9200 GPIO */
++        {
++                register __u32 value = 
++                        current_output << CCM2200_PIOD_OUT8_11_SHIFT;
++                at91_sys_write(AT91C_VA_BASE_PIOD + PIO_SODR, value & CCM2200_PIOD_OUT8_11_MASK);
++                at91_sys_write(AT91C_VA_BASE_PIOD + PIO_CODR, ~value & CCM2200_PIOD_OUT8_11_MASK);
++/*                 AT91_SYS->PIOD_SODR = value & CCM2200_PIOD_OUT8_11_MASK; */
++/*                 AT91_SYS->PIOD_CODR = ~value & CCM2200_PIOD_OUT8_11_MASK; */
++        }
++}
++
++void ccm2200_set_frontpanel_leds(register __u32 data, register __u32 mask)
++{
++        current_leds = (current_leds & ~mask) | (data & mask);
++        /* invert LED port here! */
++        at91_sys_write(AT91C_VA_BASE_PIOD + PIO_SODR, ~current_leds & CCM2200_PIOD_LED_MASK);
++        at91_sys_write(AT91C_VA_BASE_PIOD + PIO_CODR, current_leds  & CCM2200_PIOD_LED_MASK);
++/*         AT91_SYS->PIOD_SODR = ~current_leds & CCM2200_PIOD_LED_MASK; */
++/*         AT91_SYS->PIOD_CODR = current_leds  & CCM2200_PIOD_LED_MASK; */
++}
++
++
++
++static inline int ccm2200_gpio_out(__u32 device, __u32 mask, __u32 data)
++{
++        switch (device) {
++        case CCM2200_GPIO_OUTPUT:
++                ccm2200_set_digital_output(data, mask);
++                break;
++
++        case CCM2200_GPIO_LED:
++                ccm2200_set_frontpanel_leds(data, mask);
++                break;
++        default:
++                return -EIO;
++        }
++        return 0;
++}
++
++
++static inline int ccm2200_gpio_in(__u32 device, __u32 mask, __u32 *data)
++{
++        switch (device) {
++        case CCM2200_GPIO_INPUT:
++                *data = ccm2200_get_digital_input() & mask;
++                break;
++        case CCM2200_GPIO_SCONF:
++                *data = ccm2200_get_sconf_input() & mask;
++                break;
++        case CCM2200_GPIO_OUTPUT:
++                *data = current_output & mask;
++                break;
++        case CCM2200_GPIO_LED:
++                *data = current_leds & mask;
++                break;
++        default:
++                return -EIO;
++        }
++        return 0;
++}
++
++static int ccm2200_gpio_open(struct inode *inode, struct file *file)
++{
++	return 0;
++}
++
++
++static int ccm2200_gpio_release(struct inode *inode, struct file *file)
++{
++	return 0;
++}
++
++
++static long ccm2200_gpio_ioctl(struct file *file, unsigned int cmd, 
++                               unsigned long arg)
++{
++	static struct ccm2200_gpio_ioctl_data ioctl_data;
++
++	if (copy_from_user(&ioctl_data, (struct ccm2200_gpio_ioctl_data *)arg,
++                           sizeof(ioctl_data)))
++		return -EFAULT;
++
++	switch(cmd) {
++        case CCM2200_GPIO_IN:
++                if (ccm2200_gpio_in(ioctl_data.device, ioctl_data.mask,
++                		   &ioctl_data.data))
++                	return -EFAULT;
++                if (copy_to_user((struct ccm2200_gpio_ioctl_data *)arg,
++                                 &ioctl_data, sizeof(ioctl_data)))
++                        return -EFAULT;
++                break;
++
++        case CCM2200_GPIO_OUT:
++                debug("CCM2200_GPIO_OUT: %d, 0x%08x, 0x%08x\n",
++                      ioctl_data.device,
++                      ioctl_data.mask, ioctl_data.data);
++                return ccm2200_gpio_out(ioctl_data.device,
++                                        ioctl_data.mask, ioctl_data.data);
++                break;
++
++        default:
++                return -ENOIOCTLCMD;
++                
++	}
++
++	return 0;
++}
++
++static struct file_operations ccm2200_gpio_fops = {
++	.owner		= THIS_MODULE,
++	.unlocked_ioctl	= ccm2200_gpio_ioctl,
++	.open		= ccm2200_gpio_open,
++	.release	= ccm2200_gpio_release,
++};
++
++static struct miscdevice ccm2200_gpio_miscdev = {
++	MISC_DYNAMIC_MINOR,
++	"ccm2200_gpio",
++	&ccm2200_gpio_fops
++};
++
++int __init ccm2200_gpio_init(void)
++{
++        /* prepare digital outputs over bus and static memory controller */
++
++
++        /*
++         * Setup static memory controller chip select for digital output
++         *
++         */
++        static const struct __initdata  at91rm9200_smc_config 
++          dig_out_cs_config = {
++                .wait_states          = 2, /* enough wait states... */
++                .data_float_time      = 0,
++                .byte_access_type     = AT91RM9200_BAT_8_BIT,
++                .data_bus_width       = AT91RM9200_DATA_BUS_WIDTH_8,
++                .data_read_protocol   = AT91RM9200_DRP_STANDARD,
++                .address_to_cs_setup  = AT91RM9200_ACSS_1_CYCLE,
++                .rw_setup             = 2, /* 2 cycle rw_setup! */
++                .rw_hold              = 2  /* 2 cycle rw_hold! */
++        };
++
++        if ( at91rm9200_smc_configure(CCM2200_DIG_OUT_CS, 
++                                      &dig_out_cs_config ) != 0 ) {
++	    printk( KERN_ERR 
++                    "Unable to configure digital out chip select signal\n" );
++            return -EIO;
++	}
++
++	ccm2200_digital_out_virt = ioremap_nocache(CCM2200_DIG_OUT_PHYS, 
++                                                   CCM2200_DIG_OUT_SIZE );
++	if (!ccm2200_digital_out_virt) {
++		printk("Failed to ioremap CCM2200 digital output\n");
++		return -EIO;
++	}
++
++
++        /* prepare LED outputs and FG6 outputs on PIOD */
++        {
++                static const struct at91_pio_pins ccm2200_out_pio_d = { 
++                        AT91_PIO_BASE(AT91_PIOD), 
++                        CCM2200_PIOD_LED_MASK | CCM2200_PIOD_OUT8_11_MASK 
++                };
++                /* reset extern latch pin */
++                static const struct at91_pio_pins ccm2200_n_ext_reset = 
++                        { AT91_PIO_BASE(AT91_PIOB), 1<<3 }; 
++
++                at91_pio_enable_open_drain_pins(&ccm2200_out_pio_d);  
++                at91_pio_config_output_pins(&ccm2200_out_pio_d);
++                /* assert reset signal to external latch */
++                at91_pio_clear_all_pins(&ccm2200_n_ext_reset);
++                at91_pio_config_output_pins(&ccm2200_n_ext_reset);
++                udelay(10);
++                at91_pio_set_all_pins(&ccm2200_n_ext_reset);
++        }
++
++	if (misc_register(&ccm2200_gpio_miscdev)) {
++                iounmap((void *) ccm2200_digital_out_virt);
++		return -ENODEV;
++        }
++
++	printk("CCM2200 GPIO driver initialized\n");
++
++	return 0;
++}	
++
++static void __exit ccm2200_gpio_exit(void)
++{
++	misc_deregister(&ccm2200_gpio_miscdev);
++        if (ccm2200_digital_out_virt) {
++                iounmap((void *) ccm2200_digital_out_virt);
++                ccm2200_digital_out_virt = NULL;
++        }
++}
++
++module_init(ccm2200_gpio_init);
++module_exit(ccm2200_gpio_exit);
++
++MODULE_AUTHOR("Guido Classen");
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("CCM2200 GPIO driver");
++
++/*
++ *Local Variables:
++ * mode: c
++ * c-file-style: "linux"
++ * End:
++ */
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/char/Makefile linux-3.4.17-ccm2200/drivers/char/Makefile
+--- linux-3.4.17/drivers/char/Makefile	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/char/Makefile	2012-11-09 17:06:50.000000000 +0100
+@@ -48,6 +48,7 @@
+ obj-$(CONFIG_NSC_GPIO)		+= nsc_gpio.o
+ obj-$(CONFIG_GPIO_TB0219)	+= tb0219.o
+ obj-$(CONFIG_TELCLOCK)		+= tlclk.o
++obj-$(CONFIG_MACH_CCM2200)      += ccm2200_gpio.o
+ 
+ obj-$(CONFIG_MWAVE)		+= mwave/
+ obj-$(CONFIG_AGP)		+= agp/
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/leds/Kconfig linux-3.4.17-ccm2200/drivers/leds/Kconfig
+--- linux-3.4.17/drivers/leds/Kconfig	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/leds/Kconfig	2012-11-09 17:06:50.000000000 +0100
+@@ -401,6 +401,12 @@
+ 	  This option enables support for the LEDs on the Bachmann OT200.
+ 	  Say Y to enable LEDs on the Bachmann OT200.
+ 
++config LEDS_CCM2200
++	tristate "LED support using CCM2200 LED functions"
++	depends on LEDS_CLASS && ARCH_AT91 && MACH_CCM2200 && !LEDS
++	help
++	  This option enables support for CCM2200 board frontpanel LEDs.
++
+ config LEDS_TRIGGERS
+ 	bool "LED Trigger support"
+ 	depends on LEDS_CLASS
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/leds/leds-ccm2200.c linux-3.4.17-ccm2200/drivers/leds/leds-ccm2200.c
+--- linux-3.4.17/drivers/leds/leds-ccm2200.c	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/leds/leds-ccm2200.c	2012-11-13 11:37:44.000000000 +0100
+@@ -0,0 +1,161 @@
++/*
++ * linux/drivers/leds/leds-ccm2200.c
++ *
++ * Copyright (C) 2007 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      Userspace access to CCM2200 frontpanel indicator LEDs
++ *              using Linux kernel LED framework
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2007-09-10 gc: initial version (derived from leds-at91
++ *                    written by David Brownell)
++ */
++
++
++#include <linux/kernel.h>
++#include <linux/init.h>
++#include <linux/platform_device.h>
++#include <linux/leds.h>
++#include <linux/module.h>
++
++#include <mach/board.h>
++#include <mach/gpio.h>
++#include <mach/board-ccm2200.h>
++
++struct ccm2200_led {
++	struct led_classdev	cdev;
++	unsigned		mask;
++	char			name[8]; // "ledxx"
++};
++
++#define CCM2200_NUM_LEDS	16
++static struct ccm2200_led ccm2200_leds[CCM2200_NUM_LEDS];
++
++
++
++/*
++ * Change the state of the LED.
++ */
++static void ccm2200_led_set(struct led_classdev *cdev, enum led_brightness value)
++{
++	struct ccm2200_led	*led = container_of(cdev, struct ccm2200_led, cdev);
++
++
++	ccm2200_set_frontpanel_leds(
++		(value == LED_OFF) ? 0 : led->mask, led->mask);
++}
++
++static int __devexit ccm2200_led_remove(struct platform_device *pdev)
++{
++	struct ccm2200_led		*led;
++
++	for (led = ccm2200_leds; led < ccm2200_leds+CCM2200_NUM_LEDS; ++led) {
++		
++		led_classdev_unregister(&led->cdev);
++	}
++	return 0;
++}
++
++static int __devinit ccm2200_led_probe(struct platform_device *pdev)
++{
++	int			status = 0;
++	int			i;
++	/*unsigned		nr_leds; */
++	struct ccm2200_led	*led = ccm2200_leds;
++
++	for (i=0; i < CCM2200_NUM_LEDS; ++i) {
++		memset(led, 0, sizeof(*led));
++		led->mask	= 1 << i;
++		snprintf(led->name, sizeof(led->name), "led%d", i);
++		led->cdev.name = led->name;
++		led->cdev.brightness_set = ccm2200_led_set,
++		led->cdev.default_trigger = NULL;
++
++		status = led_classdev_register(&pdev->dev, &led->cdev);
++		if (status < 0) {
++			struct ccm2200_led *ledr;
++	
++			dev_err(&pdev->dev, "led_classdev_register failed - %d\n", status);
++			for (ledr = ccm2200_leds; led < led; ++ledr) {
++		
++				led_classdev_unregister(&ledr->cdev);
++			}
++			break;
++		}
++		++led;
++	}
++	return status;
++}
++
++#ifdef CONFIG_PM
++static int ccm2200_led_suspend(struct platform_device *dev, pm_message_t state)
++{
++	struct ccm2200_led	*led;
++
++	for (led = ccm2200_leds; led < ccm2200_leds+CCM2200_NUM_LEDS; ++led) {
++		
++		led_classdev_suspend(&led->cdev);
++	}
++
++	return 0;
++}
++
++static int ccm2200_led_resume(struct platform_device *dev)
++{
++	struct ccm2200_led	*led;
++
++	for (led = ccm2200_leds; led < ccm2200_leds+CCM2200_NUM_LEDS; ++led) {
++		
++		led_classdev_resume(&led->cdev);
++	}
++
++	return 0;
++}
++#else
++#define	ccm2200_led_suspend	NULL
++#define	ccm2200_led_resume		NULL
++#endif
++
++static struct platform_driver ccm2200_led_driver = {
++	.probe		= ccm2200_led_probe,
++	.remove		= __devexit_p(ccm2200_led_remove),
++	.suspend	= ccm2200_led_suspend,
++	.resume		= ccm2200_led_resume,
++	.driver		= {
++		.name	= "ccm2200_leds",
++		.owner	= THIS_MODULE,
++	},
++};
++
++static int __init ccm2200_led_init(void)
++{
++	return platform_driver_register(&ccm2200_led_driver);
++}
++module_init(ccm2200_led_init);
++
++static void __exit ccm2200_led_exit(void)
++{
++	platform_driver_unregister(&ccm2200_led_driver);
++}
++module_exit(ccm2200_led_exit);
++
++MODULE_DESCRIPTION("CCM2200 LED driver");
++MODULE_AUTHOR("Guido Classen");
++MODULE_LICENSE("GPL");
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/leds/Makefile linux-3.4.17-ccm2200/drivers/leds/Makefile
+--- linux-3.4.17/drivers/leds/Makefile	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/leds/Makefile	2012-11-09 17:06:50.000000000 +0100
+@@ -40,6 +40,7 @@
+ obj-$(CONFIG_LEDS_ADP5520)		+= leds-adp5520.o
+ obj-$(CONFIG_LEDS_DELL_NETBOOKS)	+= dell-led.o
+ obj-$(CONFIG_LEDS_MC13783)		+= leds-mc13783.o
++obj-$(CONFIG_LEDS_CCM2200)		+= leds-ccm2200.o
+ obj-$(CONFIG_LEDS_NS2)			+= leds-ns2.o
+ obj-$(CONFIG_LEDS_NETXBIG)		+= leds-netxbig.o
+ obj-$(CONFIG_LEDS_ASIC3)		+= leds-asic3.o
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/mtd/maps/ccm2200-nor.c linux-3.4.17-ccm2200/drivers/mtd/maps/ccm2200-nor.c
+--- linux-3.4.17/drivers/mtd/maps/ccm2200-nor.c	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/mtd/maps/ccm2200-nor.c	2012-11-09 17:06:50.000000000 +0100
+@@ -0,0 +1,190 @@
++/*
++ * linux/drivers/mtd/maps/ccm2200-sram.c
++ *
++ * Copyright (C) 2006 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      MTD mapping and access for non-volatile SRAM from CCM2200 board
++ *
++ * @references: [1] based on modarm9.c by Markus Pietrek
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2007-06-04 gc: initial version (based on modarm9.c by Markus Pietrek,
++ *                    FS Forth-Systeme GmbH)
++ */
++
++#include <linux/module.h>
++#include <linux/types.h>
++#include <linux/kernel.h>
++#include <linux/slab.h>
++#include <linux/mtd/mtd.h>
++#include <linux/mtd/map.h>
++#include <linux/mtd/partitions.h>
++
++#include <linux/ioport.h>	/* request_mem_region */
++
++#define DRIVER_NAME	"CCM2200"
++
++/* 2006-04-24 gc: support for CCM2200 */
++#if defined(CONFIG_MACH_CCM2200)
++
++#include <mach/hardware.h>
++
++#define FLASH_MEM_BASE_P	AT91_CHIPSELECT_0
++#define FLASH_SIZE		0x001000000
++#define	FLASH_BANK_WIDTH	2
++
++/* 2006-04-24 gc: SWARCO Traffic Systems CCM2200 mapping */
++static struct mtd_partition ccm2200_partitions[] = {
++	{
++		.name       = "all-ccm2200",
++		.offset     = 0x00000000,
++	},
++	{
++		.name       = "u-boot",
++		.offset     = 0x00000000,
++		.size       = 0x00040000,	// 4 * 64kB for u-boot and boot.bin 
++	},
++	{
++		.name       = "kernel",		// default kernel image (1.75MB)
++		.offset     = 0x00040000,
++		.size       = 0x1c0000,
++	},
++	{
++		.name       = "dummy",		// dummy partion to get nand at MTD5
++		.offset     = 0x00200000,
++		.size       = 0x00000000,
++	},
++};
++
++#endif /* defined(CONFIG_MACH_CCM2200) */
++
++
++static struct map_info ccm2200_map = 
++{
++	.name      = "ccm2200",
++	.phys 	   = FLASH_MEM_BASE_P, 
++	.size 	   = FLASH_SIZE, 
++	.bankwidth = FLASH_BANK_WIDTH,
++};
++
++static struct mtd_partition* parsed_parts;
++static const char* part_probes[] = { "cmdlinepart", NULL };
++static struct mtd_info* mtd_info;
++static struct resource* mtd_res;
++
++static int __init ccm2200_mtd_init( void )
++{
++	const char* part_type = NULL;
++	int nr_parts = 0;
++	int ret = 0;
++
++	printk( KERN_INFO DRIVER_NAME
++		": Using NOR Flash device: %lu kB @ 0x%x\n",
++		ccm2200_map.size / 1024, (unsigned int)ccm2200_map.phys );
++
++	mtd_res = request_mem_region( ccm2200_map.phys, ccm2200_map.size,
++				      ccm2200_map.name );
++	if( mtd_res == NULL ) {
++		ret = -EBUSY;
++		goto error;
++	}
++
++	ccm2200_map.virt = (void __iomem *) ioremap( ccm2200_map.phys,
++						     ccm2200_map.size );
++	if( !ccm2200_map.virt ) {
++		ret = -ENOMEM;
++		goto error_map;
++	}
++	
++	simple_map_init( &ccm2200_map );
++
++	/* probe if there is really flash */
++
++#ifdef CONFIG_MACH_CCXP
++	mtd_info = NULL;
++#else
++	mtd_info = do_map_probe( "amd_flash", &ccm2200_map );
++#endif
++	if( mtd_info == NULL ) {
++		mtd_info = do_map_probe( "cfi_probe", &ccm2200_map );
++		if( mtd_info == NULL ) {
++			ret = -ENXIO;
++			goto error_probe;
++		}
++	}
++	
++	mtd_info->owner = THIS_MODULE;
++
++	/* setup partitions */
++#ifdef CONFIG_MTD_PARTITIONS
++	nr_parts = parse_mtd_partitions( mtd_info, part_probes,
++					 &parsed_parts, 0 );
++	if( nr_parts > 0 )
++		part_type = "dynamic";
++	else {
++		parsed_parts = ccm2200_partitions;
++		nr_parts = ARRAY_SIZE( ccm2200_partitions );
++		part_type = "static";
++	}
++#endif
++
++	if( nr_parts == 0 ) {
++		printk( KERN_INFO DRIVER_NAME ": no partition info "
++			"available, registering whole flash\n" );
++		add_mtd_device( mtd_info );
++	} else {
++		printk( KERN_INFO DRIVER_NAME ": using %s partition "
++			"definition\n", part_type );
++		add_mtd_partitions( mtd_info, parsed_parts, nr_parts );
++	}
++
++	return 0;
++
++error_probe:
++	iounmap( ccm2200_map.virt );
++
++error_map:
++	release_resource( mtd_res );
++
++error:
++	return ret;
++}
++
++static void __exit ccm2200_mtd_cleanup( void )
++{
++
++	del_mtd_partitions( mtd_info );
++
++	if ( parsed_parts )
++		kfree( parsed_parts );
++
++	iounmap( ccm2200_map.virt );
++
++	release_resource( mtd_res );
++
++	parsed_parts = NULL;
++}
++
++module_init( ccm2200_mtd_init );
++module_exit( ccm2200_mtd_cleanup );
++
++MODULE_AUTHOR( "Guido Classen <guido.classen@swarco.de>" );
++MODULE_DESCRIPTION( "CCM2200 NOR flash mapping driver" );
++MODULE_LICENSE( "GPL" );
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/mtd/maps/ccm2200-sram.c linux-3.4.17-ccm2200/drivers/mtd/maps/ccm2200-sram.c
+--- linux-3.4.17/drivers/mtd/maps/ccm2200-sram.c	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/mtd/maps/ccm2200-sram.c	2012-11-09 17:06:50.000000000 +0100
+@@ -0,0 +1,205 @@
++/*
++ * linux/drivers/mtd/maps/ccm2200-sram.c
++ *
++ * Copyright (C) 2006 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      MTD mapping and access for non-volatile SRAM from CCM2200 board
++ *
++ * @references: [1] based on autcpu12-nvram.c by Thomas Gleixner
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2006-05-02 gc: initial version (based on autcpu12-nvram.c by Thomas
++ *                    Gleixner)
++ */
++
++#include <linux/module.h>
++#include <linux/types.h>
++#include <linux/kernel.h>
++#include <linux/ioport.h>
++#include <linux/init.h>
++
++#include <asm/io.h>
++#include <asm/sizes.h>
++#include <mach/hardware.h>
++
++#include <mach/at91-util.h>
++#include <mach/at91rm9200_smc.h>
++#include <mach/board-ccm2200.h>
++
++#include <linux/delay.h>		/* udelay */
++#include <linux/mtd/mtd.h>
++#include <linux/mtd/map.h>
++#include <linux/mtd/partitions.h>
++
++
++static struct mtd_info *sram_mtd;
++
++struct map_info ccm2200_sram_map = {
++	.name           = "sram-ccm2200",
++	.size           = CCM2200_SRAM_SIZE,
++	.bankwidth      = 4,    /* use 32bit access for more speed! */
++	.phys           = CCM2200_SRAM_PHYS,
++};
++
++//#define TEST_SRAM       1       /* test if SRAM timing is okay */
++
++#ifdef TEST_SRAM
++static void print(const char *str, void *addr)
++{
++  u32 *u32ptr = (u32*) addr;
++  u8 *u8ptr   = (u8*)  addr;
++  u16 *u16ptr = (u16*) addr;
++  printk("%s test read u32: %08x - ", str, *u32ptr);
++  printk("u16: %04x %04x - ", u16ptr[0], u16ptr[1]);
++  printk("u8: %02x %02x %02x %02x\n", 
++         u8ptr[0], u8ptr[1], u8ptr[2], u8ptr[3]);
++}
++
++static void test32(const char *str, void *addr)
++{
++  *(u32*)addr = 0x0badaffe;
++  printk("test32 ");
++  print(str, addr);
++}
++
++static void test16(const char *str, void *addr)
++{
++  u16 *u16ptr = (u16*) addr;
++  u16ptr[0] = 0xaffe;
++  u16ptr[1] = 0x0bad;
++  printk("test16 ");
++  print(str, addr);
++}
++
++
++static void test8(const char *str, void *addr)
++{
++  u8 *u8ptr = (u8*) addr;
++  u8ptr[0] = 0xfe;
++  u8ptr[1] = 0xaf;
++  u8ptr[2] = 0xad;
++  u8ptr[3] = 0x0b;
++  printk("test8  ");
++  print(str, addr);
++}
++#endif
++
++static int __init init_ccm2200_sram (void)
++{
++	int err;
++
++        /*
++         * Setup static memory controller chip select for SRAM
++         *
++         */
++        static const struct  at91rm9200_smc_config __initdata sram_cs_config = {
++                .wait_states          = 15, /* SRAM needs at least 3 wait states! */
++                .data_float_time      = 2,
++                .byte_access_type     = AT91RM9200_BAT_16_BIT,
++                .data_bus_width       = AT91RM9200_DATA_BUS_WIDTH_16,
++                .data_read_protocol   = AT91RM9200_DRP_EARLY, //AT91_DRP_STANDARD,
++                .address_to_cs_setup  = AT91RM9200_ACSS_STANDARD,
++                .rw_setup             = 2, /* SRAM needs 1 cycle rw_setup! */
++                .rw_hold              = 2  /* SRAM needs 1 cycle rw_hold! */
++        };
++
++        if ( at91rm9200_smc_configure( CCM2200_SRAM_CS, &sram_cs_config ) != 0 ) {
++	    printk( KERN_ERR 
++                    "Unable to configure SRAM chip select signal\n" );
++            return -EIO;
++	}
++
++	ccm2200_sram_map.virt = ioremap_nocache(CCM2200_SRAM_PHYS, 
++                                                CCM2200_SRAM_SIZE );
++	if (!ccm2200_sram_map.virt) {
++		printk("Failed to ioremap CCM2200 SRAM space\n");
++		err = -EIO;
++		goto out;
++	}
++
++#ifdef TEST_SRAM
++        /* SRAM timing test
++         * test output from correct running SRAM:
++test8  x test read u32: 0badaffe - u16: affe 0bad - u8: fe af ad 0b
++test16 x test read u32: 0badaffe - u16: affe 0bad - u8: fe af ad 0b
++test32 x test read u32: 0badaffe - u16: affe 0bad - u8: fe af ad 0b
++test8  sram std test read u32: 0badaffe - u16: affe 0bad - u8: fe af ad 0b
++test16 sram std test read u32: 0badaffe - u16: affe 0bad - u8: fe af ad 0b
++test32 sram std test read u32: 0badaffe - u16: affe 0bad - u8: fe af ad 0b
++
++         */
++        { 
++          u32 x;
++          test8("x", &x);
++          test16("x", &x);
++          test32("x", &x);
++          test8("sram std", ccm2200_sram_map.virt);
++          test16("sram std", ccm2200_sram_map.virt);
++          test32("sram std", ccm2200_sram_map.virt);
++        }
++#endif
++
++	simple_map_init(&ccm2200_sram_map);
++	sram_mtd = do_map_probe("map_ram", &ccm2200_sram_map);
++	if (!sram_mtd) {
++		printk("CCM22200 SRAM probe failed\n");
++		err = -ENXIO;
++		goto out_ioremap;
++	}
++
++	sram_mtd->owner = THIS_MODULE;
++	sram_mtd->erasesize = 16;
++	
++	if (add_mtd_device(sram_mtd)) {
++		printk("SRAM device addition failed\n");
++		err = -ENOMEM;
++		goto out_probe;
++	}
++
++	printk("SRAM device size %ldKiB registered on CCM2200\n",
++               ccm2200_sram_map.size/SZ_1K);
++		
++	return 0;
++
++out_probe:
++	map_destroy(sram_mtd);
++	sram_mtd = 0;
++
++out_ioremap:
++	iounmap((void *)ccm2200_sram_map.virt);
++out:
++	return err;
++}
++
++static void __exit cleanup_ccm2200_maps(void)
++{
++	if (sram_mtd) {
++		del_mtd_device(sram_mtd);
++		map_destroy(sram_mtd);
++		iounmap((void *)ccm2200_sram_map.virt);
++	}
++}
++
++module_init(init_ccm2200_sram);
++module_exit(cleanup_ccm2200_maps);
++
++MODULE_AUTHOR("Guido Classen");
++MODULE_DESCRIPTION("CCM2200 SRAM map driver");
++MODULE_LICENSE("GPL");
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/mtd/maps/Kconfig linux-3.4.17-ccm2200/drivers/mtd/maps/Kconfig
+--- linux-3.4.17/drivers/mtd/maps/Kconfig	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/mtd/maps/Kconfig	2012-11-09 17:06:50.000000000 +0100
+@@ -490,6 +490,21 @@
+ 
+ 	  This selection automatically selects the map_ram driver.
+ 
++config MTD_CCM2200_NOR
++	tristate "mapping for NOR Flash con CCM2200"
++	depends on MTD_CFI && MACH_CCM2200
++	help
++	  Map driver for the NOR Flash on 
++          SWARCO Traffic Systems CCM2200 board.
++
++config MTD_CCM2200_SRAM
++	tristate "mapping for battery backuped SRAM on CCM2200"
++	depends on MTD_CFI && MACH_CCM2200 
++	help
++	  Map driver for the battery backuped SRAM on 
++          SWARCO Traffic Systems CCM2200 board.
++
++
+ config MTD_VMU
+ 	tristate "Map driver for Dreamcast VMU"
+ 	depends on MAPLE
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/mtd/maps/Makefile linux-3.4.17-ccm2200/drivers/mtd/maps/Makefile
+--- linux-3.4.17/drivers/mtd/maps/Makefile	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/mtd/maps/Makefile	2012-11-09 17:06:50.000000000 +0100
+@@ -55,5 +55,7 @@
+ obj-$(CONFIG_MTD_RBTX4939)	+= rbtx4939-flash.o
+ obj-$(CONFIG_MTD_VMU)		+= vmu-flash.o
+ obj-$(CONFIG_MTD_GPIO_ADDR)	+= gpio-addr-flash.o
++obj-$(CONFIG_MTD_CCM2200_NOR)	+= ccm2200-nor.o
++obj-$(CONFIG_MTD_CCM2200_SRAM)	+= ccm2200-sram.o
+ obj-$(CONFIG_MTD_LATCH_ADDR)	+= latch-addr-flash.o
+ obj-$(CONFIG_MTD_LANTIQ)	+= lantiq-flash.o
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/mtd/maps/physmap.c linux-3.4.17-ccm2200/drivers/mtd/maps/physmap.c
+--- linux-3.4.17/drivers/mtd/maps/physmap.c	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/mtd/maps/physmap.c	2012-11-12 13:54:10.000000000 +0100
+@@ -260,6 +260,7 @@
+ 			platform_driver_unregister(&physmap_flash_driver);
+ 	}
+ #endif
++	printk("PHYSMAP initialized %d\n", err);
+ 
+ 	return err;
+ }
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/mtd/nand/Kconfig linux-3.4.17-ccm2200/drivers/mtd/nand/Kconfig
+--- linux-3.4.17/drivers/mtd/nand/Kconfig	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/mtd/nand/Kconfig	2012-11-09 17:06:50.000000000 +0100
+@@ -185,6 +185,12 @@
+ 	help
+ 	  This enables the NAND flash driver on the PPChameleon EVB Board.
+ 
++config MTD_NAND_CCM2200
++	tristate "NAND Chip on SWARCO Traffic Systems CCM2200"
++ 	depends on MTD_NAND
++	help
++	  This enables the driver for the internal NAND on the SWARCO Traffic Systems CCM 2200
++
+ config MTD_NAND_S3C2410
+ 	tristate "NAND Flash support for Samsung S3C SoCs"
+ 	depends on ARCH_S3C24XX || ARCH_S3C64XX
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/mtd/nand/Makefile linux-3.4.17-ccm2200/drivers/mtd/nand/Makefile
+--- linux-3.4.17/drivers/mtd/nand/Makefile	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/mtd/nand/Makefile	2012-11-09 17:06:50.000000000 +0100
+@@ -27,6 +27,7 @@
+ obj-$(CONFIG_MTD_NAND_NANDSIM)		+= nandsim.o
+ obj-$(CONFIG_MTD_NAND_CS553X)		+= cs553x_nand.o
+ obj-$(CONFIG_MTD_NAND_NDFC)		+= ndfc.o
++obj-$(CONFIG_MTD_NAND_CCM2200)		+= nand_ccm2200.o
+ obj-$(CONFIG_MTD_NAND_ATMEL)		+= atmel_nand.o
+ obj-$(CONFIG_MTD_NAND_GPIO)		+= gpio.o
+ obj-$(CONFIG_MTD_NAND_OMAP2) 		+= omap2.o
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/mtd/nand/nand_ccm2200.c linux-3.4.17-ccm2200/drivers/mtd/nand/nand_ccm2200.c
+--- linux-3.4.17/drivers/mtd/nand/nand_ccm2200.c	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/mtd/nand/nand_ccm2200.c	2012-11-09 17:06:50.000000000 +0100
+@@ -0,0 +1,277 @@
++#if 0
++/***********************************************************************
++ *
++ * linux/drivers/mtd/nand/nand_ccm2200.c
++ *
++ * Copyright (C) 2006 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      NAND flash driver for CCM2200
++ * @references: [1] u-boot-1.1.0/include/ns9750_nand.h
++ *              [2] spia.c
++ *              [3] nand.c
++ *              [4] nand_a9m9750.c
++ *
++ * This program is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU General Public License as
++ * published by the Free Software Foundation; either version 2 of
++ * the License, or (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston,
++ * MA 02111-1307 USA
++ *
++ *
++ *  @par Modification History:
++ *     2006-04-24 gc: initial version (taken from nand_a9m9750.c)
++ ***********************************************************************/
++
++#include <linux/init.h>		/* __init */
++#include <linux/slab.h>		/* kfree */
++#include <linux/module.h>	/* module_init */
++#include <linux/mtd/mtd.h>	/* add_mtd_device */
++#include <linux/mtd/nand.h>	/* NAND_CMD_*  */
++#include <linux/mtd/partitions.h> /* parse_mtd_partitions */
++
++#include <linux/random.h>
++
++#include <asm/io.h>		/* ioremap */
++#include <asm/sizes.h>		/* SZ_ */
++#include <asm/delay.h>		/* udelay */
++#include <mach/hardware.h>  /* AT91_SYS */
++#include <mach/at91rm9200_smc.h>
++#include <mach/board-ccm2200.h>
++
++#include <mach/at91_pio.h>
++#include <mach/at91rm9200_mc.h>
++
++static struct mtd_info* ccm2200_mtd = NULL;
++
++
++#define NAND_FLASH_DAT	(0x0000) /* Data Read/Write */
++#define NAND_FLASH_ADR	(0x2000) /* Adr Write */
++#define NAND_FLASH_CMD	(0x4000) /* Cmd Write */
++
++#define NAND_IO_ADDR(x)  ((x)->IO_ADDR_W+NAND_FLASH_DAT)
++#define NAND_CMD_ADDR(x) ((x)->IO_ADDR_W+NAND_FLASH_CMD)
++#define NAND_ADR_ADDR(x) ((x)->IO_ADDR_W+NAND_FLASH_ADR)
++
++#ifdef CONFIG_MTD_PARTITIONS
++/*
++ * Define static partitions for flash device
++ */
++static struct mtd_partition partition_info[] = {
++        /*
++         * {
++         *         .name   = "nand-u-boot",
++         *         .size   = 256*1024,
++         *         .offset = 0,
++         *         .mask_flags     = MTD_WRITEABLE,  /\* force read-only *\/
++         * },
++         */
++/* 
++ *         {
++ *                 .name   = "nand-kernel",
++ * //                .size   = (3*1024*1024)-(256*1024),
++ * //                .offset = 256*1024,
++ *                 .size   = (3*1024*1024),
++ *                 .offset = 0,
++ *         },
++ *         {
++ *                 .name   = "nand-rootfs",
++ *                 .offset = 3*1024*1024,
++ *                 .size   = MTDPART_SIZ_FULL,
++ *         },
++ */
++        {
++                .name   = "nand-all", /* for Memory Validation Test */
++                .offset = 0,
++                .size   = MTDPART_SIZ_FULL,
++        }
++};
++
++static const char* probes[] = { "cmdlinepart", NULL };
++# define NUM_PARTITIONS (sizeof(partition_info) / sizeof(partition_info[0]))
++#endif /* CONFIG_MTD_PARTITIONS */
++
++static void ccm2200_nand_cmd_ctrl(struct mtd_info *mtd, int cmd,
++				   unsigned int ctrl)
++
++{
++	register struct nand_chip *this = mtd->priv;
++
++	if (cmd != NAND_CMD_NONE) {
++
++		/* 2010-08-27 gc: for testing: generate /dev/random
++		 * entropy event 
++		 */
++		add_interrupt_randomness(1);	
++
++		writeb(cmd, (unsigned long)this->IO_ADDR_W
++		       | (ctrl & NAND_CLE ? NAND_FLASH_CMD : 0)
++		       | (ctrl & NAND_ALE ? NAND_FLASH_ADR : 0) );
++	}
++}
++
++
++/*
++ *	read device NAND Ready/_Busy signal using gpio pin
++ */
++static int ccm2200_nand_device_ready(struct mtd_info *minfo)
++{
++	//return ((AT91_SYS->PIOA_PDSR & AT91C_PIO_PA19) != 0) ? 1 : 0;
++	return ((at91_sys_read(AT91_PIOA + PIO_PDSR) & (1<<19)) != 0) ? 1 : 0;
++}
++
++static int __init ccm2200_nand_init( void )
++{
++	struct nand_chip* this;
++	int mtd_parts_nb = 0;
++	struct mtd_partition *mtd_parts = 0;
++	const char *part_type = 0;
++	void __iomem *nand_virt_base;
++        
++        /*
++         * Setup static memory controller chip select for NAND Flash
++         *
++         */
++        static const struct at91rm9200_smc_config __initdata nand_cs_config = {
++                .wait_states          = 5,
++                .data_float_time      = 2,
++                .byte_access_type     = AT91RM9200_BAT_8_BIT,
++                .data_bus_width       = AT91RM9200_DATA_BUS_WIDTH_8,
++                .data_read_protocol   = AT91RM9200_DRP_STANDARD,
++                .address_to_cs_setup  = AT91RM9200_ACSS_STANDARD,
++                .rw_setup             = 1,
++                .rw_hold              = 1
++        };
++        printk ( KERN_INFO "CCM2200 NAND driver\n" );
++        /* let u-boot do static memory controller initialization */
++        if ( at91rm9200_smc_configure( CCM2200_NAND_FLASH_CS, 
++				       &nand_cs_config ) != 0 )
++	{
++	    printk( KERN_ERR 
++                    "Unable to configure NAND flash chip select signal\n" );
++            return -EIO;
++	}
++
++	/* Allocate memory for MTD device structure and private data */
++	ccm2200_mtd = kmalloc( sizeof(struct mtd_info)+sizeof(struct nand_chip),
++			       GFP_KERNEL );
++	if ( !ccm2200_mtd ) {
++		printk( "Unable to allocate CCM2200 MTD device structure.\n" );
++		return -ENOMEM;
++	}
++
++	nand_virt_base = ioremap_nocache( CCM2200_NAND_FLASH_PHYS, 
++                                          CCM2200_NAND_FLASH_SIZE );
++	if ( !nand_virt_base ) {
++		printk( "ioremap CCM2200 NAND flash failed\n" );
++		kfree( ccm2200_mtd );
++		return -EIO;
++	}
++	printk("NAND Flash memory mapped to virtual %p\n", nand_virt_base);
++
++	/* Get pointer to private data */
++	this = (struct nand_chip *) ( &ccm2200_mtd[ 1 ] );
++
++	/* Initialize structures */
++	memset((char *) ccm2200_mtd, 0, sizeof( struct mtd_info ) );
++	memset((char *) this, 0, sizeof( struct nand_chip ) );
++
++	ccm2200_mtd->name = "CCM2200";
++
++	/* Link the private data with the MTD structure */
++	ccm2200_mtd->priv = this;
++
++	/* Set address of NAND IO lines */
++	this->IO_ADDR_R = nand_virt_base;
++	this->IO_ADDR_W = nand_virt_base;
++	/* Set address of hardware control function */
++	this->cmd_ctrl = ccm2200_nand_cmd_ctrl;
++	this->dev_ready = ccm2200_nand_device_ready;
++
++	/* 15 us command delay time */
++	this->chip_delay = 15;
++	this->ecc.mode = NAND_ECC_SOFT;
++
++        /* 2006-09-27 gc: do we need this? */
++	//this->options = NAND_SAMSUNG_LP_OPTIONS; 
++
++
++	/* Scan to find existence of the device */
++	if ( nand_scan( ccm2200_mtd, 1 ) ) {
++                printk ( "CCM2200 NAND chip not found!\n" );
++		kfree( ccm2200_mtd );
++		return -ENXIO;
++	}
++
++	/* Allocate memory for internal data buffer */
++/* 	this->data_buf = kmalloc(sizeof(u_char)*(ccm2200_mtd->oobblock+ */
++/* 						 ccm2200_mtd->oobsize), */
++/* 				 GFP_KERNEL); */
++/* 	if ( !this->data_buf ) { */
++/* 		printk ( "Unable to allocate NAND data buffer for CCM2200.\n" ); */
++/* 		iounmap(  (void*) nand_virt_base ); */
++/* 		kfree( ccm2200_mtd ); */
++/* 		return -ENOMEM; */
++/* 	} */
++
++#ifdef CONFIG_MTD_CMDLINE_PARTS
++	mtd_parts_nb = parse_mtd_partitions( ccm2200_mtd, probes, &mtd_parts, 0);
++	if (mtd_parts_nb > 0)
++		part_type = "command line";
++	else
++		mtd_parts_nb = 0;
++#endif
++	if (mtd_parts_nb == 0)
++	{
++		mtd_parts = partition_info;
++		mtd_parts_nb = NUM_PARTITIONS;
++		part_type = "static";
++	}
++
++	/* Register the partitions */
++	printk(KERN_NOTICE "Using %s partition definition\n", part_type);
++	add_mtd_partitions( ccm2200_mtd, mtd_parts, mtd_parts_nb);
++
++	/* 2010-08-27 gc: for testing: generate /dev/random
++	 * entropy event 
++	 */
++	rand_initialize_irq(1);
++
++	/* Return happy */
++	return 0;
++}
++device_initcall( ccm2200_nand_init );
++
++static void __exit ccm2200_cleanup( void )
++{
++	//struct nand_chip *this = (struct nand_chip *) &ccm2200_mtd[1];
++
++	iounmap( (void*) ((struct nand_chip*)ccm2200_mtd[1].priv)->IO_ADDR_R );
++
++	/* Unregister the device */
++	del_mtd_device( ccm2200_mtd );
++
++	/* Free internal data buffer */
++/* 	kfree( this->data_buf ); */
++
++	/* Free the MTD device structure */
++	kfree( ccm2200_mtd );
++}
++module_exit( ccm2200_cleanup );
++
++MODULE_LICENSE( "GPL" );
++MODULE_AUTHOR( "Guido Classen <guido.classen@swarco.de" );
++MODULE_DESCRIPTION( "Board-specific glue layer for NAND flash on CCM2200 board");
++
++#endif
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/tty/serial/8250/8250.c linux-3.4.17-ccm2200/drivers/tty/serial/8250/8250.c
+--- linux-3.4.17/drivers/tty/serial/8250/8250.c	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/tty/serial/8250/8250.c	2012-11-13 12:24:36.000000000 +0100
+@@ -41,6 +41,9 @@
+ #ifdef CONFIG_SPARC
+ #include <linux/sunserialcore.h>
+ #endif
++#ifdef CONFIG_MACH_CCM2200
++#include <mach/board-ccm2200.h>
++#endif
+ 
+ #include <asm/io.h>
+ #include <asm/irq.h>
+@@ -1367,9 +1370,13 @@
+ 	char flag;
+ 
+ 	do {
+-		if (likely(lsr & UART_LSR_DR))
++		if (likely(lsr & UART_LSR_DR)) {
+ 			ch = serial_in(up, UART_RX);
+-		else
++#ifdef CONFIG_MACH_CCM2200
++			ccm2200_board_serial_trigger_led(&up->port.ccm2200_serial->rxLed);
++#endif
++
++		} else
+ 			/*
+ 			 * Intel 82571 has a Serial Over Lan device that will
+ 			 * set UART_LSR_BI without setting UART_LSR_DR when
+@@ -1449,6 +1456,11 @@
+ 	int count;
+ 
+ 	if (port->x_char) {
++#ifdef CONFIG_MACH_CCM2200
++                ccm2200_board_serial_trigger_led(&up->port.ccm2200_serial->txLed);
++		ccm2200_board_serial_rs485_tx(&up->port);
++#endif
++
+ 		serial_out(up, UART_TX, port->x_char);
+ 		port->icount.tx++;
+ 		port->x_char = 0;
+@@ -1464,6 +1476,10 @@
+ 	}
+ 
+ 	count = up->tx_loadsz;
++#ifdef CONFIG_MACH_CCM2200
++        ccm2200_board_serial_trigger_led(&up->port.ccm2200_serial->txLed);
++	ccm2200_board_serial_rs485_tx(&up->port);
++#endif
+ 	do {
+ 		serial_out(up, UART_TX, xmit->buf[xmit->tail]);
+ 		xmit->tail = (xmit->tail + 1) & (UART_XMIT_SIZE - 1);
+@@ -1908,6 +1924,10 @@
+ 	 *	Send the character out.
+ 	 *	If a LF, also do CR...
+ 	 */
++#ifdef CONFIG_MACH_CCM2200
++        ccm2200_board_serial_trigger_led(&up->port.ccm2200_serial->txLed);
++	ccm2200_board_serial_rs485_tx(&up->port);
++#endif
+ 	serial_port_out(port, UART_TX, c);
+ 	if (c == 10) {
+ 		wait_for_xmitr(up, BOTH_EMPTY);
+@@ -2682,6 +2702,10 @@
+ };
+ 
+ static struct uart_8250_port serial8250_ports[UART_NR];
++#ifdef CONFIG_MACH_CCM2200
++static struct ccm2200_board_serial ccm2200_board_serial[UART_NR];
++#endif
++
+ 
+ static void (*serial8250_isa_config)(int port, struct uart_port *up,
+ 	unsigned short *capabilities);
+@@ -2720,6 +2744,9 @@
+ 		up->mcr_force = ALPHA_KLUDGE_MCR;
+ 
+ 		port->ops = &serial8250_pops;
++#ifdef CONFIG_MACH_CCM2200
++                ccm2200_board_serial_init(&up->port, &ccm2200_board_serial[i]);
++#endif
+ 	}
+ 
+ 	if (share_irqs)
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/tty/serial/atmel_serial.c linux-3.4.17-ccm2200/drivers/tty/serial/atmel_serial.c
+--- linux-3.4.17/drivers/tty/serial/atmel_serial.c	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/tty/serial/atmel_serial.c	2012-11-13 12:17:13.000000000 +0100
+@@ -45,6 +45,9 @@
+ 
+ #include <asm/mach/serial_at91.h>
+ #include <mach/board.h>
++#ifdef CONFIG_MACH_CCM2200
++#include <mach/board-ccm2200.h>
++#endif
+ 
+ #ifdef CONFIG_ARM
+ #include <mach/cpu.h>
+@@ -159,6 +162,9 @@
+ };
+ 
+ static struct atmel_uart_port atmel_ports[ATMEL_MAX_UART];
++#ifdef CONFIG_MACH_CCM2200
++static struct ccm2200_board_serial ccm2200_board_serial[ATMEL_MAX_UART];
++#endif
+ static unsigned long atmel_ports_in_use;
+ 
+ #ifdef SUPPORT_SYSRQ
+@@ -495,6 +501,9 @@
+ 	status = UART_GET_CSR(port);
+ 	while (status & ATMEL_US_RXRDY) {
+ 		ch = UART_GET_CHAR(port);
++#ifdef CONFIG_MACH_CCM2200
++                ccm2200_board_serial_trigger_led(&port->ccm2200_serial->rxLed);
++#endif
+ 
+ 		/*
+ 		 * note that the error handling code is
+@@ -542,6 +551,10 @@
+ 	struct atmel_uart_port *atmel_port = to_atmel_uart_port(port);
+ 
+ 	if (port->x_char && UART_GET_CSR(port) & atmel_port->tx_done_mask) {
++#ifdef CONFIG_MACH_CCM2200
++                ccm2200_board_serial_trigger_led(&port->ccm2200_serial->txLed);
++		ccm2200_board_serial_rs485_tx(port);
++#endif
+ 		UART_PUT_CHAR(port, port->x_char);
+ 		port->icount.tx++;
+ 		port->x_char = 0;
+@@ -549,6 +562,13 @@
+ 	if (uart_circ_empty(xmit) || uart_tx_stopped(port))
+ 		return;
+ 
++#ifdef CONFIG_MACH_CCM2200
++        if (UART_GET_CSR(port) & ATMEL_US_TXRDY) {
++                 ccm2200_board_serial_trigger_led(&port->ccm2200_serial->txLed);
++		 ccm2200_board_serial_rs485_tx(port);
++
++        }
++#endif
+ 	while (UART_GET_CSR(port) & atmel_port->tx_done_mask) {
+ 		UART_PUT_CHAR(port, xmit->buf[xmit->tail]);
+ 		xmit->tail = (xmit->tail + 1) & (UART_XMIT_SIZE - 1);
+@@ -1429,6 +1449,15 @@
+ 	u32 rs485_delay[2];
+ 
+ 	/* DMA/PDC usage specification */
++#ifdef CONFIG_MACH_CCM2200
++        /* 
++	 *     @todo 2007-06-05 gc: 	
++	 *     PDC DMA transmit / receives not supported by CCM2200
++	 *     board specific serial handling
++	 */
++	atmel_port->use_dma_rx = false;
++	atmel_port->use_dma_tx = false;
++#else
+ 	if (of_get_property(np, "atmel,use-dma-rx", NULL))
+ 		atmel_port->use_dma_rx	= 1;
+ 	else
+@@ -1437,6 +1466,7 @@
+ 		atmel_port->use_dma_tx	= 1;
+ 	else
+ 		atmel_port->use_dma_tx	= 0;
++#endif
+ 
+ 	/* rs485 properties */
+ 	if (of_property_read_u32_array(np, "rs485-rts-delay",
+@@ -1511,6 +1541,9 @@
+ 	} else {
+ 		atmel_port->tx_done_mask = ATMEL_US_TXRDY;
+ 	}
++#ifdef CONFIG_MACH_CCM2200
++	ccm2200_board_serial_init(port, &ccm2200_board_serial[pdev->id]);
++#endif
+ }
+ 
+ /*
+@@ -1526,7 +1559,10 @@
+ 		atmel_pops.set_mctrl = fns->set_mctrl;
+ 	atmel_open_hook		= fns->open;
+ 	atmel_close_hook	= fns->close;
++	/* 2010-06-09 gc: check if function pointers are not NULL */
++	if (fns->pm)
+ 	atmel_pops.pm		= fns->pm;
++	if (fns->set_wake)
+ 	atmel_pops.set_wake	= fns->set_wake;
+ }
+ 
+@@ -1537,6 +1573,13 @@
+ {
+ 	while (!(UART_GET_CSR(port) & ATMEL_US_TXRDY))
+ 		cpu_relax();
++#ifdef CONFIG_MACH_CCM2200
++	if (port->ccm2200_serial) {
++                  ccm2200_board_serial_trigger_led(&port->ccm2200_serial->txLed);
++		  ccm2200_board_serial_rs485_tx(port);
++	}
++#endif
++
+ 	UART_PUT_CHAR(port, ch);
+ }
+ 
+@@ -1857,6 +1900,10 @@
+ 	struct atmel_uart_port *atmel_port = to_atmel_uart_port(port);
+ 	int ret = 0;
+ 
++#ifdef CONFIG_MACH_CCM2200
++	ccm2200_board_serial_remove(port);
++#endif
++
+ 	device_init_wakeup(&pdev->dev, 0);
+ 	platform_set_drvdata(pdev, NULL);
+ 
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/tty/serial/serial_core.c linux-3.4.17-ccm2200/drivers/tty/serial/serial_core.c
+--- linux-3.4.17/drivers/tty/serial/serial_core.c	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/tty/serial/serial_core.c	2012-11-09 17:06:50.000000000 +0100
+@@ -1170,6 +1170,14 @@
+ 
+ 	default: {
+ 		struct uart_port *uport = state->uart_port;
++#ifdef CONFIG_MACH_CCM2200
++		int ccm2200_board_serial_ioctl(struct uart_port *port, 
++					       unsigned int cmd, 
++					       unsigned long arg);
++		ret = ccm2200_board_serial_ioctl(uport, cmd, arg);
++		if (ret == -ENOIOCTLCMD) 
++#endif
++
+ 		if (uport->ops->ioctl)
+ 			ret = uport->ops->ioctl(uport, cmd, arg);
+ 		break;
+@@ -2082,6 +2090,10 @@
+ 		 * We probably don't need a spinlock around this, but
+ 		 */
+ 		spin_lock_irqsave(&port->lock, flags);
++                /* 2006-05-04 gc: bugfix, don't deactivate modem control lines
++                 *                from serial console!
++                 */
++		if (!uart_console(port))
+ 		port->ops->set_mctrl(port, port->mctrl & TIOCM_DTR);
+ 		spin_unlock_irqrestore(&port->lock, flags);
+ 
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/usb/gadget/at91_udc.c linux-3.4.17-ccm2200/drivers/usb/gadget/at91_udc.c
+--- linux-3.4.17/drivers/usb/gadget/at91_udc.c	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/usb/gadget/at91_udc.c	2012-11-12 18:19:26.000000000 +0100
+@@ -44,6 +44,8 @@
+ #include <mach/at91_matrix.h>
+ 
+ #include "at91_udc.h"
++#undef DBG
++#define DBG(stuff...)		printk("udc: " stuff)
+ 
+ 
+ /*
+@@ -1774,7 +1776,7 @@
+ 
+ 	/* rm9200 needs manual D+ pullup; off by default */
+ 	if (cpu_is_at91rm9200()) {
+-		if (gpio_is_valid(udc->board.pullup_pin)) {
++		if (!gpio_is_valid(udc->board.pullup_pin)) {
+ 			DBG("no D+ pullup?\n");
+ 			retval = -ENODEV;
+ 			goto fail0;
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/watchdog/ccm2200_watchdog.c linux-3.4.17-ccm2200/drivers/watchdog/ccm2200_watchdog.c
+--- linux-3.4.17/drivers/watchdog/ccm2200_watchdog.c	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/watchdog/ccm2200_watchdog.c	2012-11-12 15:51:20.000000000 +0100
+@@ -0,0 +1,300 @@
++/*
++ *	SWARCO CCM2200 Single Board Computer Watchdog Timer driver
++ *
++ *	Based on wdt.c. Original copyright messages:
++ *
++ *	(c) Copyright 1996 Alan Cox <alan@lxorguk.ukuu.org.uk>,
++ *						All Rights Reserved.
++ *
++ * Copyright (C) 2007 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      Trigger CCM2200 board specific watchdog chip MAX6751.
++ *              This watchdog is started direct after rest and has a timeout
++ *              period of 64 seconds. The application can reduce the watchdog
++ *              timeout period to 0.5 second.
++ *
++ *              The AT91RM9200 internal watchdog can be used together
++ *              with this driver to get shorter watchdog periods using
++ *              the at91_wdt.c driver.
++ * @references:
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2011-01-13 gc: adopted to platform_driver framework from linux-2.6.37
++ *     2007-02-01 gc: initial version
++ */
++
++#include <linux/module.h>
++#include <linux/moduleparam.h>
++#include <linux/types.h>
++#include <linux/errno.h>
++#include <linux/kernel.h>
++#include <linux/miscdevice.h>
++
++#include <linux/watchdog.h>
++#include <linux/fs.h>
++#include <linux/ioport.h>
++#include <linux/platform_device.h>
++#include <linux/init.h>
++#include <linux/uaccess.h>
++#include <linux/io.h>
++#include <mach/at91-util.h>
++#include <mach/board-ccm2200.h>
++#include <linux/ccm2200_gpio.h>
++
++/* Module information */
++#define DRV_NAME "ccm2200_wdt"
++#define PFX DRV_NAME ": "
++#define WATCHDOG_NAME "CCM2200 WDT"
++
++/* internal variables */
++/* the watchdog platform device */
++static struct platform_device *ccm2200_wdt_platform_device;
++static unsigned long ccm2200_wdt_is_open;
++#define WDT_DEFAULT_TIME 64	/* 64 seconds */
++static int ccm2200_wdt_time = WDT_DEFAULT_TIME;
++static u32 ccm2200_watchdog_led = 0;
++
++
++/*
++ *	Watchdog Operations
++ */
++
++/*************************************************************************
++ *  hw_watchdog_reset
++ *
++ *	This routine is called to reset (keep alive) the watchdog timer
++ *
++ ************************************************************************/
++
++static struct at91_pio_pins watchdog_trigger = {
++	AT91_PIO_BASE(AT91_PIOA), 1<<21
++};
++
++static struct at91_pio_pins watchdog_speed = {
++	AT91_PIO_BASE(AT91_PIOA), 1<<29
++};
++
++static void ccm2200_wdt_keepalive(void)
++{
++
++	static unsigned long last_reset = 0;
++	static unsigned led = 0;
++
++	/* do reset only once all 500msec */
++	if ((unsigned long) (jiffies - last_reset)
++	    > (unsigned long) (HZ / 2)) {
++
++		/* assert reset signal to external watchdog */
++		at91_pio_clear_all_pins(&watchdog_trigger);
++		//udelay(1);
++		at91_pio_set_all_pins(&watchdog_trigger);
++		/* blink with LED to indicate the running watchdog */
++		led ^= ccm2200_watchdog_led;
++		ccm2200_set_frontpanel_leds(led, ccm2200_watchdog_led);
++		last_reset = jiffies;
++	}
++}
++
++/*
++ *	/dev/watchdog handling
++ */
++
++static ssize_t ccm2200_wdt_write(struct file *file, const char __user *buf,
++						size_t count, loff_t *ppos)
++{
++	if (count) {
++		ccm2200_wdt_keepalive();
++	}
++	return count;
++}
++
++static long ccm2200_wdt_ioctl(struct file *file, unsigned int cmd,
++			      unsigned long arg)
++{
++	void __user *argp = (void __user *)arg;
++	int __user *p = argp;
++	unsigned int new_value;
++
++	static const struct watchdog_info info = {
++		identity: "CCM2200 MAX6751 watchdog",
++		options:  WDIOF_SETTIMEOUT | WDIOF_KEEPALIVEPING,
++	};
++
++	switch (cmd) {
++	case WDIOC_KEEPALIVE:
++		ccm2200_wdt_keepalive();
++		return 0;
++
++	case WDIOC_GETSUPPORT:
++		return copy_to_user(argp, &info, sizeof(info));
++
++	case WDIOC_SETTIMEOUT:
++		if (get_user(new_value, p))
++			return -EFAULT;
++		if ((new_value <= 0) || (new_value > WDT_DEFAULT_TIME))
++			return -EINVAL;
++
++		if (new_value <= 1) {
++			at91_pio_clear_all_pins(&watchdog_speed);
++			ccm2200_wdt_time = 0;
++		} else {
++			at91_pio_set_all_pins(&watchdog_speed);
++			ccm2200_wdt_time = WDT_DEFAULT_TIME;
++		}
++		/* Return current value */
++		return put_user(ccm2200_wdt_time, p);
++
++	case WDIOC_GETTIMEOUT:
++		return put_user(ccm2200_wdt_time, p);
++
++	case WDIOC_GETSTATUS:
++	case WDIOC_GETBOOTSTATUS:
++		return put_user(0, p);
++
++	case CCM2200_WDIOC_SETLED:
++		if (get_user(new_value, (int *)arg))
++			return -EFAULT;
++		ccm2200_watchdog_led = new_value;
++		return 0;
++		/* case WDIOC_SETOPTIONS: */
++
++	default:
++		return -ENOIOCTLCMD;
++	}
++}
++
++static int ccm2200_wdt_open(struct inode *inode, struct file *file)
++{
++	if (test_and_set_bit(0, &ccm2200_wdt_is_open))
++		return -EBUSY;
++
++	/* Activate */
++	ccm2200_wdt_keepalive();
++
++	return nonseekable_open(inode, file);
++}
++
++static int ccm2200_wdt_close(struct inode *inode, struct file *file)
++{
++	clear_bit(0, &ccm2200_wdt_is_open);
++	return 0;
++}
++
++/*
++ *	Kernel Interfaces
++ */
++
++static const struct file_operations ccm2200_wdt_fops = {
++	.owner		= THIS_MODULE,
++	.llseek		= no_llseek,
++	.write		= ccm2200_wdt_write,
++	.unlocked_ioctl	= ccm2200_wdt_ioctl,
++	.open		= ccm2200_wdt_open,
++	.release	= ccm2200_wdt_close,
++};
++
++static struct miscdevice ccm2200_wdt_miscdev = {
++	.minor	= WATCHDOG_MINOR+1,
++	.name	= "ccm2200_watchdog",
++	.fops	= &ccm2200_wdt_fops,
++};
++
++/*
++ *	Init & exit routines
++ */
++
++static int __devinit ccm2200_wdt_probe(struct platform_device *dev)
++{
++	int ret;
++
++	ret = misc_register(&ccm2200_wdt_miscdev);
++	if (ret != 0) {
++		printk(KERN_ERR PFX
++			"cannot register miscdev on minor=%d (err=%d)\n",
++							WATCHDOG_MINOR, ret);
++		return 0;
++	}
++	return ret;
++}
++
++static int __devexit ccm2200_wdt_remove(struct platform_device *dev)
++{
++	misc_deregister(&ccm2200_wdt_miscdev);
++	return 0;
++}
++
++static void ccm2200_wdt_shutdown(struct platform_device *dev)
++{
++	/* we can not turn of our watchdog after it is once started... */;
++}
++
++static struct platform_driver ccm2200_wdt_driver = {
++	.probe		= ccm2200_wdt_probe,
++	.remove		= __devexit_p(ccm2200_wdt_remove),
++	.shutdown	= ccm2200_wdt_shutdown,
++	.driver		= {
++		.owner	= THIS_MODULE,
++		.name	= DRV_NAME,
++	},
++};
++
++static int __init ccm2200_wdt_init(void)
++{
++	int err;
++
++	err = platform_driver_register(&ccm2200_wdt_driver);
++	if (err)
++		return err;
++
++	ccm2200_wdt_platform_device = platform_device_register_simple(DRV_NAME,
++								-1, NULL, 0);
++	if (IS_ERR(ccm2200_wdt_platform_device)) {
++		err = PTR_ERR(ccm2200_wdt_platform_device);
++		goto unreg_platform_driver;
++	}
++
++	at91_pio_set_all_pins(&watchdog_trigger);
++	at91_pio_config_output_pins(&watchdog_trigger);
++	at91_pio_set_all_pins(&watchdog_speed);
++	at91_pio_config_output_pins(&watchdog_speed);
++	printk(KERN_INFO "CCM2200 Watchdog Timer enabled (%d seconds)\n",
++	       WDT_DEFAULT_TIME);
++
++	return 0;
++
++unreg_platform_driver:
++	platform_driver_unregister(&ccm2200_wdt_driver);
++	return err;
++}
++
++static void __exit ccm2200_wdt_exit(void)
++{
++	platform_device_unregister(ccm2200_wdt_platform_device);
++	platform_driver_unregister(&ccm2200_wdt_driver);
++	printk(KERN_INFO PFX "Watchdog Module Unloaded.\n");
++}
++
++module_init(ccm2200_wdt_init);
++module_exit(ccm2200_wdt_exit);
++
++MODULE_AUTHOR("Guido Classen");
++MODULE_DESCRIPTION("Driver for CCM2200 board Watchdog (MAX6751 Chip)");
++MODULE_ALIAS_MISCDEV(WATCHDOG_MINOR);
++MODULE_LICENSE("GPL");
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/watchdog/Kconfig linux-3.4.17-ccm2200/drivers/watchdog/Kconfig
+--- linux-3.4.17/drivers/watchdog/Kconfig	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/watchdog/Kconfig	2012-11-09 17:06:50.000000000 +0100
+@@ -98,6 +98,15 @@
+ 	  Watchdog timer embedded into AT91RM9200 chips. This will reboot your
+ 	  system when the timeout is reached.
+ 
++config CCM2200_WATCHDOG
++	tristate "CCM2200 board watchdog support"
++	depends on WATCHDOG && MACH_CCM2200
++	help
++	  Watchdog driver for CCM2200 board (MAX6751 Chip). This will
++          reboot your system when the timeout is reached.
++	  
++
++
+ config AT91SAM9X_WATCHDOG
+ 	tristate "AT91SAM9X / AT91CAP9 watchdog"
+ 	depends on ARCH_AT91 && !ARCH_AT91RM9200
+diff -Nrub '--exclude=*~' linux-3.4.17/drivers/watchdog/Makefile linux-3.4.17-ccm2200/drivers/watchdog/Makefile
+--- linux-3.4.17/drivers/watchdog/Makefile	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/drivers/watchdog/Makefile	2012-11-09 17:06:50.000000000 +0100
+@@ -45,6 +45,7 @@
+ obj-$(CONFIG_MPCORE_WATCHDOG) += mpcore_wdt.o
+ obj-$(CONFIG_EP93XX_WATCHDOG) += ep93xx_wdt.o
+ obj-$(CONFIG_PNX4008_WATCHDOG) += pnx4008_wdt.o
++obj-$(CONFIG_CCM2200_WATCHDOG) += ccm2200_watchdog.o
+ obj-$(CONFIG_IOP_WATCHDOG) += iop_wdt.o
+ obj-$(CONFIG_DAVINCI_WATCHDOG) += davinci_wdt.o
+ obj-$(CONFIG_ORION_WATCHDOG) += orion_wdt.o
+diff -Nrub '--exclude=*~' linux-3.4.17/include/linux/ccm2200_gpio.h linux-3.4.17-ccm2200/include/linux/ccm2200_gpio.h
+--- linux-3.4.17/include/linux/ccm2200_gpio.h	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/include/linux/ccm2200_gpio.h	2012-11-09 17:06:50.000000000 +0100
+@@ -0,0 +1,59 @@
++/*
++ * linux/include/linux/ccm2200_gpio.h
++ *
++ * Copyright (C) 2006 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      Userspace access to CCM2200 digital in-/output lines
++ *              and indicator LEDs
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2006-05-04 gc: initial version (partly derived from ite_gpio.h
++ *                    written by Hai-Pao Fan <haipao@mvista.com>)
++ */
++
++#ifndef __CCM2200_GPIO_H
++#define __CCM2200_GPIO_H
++
++#include <linux/ioctl.h>
++
++struct ccm2200_gpio_ioctl_data {
++	__u32 device;
++	__u32 mask;
++	__u32 data;
++};
++
++#define CCM2200_GPIO_IOCTL_BASE	'g'
++
++#define CCM2200_GPIO_IN		_IOWR(CCM2200_GPIO_IOCTL_BASE, 0, struct ccm2200_gpio_ioctl_data)
++#define CCM2200_GPIO_OUT	_IOW (CCM2200_GPIO_IOCTL_BASE, 1, struct ccm2200_gpio_ioctl_data)
++#define CCM2200_GPIO_SET	_IOW (CCM2200_GPIO_IOCTL_BASE, 2, struct ccm2200_gpio_ioctl_data)
++#define CCM2200_GPIO_CLEAR	_IOW (CCM2200_GPIO_IOCTL_BASE, 3, struct ccm2200_gpio_ioctl_data)
++
++#define	CCM2200_GPIO_INPUT	0x01
++#define	CCM2200_GPIO_OUTPUT	0x02
++#define	CCM2200_GPIO_LED	0x03
++#define	CCM2200_GPIO_SCONF	0x04
++
++
++/* Watchdog LED ioctl */
++#define	CCM2200_WATCHDOG_IOCTL_BASE	'W'
++#define	CCM2200_WDIOC_SETLED    _IOWR(WATCHDOG_IOCTL_BASE, 100, int)
++
++#endif
+diff -Nrub '--exclude=*~' linux-3.4.17/include/linux/ccm2200_serial.h linux-3.4.17-ccm2200/include/linux/ccm2200_serial.h
+--- linux-3.4.17/include/linux/ccm2200_serial.h	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.17-ccm2200/include/linux/ccm2200_serial.h	2013-02-07 11:53:36.000000000 +0100
+@@ -0,0 +1,98 @@
++/*
++ * linux/include/linux/ccm2200_serial.h
++ *
++ * Copyright (C) 2007 by Weiss-Electronic GmbH.
++ * Copyright (C) 2010 by SWARCO Traffic Systems GmbH.
++ * All rights reserved.
++ *
++ * @author:     Guido Classen <guido.classen@swarco.de>
++ * @descr:      CCM2200 board specific ioctl to configure special serial port
++ *              operating modes
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ *  @par Modification History:
++ *     2007-02-01 gc: initial version
++ */
++
++#ifndef __CCM2200_SERIAL_H
++#define __CCM2200_SERIAL_H
++
++#include <linux/ioctl.h>
++
++struct ccm2200_serial_config {
++	enum ccm2200_serial_mode {
++                /* normal RS232 configuration, no modification to standard Linux
++		 * Kernel behavior (e.g. for all AT-Modems) 
++		 */
++		CCM2200_SERIAL_MODE_NORMAL,   
++
++                /* RTS Pin driven by UART-hardware (Atmel only, no
++		 * Weiss/CC2200+ RS-485) 
++		 */
++		CCM2200_SERIAL_MODE_RS485HW,  
++
++		/* Kernel-Software driven RTS pin (UART TX-Empty
++		 * Interrupt) (not implemented) 
++		 */
++		CCM2200_SERIAL_MODE_RS485INT, 
++
++		/* Multi-drop modem controlled by host via
++		 * modem-control lines ignoring DCD signal (e.g. Loges
++		 * 1200MD) 
++		 */
++		CCM2200_SERIAL_MODE_MODEM_MD, 
++
++		/* Multi-drop modem controlled by host via
++		 * modem-control lines waiting for DCD signal
++		 * (e.g. Loges 1200MD) 
++		 */
++		CCM2200_SERIAL_MODE_MODEM_MD_DCD, 
++
++		/* Software driven RS-485 (Weiss Piggyback/CC2200+)
++		 * with RTS pin, no evalution of any other control
++		 * signal (CTS, DCD, RI)
++		 */
++		CCM2200_SERIAL_MODE_RS485KERN,
++
++		/* Software driven RS-485 (Weiss Piggyback/CC2200+)
++		 * with RTS pin (inverted), no evalution of any other
++		 * control signal (CTS, DCD, RI).  Using this mode RTS
++		 * is inactive during transmission and active while
++		 * receiving
++		 */
++		CCM2200_SERIAL_MODE_RS485KERN_NEG,
++	} mode;
++	__u32 turn_on_delay;	    /* RS485 transmitter turn on delay  */
++	__u32 turn_off_delay;	    /* RS485 transmitter turn off delay */
++};
++
++
++struct ccm2200_serial_led {
++	__u32 mask;
++	__u32 delay;
++};
++
++
++#define CCM2200_SERIAL_IOCTL_BASE	'w'
++
++#define CCM2200_SERIAL_GET_CONF		_IOR(CCM2200_SERIAL_IOCTL_BASE, 0, struct ccm2200_serial_config)
++#define CCM2200_SERIAL_SET_CONF		_IOW(CCM2200_SERIAL_IOCTL_BASE, 1, struct ccm2200_serial_config)
++#define CCM2200_SERIAL_GET_TX_LED	_IOR(CCM2200_SERIAL_IOCTL_BASE, 2, struct ccm2200_serial_led)
++#define CCM2200_SERIAL_SET_TX_LED	_IOW(CCM2200_SERIAL_IOCTL_BASE, 3, struct ccm2200_serial_led)
++#define CCM2200_SERIAL_GET_RX_LED	_IOR(CCM2200_SERIAL_IOCTL_BASE, 4, struct ccm2200_serial_led)
++#define CCM2200_SERIAL_SET_RX_LED	_IOW(CCM2200_SERIAL_IOCTL_BASE, 5, struct ccm2200_serial_led)
++
++#endif
+diff -Nrub '--exclude=*~' linux-3.4.17/include/linux/serial_core.h linux-3.4.17-ccm2200/include/linux/serial_core.h
+--- linux-3.4.17/include/linux/serial_core.h	2012-10-31 18:05:17.000000000 +0100
++++ linux-3.4.17-ccm2200/include/linux/serial_core.h	2012-11-09 17:06:50.000000000 +0100
+@@ -381,6 +381,9 @@
+ 	unsigned char		irq_wake;
+ 	unsigned char		unused[2];
+ 	void			*private_data;		/* generic platform data pointer */
++#ifdef CONFIG_MACH_CCM2200
++	struct ccm2200_board_serial *ccm2200_serial;
++#endif
+ };
+ 
+ static inline int serial_port_in(struct uart_port *up, int offset)
