@@ -14,7 +14,7 @@ SWARCO Embedded Linux V3 operating system
 | CPU architecture     | ARM                   | ARM                                 |
 | min. instruction set | ARMv4T, arm920t       | ARMv4T, arm920t                     |
 | ABI                  | OABI                  | EABI                                |
-| Linux-Kernel         | 2.6.21 (opt. 3.4.17)  | CCMxCORE: 4.0 <br> CCM2200: 3.4.17  |
+| Linux-Kernel         | 3.4.113 (opt. 2.6.21) | CCMxCORE: 4.0 <br> CCM2200: 3.4.113 |
 | Buildroot version    | 20081211              | &ge; 2016.05                        |
 | C-Library            | uClibc version 0.9.29 | glibc version &ge; 2.22             |
 | Thread library       | linuxthreads          | glibc NPTL                          |
