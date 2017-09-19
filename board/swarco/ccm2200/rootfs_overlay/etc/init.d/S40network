@@ -1,0 +1,87 @@
+#!/bin/sh
+#
+# iptables.sh
+#
+# Start the network....
+#
+# Copyright (C) 2007-2017 by Weiss-Electronic GmbH
+#                            SWARCO Traffic Systems GmbH
+#                            Guido Classen <clagix@gmail.com>
+# All rights reserved.
+#     
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License version
+# 2 or later as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, see <http://www.gnu.org/licenses/>.
+#
+# Modification History:
+#
+
+
+# internationalization function for messages (identity)
+M_() {
+  echo "$@"
+}
+if [ -x /usr/swarco/bin/sys-mesg ]; then
+    SYS_MESG=/usr/swarco/bin/sys-mesg
+else
+    SYS_MESG=/usr/weiss/bin/sys-mesg
+fi
+
+start() {
+ 	echo "Starting network..."
+
+        #check ethernet MAC address
+        if ifconfig eth0 | grep -q "HWaddr 00:00:00:00:00:00" >/dev/null 2>&1; then
+            $SYS_MESG -n "network" -e eth0/mac -p error `M_ "Ethernet MAC address lost. Probably EEPROM contents invalid" `
+        fi
+
+	# disable ARP replies with IP addresses of other interfaces
+        echo 1 >/proc/sys/net/ipv4/conf/all/arp_ignore 
+
+        # 2007-05-09 gc: ifup seams currently not to work in busybox
+	#/sbin/ifup -a
+	sh /etc/network/ip-config
+	if ifconfig usb0 | grep 169.254.17.101 >/dev/null 2>&1; then
+	    # 2016-11-21: force new usb network ip if old one is set
+	    # in ip-config
+	    ifconfig usb0 10.99.99.99 netmask 255.255.255.248
+	fi
+}	
+stop() {
+	echo -n "Stopping network..."
+	#/sbin/ifdown -a
+}
+restart() {
+	stop
+	start
+}	
+
+case "$1" in
+  start)
+  	start
+	;;
+  stop)
+  	stop
+	;;
+  restart|reload)
+  	restart
+	;;
+  *)
+	echo $"Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
+
+# Local Variables:
+# mode: shell-script
+# backup-inhibited: t
+# End:

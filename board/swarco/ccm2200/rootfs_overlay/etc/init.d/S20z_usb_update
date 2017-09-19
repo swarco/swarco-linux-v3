@@ -1,0 +1,89 @@
+#!/bin/sh
+#
+# S20z_usb_update
+#
+# Implements USB-Memory-Stick software update / recovery
+#
+# Copyright (C) 2007-2017 by Weiss-Electronic GmbH
+#                            SWARCO Traffic Systems GmbH
+#                            Guido Classen <clagix@gmail.com>
+# All rights reserved.
+#     
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License version
+# 2 or later as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, see <http://www.gnu.org/licenses/>.
+#
+# Modification History:
+#   2007-05-08 gc: initial version
+#
+
+case "$1" in
+  start)
+	# break
+	;;
+  stop)
+  	exit 0
+	;;
+  *)
+	echo $"Usage: $0 {start|stop}"
+	exit 1
+esac
+
+
+okay=0
+
+if \
+#    [ $((`ccm2200_gpio_test /dev/ccm2200_gpio sconf` & 1)) == 0 ] &&
+   [ ! -f /etc/.usb-configurated ]; then
+    mount -oremount,rw /
+    # 2009-05-26 gc: added support for superfloppy formated usb devices
+    for block_device in /dev/sd?? /dev/sd?
+    do
+        echo testing block device $block_device for usb-storage device
+        mount -tvfat -oro $block_device /mnt/usb/
+        ls -l /mnt/usb
+        if [ -f /mnt/usb/.usb-config.sh ]; then
+            sh /mnt/usb/.usb-config.sh && okay=1
+            break
+        fi
+        umount /mnt/usb
+    done
+    umount /mnt/usb
+
+    touch /etc/.usb-configurated
+    mount -oremount,ro /
+    
+    # enable watchdog (without LED display)
+    #killall watchdog 
+    ccm2200_gpio_test /dev/ccm2200_gpio led 0x0000
+    /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x0000
+    /sbin/watchdog -t 1 /dev/ccm2200_watchdog
+    sleep 3
+    killall watchdog
+    
+    if [ $okay != 0 ]; then
+      # display "O" Symbol
+      #ccm2200_gpio_test /dev/ccm2200_gpio led 0x6996
+      /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x6996
+    else
+      # display "F" Symbol
+      #ccm2200_gpio_test /dev/ccm2200_gpio led 0x131F
+      /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x131F
+    fi
+    /sbin/watchdog -t 1 /dev/ccm2200_watchdog
+
+    while true; do sleep 1; done
+fi
+
+# Local Variables:
+# mode: shell-script
+# backup-inhibited: t
+# End:
