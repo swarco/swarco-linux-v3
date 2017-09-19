@@ -1,0 +1,103 @@
+#!/bin/sh
+#
+# iptables.sh
+#
+# Creates simple packet filter rules with iptables for a firewall to
+# block traffic on internet dial-up device (e.g. mobile packet data).
+#
+# The packet filter rules should be loaded before the network interfaces
+# can be initialized to avoid short-term security gaps.
+#
+# Copyright (C) 2004-2017 by Weiss-Electronic GmbH
+#                            SWARCO Traffic Systems GmbH
+#                            Guido Classen <clagix@gmail.com>
+# All rights reserved.
+#     
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License version
+# 2 or later as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, see <http://www.gnu.org/licenses/>.
+#
+# Modification History:
+#     2007-01-11 gc: bugfix let incoming FIN packets pass!!!!
+#     2004-12-23 gc: initial version
+#
+
+case "$1" in
+  start)
+	# break
+	;;
+  stop)
+  	exit 0
+	;;
+  restart|reload)
+  	restart
+	;;
+  *)
+	echo $"Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+. /etc/init_common.sh
+
+
+echo "Setting up ip_tables packet filter"
+load_module kernel/net/netfilter/x_tables
+load_module kernel/net/netfilter/xt_tcpudp
+load_module kernel/net/ipv4/netfilter/ip_tables
+load_module kernel/net/ipv4/netfilter/iptable_filter
+
+(
+    PPP_IFACE=ppp0
+    # 2004-12-22 gc: setup iptables packetfilter for internet connection
+    #                over ppp interface (GPRS)
+    #default policy: drop all packets
+    iptables -P INPUT DROP
+
+    # don't filter eth0 and loopback interface
+    iptables -A INPUT -i eth0 -j ACCEPT
+    iptables -A INPUT -i eth1 -j ACCEPT
+    iptables -A INPUT -i lo -j ACCEPT   
+    iptables -A INPUT -i usb0 -j ACCEPT
+
+    # erlaube eingehende ICMP Pakete, ausser echo-request (ping)
+    iptables -A INPUT -i $PPP_IFACE -p icmp --icmp-type ! echo-request -j ACCEPT
+    # Eingehende Verbindungen auf die folgenden Ports zulassen:
+    #  ssh:  Secure Shell Remotezugang
+    #  7200: TLS-over-IP
+    iptables -A INPUT -i $PPP_IFACE -p tcp --dport ssh -j ACCEPT
+    iptables -A INPUT -i $PPP_IFACE -p tcp --dport 7200 -j ACCEPT
+
+    # 2007-01-11 gc: Korrektur der Regel: Wir lassen alle ankommenden
+    # TCP Pakete passieren, auﬂer welche bei denen ausschlieﬂlich das
+    # SYN Bit gesetzt ist (TCP-Verbindungsaufbau). 
+    # Das bedeutet, dass SYN+ACK (Bestaetigung Verbindungsaufbau) sowie
+    # RST und FIN (Verbindungsende) Pakete durchgelassen werden, sowie normale
+    # Datenpakete!
+    # Der lokale Port muss sich immer im unpriviligierten Bereich befinden!
+    iptables -A INPUT -i $PPP_IFACE -p tcp --tcp-flags ! SYN,ACK,FIN,RST SYN --dport 1024:65535 -j ACCEPT
+
+    # erlaube folgende eingehende UDP 
+    # 
+
+    # Antwort von DNS server
+    iptables -A INPUT -i ppp0 -p udp --sport domain -j ACCEPT
+
+    # Antwort vom NTP server
+    iptables -A INPUT -i ppp0 -p udp --sport ntp -j ACCEPT
+
+    # Alle priviligierten UDP Ports
+    # iptables -A INPUT -i $PPP_IFACE -p udp --dport 1:1023 -j ACCEPT
+)
+
+# Local Variables:
+# mode: shell-script
+# backup-inhibited: t
+# End:

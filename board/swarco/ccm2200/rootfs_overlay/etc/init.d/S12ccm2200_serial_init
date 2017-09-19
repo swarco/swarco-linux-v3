@@ -1,0 +1,118 @@
+#!/bin/sh
+#
+# S12ccm2200_serial_init
+#
+# Create symlinks for serial ports in /dev with same name as SM2010 ports
+# and configure board specific CCM2200 serial modes
+#
+# Copyright (C) 2007-2017 by Weiss-Electronic GmbH
+#                            SWARCO Traffic Systems GmbH
+#                            Guido Classen <clagix@gmail.com>
+# All rights reserved.
+#     
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License version
+# 2 or later as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, see <http://www.gnu.org/licenses/>.
+#
+# Modification History:
+#   2007-05-08 gc: adoption new LED concept!
+#   2006-12-07 gc: initial version 
+#
+
+
+case "$1" in
+  start)
+	# break
+	;;
+  stop)
+  	exit 0
+	;;
+  restart|reload)
+  	restart
+	;;
+  *)
+	echo $"Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+echo initializing serial ports
+
+if test -c /dev/ttyAT0 
+then
+
+# new Kernel using /dev/ttyAT0 device name scheme for ATMEL Uarts
+# ---------------- Atmel AT91RM9200 interne UARTs -------------------------
+
+# COM2 Piggyback u.r.
+ln -s /dev/ttyAT0 /dev/com2
+# COM1 Piggyback o.r.
+ln -s /dev/ttyAT1 /dev/com1
+ln -s /dev/ttyAT2 /dev/ttySconsole
+ln -s /dev/ttyAT2 /dev/com5
+# COM6 Piggyback u.l.
+ln -s /dev/ttyAT3 /dev/com6
+ln -s /dev/ttyAT4 /dev/ttySdebug
+
+# ---------------- externer QUAD-UART --------------------------------------
+# COM3 RS485
+ln -s /dev/ttyS0 /dev/com3
+# COM4 Piggyback o.l.
+ln -s /dev/ttyS1 /dev/com4
+# Pfostenstecker oben
+ln -s /dev/ttyS2 /dev/com7
+# Pfostenstecker Mitte
+ln -s /dev/ttyS3 /dev/com8
+
+
+
+else
+# ---------------- Atmel AT91RM9200 interne UARTs -------------------------
+
+
+
+# COM2 Piggyback u.r.
+ln -s /dev/ttyS0 /dev/com2
+# COM1 Piggyback o.r.
+ln -s /dev/ttyS1 /dev/com1
+ln -s /dev/ttyS2 /dev/ttySconsole
+ln -s /dev/ttyS2 /dev/com5
+# COM6 Piggyback u.l.
+ln -s /dev/ttyS3 /dev/com6
+ln -s /dev/ttyS4 /dev/ttySdebug
+
+# ---------------- externer QUAD-UART --------------------------------------
+# COM3 RS485
+ln -s /dev/ttyS5 /dev/com3
+# COM4 Piggyback o.l.
+ln -s /dev/ttyS6 /dev/com4
+# Pfostenstecker oben
+ln -s /dev/ttyS7 /dev/com7
+# Pfostenstecker Mitte
+ln -s /dev/ttyS8 /dev/com8
+
+fi
+
+
+# ---------------- assign RX / TX indicator LEDs ---------------------------
+# com3 is always rs485kern!
+ccm2200_serial /dev/com3 mode rs485kern 0 0
+#ccm2200_serial /dev/com3 rxled $((1<<4)) 4
+#ccm2200_serial /dev/com3 txled $((1<<5)) 4
+
+
+
+
+
+
+# Local Variables:
+# mode: shell-script
+# backup-inhibited: t
+# End:
