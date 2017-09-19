@@ -1,0 +1,31 @@
+#*****************************************************************************
+#
+# device_table_ext.txt
+#
+# SWARCO Linux V3 specific extension of buildroots system/device_table…txt
+#
+# (c) Copyright 2008-2017
+#     Guido Classen, SWARCO Traffic Systems GmbH <clagix@gmail.com>
+#                    
+# Licensed under the GNU General Public License v2 or later
+#
+#*****************************************************************************
+
+#<name>	a                       <type>	<mode>	<uid>	<gid>	<major>	<minor>	<start>	<inc>	<count>
+# SSH configs and keys
+#/etc/ssh_config				f	600	0	0	-	-	-	-	-      
+#/etc/sshd_config 			f	600	0	0	-	-	-	-	-    
+#/etc/ssh_host_dsa_key			f	600	0	0	-	-	-	-	-
+#/etc/ssh_host_key			f	600	0	0	-	-	-	-	-    
+#/etc/ssh_host_rsa_key			f	600	0	0	-	-	-	-	-
+# PPP secrets
+#/etc/ppp/chap-secrets			f	600	0	0	-	-	-	-	-
+#/etc/ppp/pap-secrets			f	600	0	0	-	-	-	-	-
+# 2016-08-02 gc: add some empty directories which are not part of the git
+# repository
+/mnt/.ram1                              d	755	0	0	-	-	-	-	
+/mnt/cifs                               d	755	0	0	-	-	-	-	
+/mnt/nfs                                d	755	0	0	-	-	-	-	
+/mnt/smb                                d	755	0	0	-	-	-	-	
+/mnt/usb                                d	755	0	0	-	-	-	-	
+/var/log-archive                        d	755	0	0	-	-	-	-
