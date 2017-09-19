@@ -1,0 +1,8 @@
+config BR2_PACKAGE_SWARCO_USERMODE_TOOLS
+	bool "Usermode tools to enable special functions on SWARCO boards"
+	depends on BR2_USE_MMU # fork()
+	depends on !BR2_STATIC_LIBS
+	help
+          Usermode tools to enable special functions on SWARCO boards
+
+	  https://github.com/swarco/swarco-usermode-tools

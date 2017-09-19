@@ -2739,4 +2739,6 @@ menu "Text editors and viewers"
 	source "package/vim/Config.in"
 endmenu
 
+source "package/swarco/Config.in"
+
 endmenu
