@@ -1,0 +1,9 @@
+config BR2_PACKAGE_MOBILE_DATA_CONNECTOR
+	bool "SWARCO Mobile Data Connector"
+	depends on BR2_USE_MMU # fork()
+	depends on !BR2_STATIC_LIBS
+	help
+          Scripts to connect mobile telefone network packet data services
+          (LTE, HSDPA, UMTS, GPRS)
+
+	  https://github.com/swarco/mobile-data-connector
