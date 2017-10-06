@@ -3,7 +3,6 @@
 menu "SWARCO Traffic Systems Extensions"
 # source "swarco/package/bluez-libs/Config.in"
 # source "swarco/package/bluez-utils/Config.in"
-# source "swarco/package/goahead/Config.in"
 # #source "swarco/package/samba_swarco/Config.in"
 # #source "swarco/package/nmbd/Config.in"
 # # source "swarco/package/fuser/Config.in" => now in psmisc
@@ -16,7 +15,6 @@ menu "SWARCO Traffic Systems Extensions"
 # #source "swarco/package/yaffs2/Config.in"
 # #source "swarco/package/perl/Config.in"
 # source "swarco/package/wuftpd/Config.in"
-# #source "swarco/package/imagemagick/Config.in"
 # source "swarco/package/qemacs/Config.in"
 # #source "swarco/package/comgt/Config.in"
 # source "swarco/package/vlan/Config.in"
@@ -24,5 +22,6 @@ menu "SWARCO Traffic Systems Extensions"
 # source "swarco/package/usb_modeswitch/Config.in"
 # source "swarco/package/tinc/Config.in"
 source "package/swarco/swarco-usermode-tools/Config.in"
+source "package/swarco/mobile-data-connector/Config.in"
 
 endmenu
