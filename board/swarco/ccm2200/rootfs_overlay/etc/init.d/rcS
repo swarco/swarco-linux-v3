@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# 2017-11-02 gc: prepare global environment
+exec >/dev/console 2>&1
+export LD_LIBRARY_PATH=/usr/swarco/lib
+if [ -f /etc/TZ -a \! -f /etc/localtime ]; then
+    export TZ=`cat /etc/TZ`
+fi
+
+# Start all init scripts in /etc/init.d
+# executing them in numerical order.
+#
+for i in /etc/init.d/S??* ;do
+
+     # Ignore dangling symlinks (if any).
+     [ ! -f "$i" ] && continue
+
+     case "$i" in
+	*.sh)
+	    # Source shell script for speed.
+	    (
+		trap - INT QUIT TSTP
+		set start
+		. $i
+	    )
+	    ;;
+	*)
+	    # No sh extension, so fork subprocess.
+	    $i start
+	    ;;
+    esac
+done
+
