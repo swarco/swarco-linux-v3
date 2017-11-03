@@ -1,0 +1,7 @@
+#!/bin/sh
+
+. /etc/init.d/global_env.sh
+
+PS1='\h:\w\$ '
+export PS1
+
