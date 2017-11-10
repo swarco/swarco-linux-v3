@@ -1,0 +1,87 @@
+#!/bin/sh
+#*****************************************************************************
+#* 
+#*  @file          S*dcf77
+#*
+#*  Start DCF77 radio clock time synchronization
+#*
+#*  @version       1.0 (\$Revision: 374 $)
+#*  @author        Guido Classen <br>
+#*                 SWARCO Traffic Systems GmbH
+#* 
+#*  $LastChangedBy: clg9tr $  
+#*  $Date: 2012-11-16 18:00:59 +0100 (Fr, 16 Nov 2012) $
+#*  $URL: svn://server-i/swarco-linux/buildroot/swarco_ch_conf/etc/init.d/S41gprs.sh $
+#*
+#*  @par Modification History:
+#*    2013-06-28 gc: initial version
+#*  
+#*****************************************************************************
+
+
+if ! [ -f /etc/default/dcf77 ]
+then
+# DCF77 not configured -> exit
+  exit 1
+fi
+
+. /etc/default/dcf77
+
+if [ -z "$DCF77_DEVICE" ]
+then
+# DCF77 not configured -> exit
+  exit 1
+fi
+
+start() {
+    (
+        HAVE_MOSQUITTO=""
+        if [ -x /usr/swarco/bin/mosquitto_pub ]; then
+            HAVE_MOSQUITTO="-p"
+            #wait until mosquitto accepts connections
+            while ! /usr/swarco/bin/mosquitto_pub -t dcf77 -m "" \
+                      </dev/null >/dev/null 2>&1
+            do
+                sleep 1
+            done
+        fi
+        setserial "$DCF77_DEVICE" low_latency
+
+	echo "Starting DCF77 radio clock time synchronization"
+        PATH=$PATH:/usr/swarco/bin \
+	    start-stop-daemon \
+            --start --quiet --background \
+	    --make-pidfile --pidfile /var/run/dcf77.pid \
+	    --exec /usr/bin/dcf77 -- \
+	    -s "tty:$DCF77_DEVICE" -S $HAVE_MOSQUITTO
+    ) &
+}
+
+stop() {
+	echo "Stopping DCF77 radio clock time synchronization"
+	start-stop-daemon --stop --quiet --signal 1 \
+		--pidfile /var/run/dcf77.pid
+}
+
+case "$1" in
+  start)
+  	start
+	;;
+  stop)
+  	stop
+	;;
+  restart|reload)
+	stop
+	start
+	;;
+  *)
+	echo $"Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
+
+# Local Variables:
+# mode: shell-script
+# backup-inhibited: t
+# End:
