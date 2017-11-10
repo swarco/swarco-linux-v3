@@ -1,0 +1,24 @@
+#!/bin/sh
+
+test -f /usr/sbin/crond || exit 0
+
+case "$1" in
+start)
+# create needed crontab directory for dillon cron
+	test -d /var/spool/cron/crontabs || mkdir -p /var/spool/cron/crontabs
+	crontab /etc/crontab
+	logger "Start periodic time command scheduler ..."
+	start-stop-daemon --start --quiet --pidfile /var/run/crond.pid --name cron --startas /usr/sbin/crond
+	logger "... crond started."
+	;;
+stop)
+	logger "Stop periodic time command scheduler ..."
+	start-stop-daemon --stop --quiet --pidfile /var/run/crond.pid --name cron
+	logger "... crond stopped."
+	;;
+*)
+	exit 1
+	;;
+esac
+exit 0
+
