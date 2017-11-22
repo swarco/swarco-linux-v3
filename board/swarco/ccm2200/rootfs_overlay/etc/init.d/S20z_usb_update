@@ -39,11 +39,23 @@ esac
 
 
 okay=0
+if grep -q "Hardware.*:.*CCM2200" /proc/cpuinfo ; then
+    # CCM2200 hardware
+    if [ $((`ccm2200_gpio_test /dev/ccm2200_gpio sconf` & 1)) != 0 ] ; then
+        # update only enabled if DIP-Switch 5 is set to "on" position
+        exit 0;
+    fi       
+fi
 
-if \
-#    [ $((`ccm2200_gpio_test /dev/ccm2200_gpio sconf` & 1)) == 0 ] &&
-   [ ! -f /etc/.usb-configurated ]; then
+if [ ! -f /etc/.usb-configurated ]; then
     mount -oremount,rw /
+    if ! [ -f /dev/mtdblock4 ] ; then
+        # create dummy directory on other ARM Linux hardware to
+        # prevent .usb-config.sh scripts from writing to nonexistent
+        # device (Static RAM memory on CCM2200)
+        mkdir /dev/mtdblock4
+    fi
+        
     # 2009-05-26 gc: added support for superfloppy formated usb devices
     for block_device in /dev/sd?? /dev/sd?
     do
