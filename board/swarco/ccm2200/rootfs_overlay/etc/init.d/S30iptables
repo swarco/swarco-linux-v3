@@ -68,7 +68,7 @@ load_module kernel/net/ipv4/netfilter/iptable_filter
     iptables -A INPUT -i usb0 -j ACCEPT
 
     # allow incoming ICMP packets, except echo-request (ping)
-    iptables -A INPUT -i $PPP_IFACE -p icmp --icmp-type ! echo-request -j ACCEPT
+    iptables -A INPUT -i $PPP_IFACE -p icmp ! --icmp-type echo-request -j ACCEPT
     
     # Allow inbound connections to the following ports:
     #  ssh:  Secure Shell remote access
@@ -84,7 +84,7 @@ load_module kernel/net/ipv4/netfilter/iptable_filter
     # are let through, as well as normal data packets!
     #
     # The local port must be always in the unprivileged area!
-    iptables -A INPUT -i $PPP_IFACE -p tcp --tcp-flags ! SYN,ACK,FIN,RST SYN --dport 1024:65535 -j ACCEPT
+    iptables -A INPUT -i $PPP_IFACE -p tcp ! --tcp-flags SYN,ACK,FIN,RST SYN --dport 1024:65535 -j ACCEPT
 
     # allow the following incoming UDP ports
 
