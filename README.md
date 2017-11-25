@@ -9,7 +9,7 @@ SWARCO Embedded Linux V3 operating system
 | Feature              | SWARCO Linux V2       | SWARCO Linux V3                     |
 |----------------------|-----------------------|-------------------------------------|
 | Hardware             | CCM2200               | CCM2200, CCMxCORE, &#8230;          |
-| first release        | 2007                  | planed for 2016                     |
+| first release        | 2007                  | December 2017                       |
 | based on Buildroot   | 2008-12-11            | &ge; 2016.05                        |
 | CPU architecture     | ARM                   | ARM                                 |
 | min. instruction set | ARMv4T, arm920t       | ARMv4T, arm920t                     |
@@ -35,8 +35,8 @@ Compile toolchain, packages, kernel, build rootfs:
     
 Then images for the CC2200 CPU are found under 
 
-- Linux kernel image: output/images/uImage (must be renamed to uImage-ccm2200dev.bin)
-- Rootfs image: output/images/rootfs.jffs2 (must be renamed to rootfs-ccm2200-lp-nand.jffs2)
+- Linux kernel image: output/images/uImage-ccm2200-ubifs.bin
+- Rootfs image: output/images/rootfs-ccm2200-lp.arm.ubifs
 
 ## License Information 
 
