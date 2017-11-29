@@ -45,11 +45,11 @@ esac
 
 echo initializing serial ports
 
-if test -c /dev/ttyAT0 
-then
+if grep -q "Hardware.*:.*CCM2200" /proc/cpuinfo ; then
+    # CCM2200 hardware
 
-# new Kernel using /dev/ttyAT0 device name scheme for ATMEL Uarts
-# ---------------- Atmel AT91RM9200 interne UARTs -------------------------
+# current Kernels using /dev/ttyAT0 device name scheme for ATMEL UARTS
+# ---------------- Atmel AT91RM9200 internal UARTs -------------------------
 
 # COM2 Piggyback u.r.
 ln -s /dev/ttyAT0 /dev/com2
@@ -61,7 +61,7 @@ ln -s /dev/ttyAT2 /dev/com5
 ln -s /dev/ttyAT3 /dev/com6
 ln -s /dev/ttyAT4 /dev/ttySdebug
 
-# ---------------- externer QUAD-UART --------------------------------------
+# ---------------- external QUAD-UART --------------------------------------
 # COM3 RS485
 ln -s /dev/ttyS0 /dev/com3
 # COM4 Piggyback o.l.
@@ -71,41 +71,13 @@ ln -s /dev/ttyS2 /dev/com7
 # Pfostenstecker Mitte
 ln -s /dev/ttyS3 /dev/com8
 
-
-
-else
-# ---------------- Atmel AT91RM9200 interne UARTs -------------------------
-
-
-
-# COM2 Piggyback u.r.
-ln -s /dev/ttyS0 /dev/com2
-# COM1 Piggyback o.r.
-ln -s /dev/ttyS1 /dev/com1
-ln -s /dev/ttyS2 /dev/ttySconsole
-ln -s /dev/ttyS2 /dev/com5
-# COM6 Piggyback u.l.
-ln -s /dev/ttyS3 /dev/com6
-ln -s /dev/ttyS4 /dev/ttySdebug
-
-# ---------------- externer QUAD-UART --------------------------------------
-# COM3 RS485
-ln -s /dev/ttyS5 /dev/com3
-# COM4 Piggyback o.l.
-ln -s /dev/ttyS6 /dev/com4
-# Pfostenstecker oben
-ln -s /dev/ttyS7 /dev/com7
-# Pfostenstecker Mitte
-ln -s /dev/ttyS8 /dev/com8
-
-fi
-
-
 # ---------------- assign RX / TX indicator LEDs ---------------------------
 # com3 is always rs485kern!
 ccm2200_serial /dev/com3 mode rs485kern 0 0
 #ccm2200_serial /dev/com3 rxled $((1<<4)) 4
 #ccm2200_serial /dev/com3 txled $((1<<5)) 4
+
+fi
 
 
 

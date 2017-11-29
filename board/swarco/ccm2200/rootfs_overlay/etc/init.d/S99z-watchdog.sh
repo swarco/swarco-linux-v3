@@ -42,19 +42,28 @@ sys_mesg() {
 
 
 start() {
-    #check DIP switch 5
-    if [ $((`ccm2200_gpio_test /dev/ccm2200_gpio sconf` & 1)) != 0 ]; then
-        
- 	echo "Starting watchdog..."
-        ccm2200_watchdog /dev/ccm2200_watchdog led $((1<<$WATCHDOG_LED))
-        /sbin/watchdog -t 1 /dev/ccm2200_watchdog
+    if grep -q "Hardware.*:.*CCM2200" /proc/cpuinfo ; then
+        # CCM2200 hardware
+
+        #check DIP switch 5
+        if [ $((`ccm2200_gpio_test /dev/ccm2200_gpio sconf` & 1)) -ne 0 ]; then
+            
+ 	    echo "Starting watchdog..."
+            ccm2200_watchdog /dev/ccm2200_watchdog led $((1<<$WATCHDOG_LED))
+            /sbin/watchdog -t 1 /dev/ccm2200_watchdog
+        else
+            # dont start watchdog trigger process if CCM2200 is in service mode
+ 	    echo "Watchdog disabled - CCM2200 in service mode"
+            logger -t $0 "Watchdog disabled - CCM2200 in service mode"
+            sys_mesg -n "watchdog" -e service-mode -p warning `M_ "CCM2200 in service mode. Watchdog disabled! Please set DIP-switches 4 and 5 to the OFF position." `
+            /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x0000
+            echo 100 >/sys/class/leds/led$WATCHDOG_LED/brightness
+        fi
     else
-        # dont start watchdog trigger process if CCM2200 is in service mode
- 	echo "Watchdog disabled - CCM2200 in service mode"
-        logger -t $0 "Watchdog disabled - CCM2200 in service mode"
-        sys_mesg -n "watchdog" -e service-mode -p warning `M_ "CCM2200 in service mode. Watchdog disabled! Please set DIP-switches 4 and 5 to the OFF position." `
-        /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x0000
-        echo 100 >/sys/class/leds/led$WATCHDOG_LED/brightness
+        # other hardware, configure watchdog when available
+        if [ -c /dev/watchdog ] ; then
+            /sbin/watchdog -T 60 -t 1 /dev/watchdog
+        fi
     fi
 }	
 
