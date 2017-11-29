@@ -30,9 +30,11 @@ case "$1" in
 	exit 1
 esac
 
-echo initializing CCM2200 front panel LEDs
-echo nand-disk > /sys/class/leds/led11/trigger 
-
+if grep -q "Hardware.*:.*CCM2200" /proc/cpuinfo ; then
+    # CCM2200 hardware
+    echo initializing CCM2200 front panel LEDs
+    echo nand-disk > /sys/class/leds/led11/trigger 
+fi
 
 
 # Local Variables:
