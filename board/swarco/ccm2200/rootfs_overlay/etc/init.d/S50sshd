@@ -1,0 +1,76 @@
+#!/bin/sh
+#
+# sshd        Starts sshd.
+#
+
+# Make sure the ssh-keygen progam exists
+[ -f /usr/bin/ssh-keygen ] || exit 0
+
+# Create any missing keys
+#/usr/bin/ssh-keygen -A
+
+umask 077
+
+start() {
+    (
+        if [ ! -f /etc/ssh/ssh_hostkeys_generated ] ; then
+            #md5sum /etc/ssh/*key*
+	    /usr/sbin/sshd
+	    touch /var/lock/sshd
+            /usr/bin/rw
+            for key_type in rsa ed25519
+            do
+                # Generate host key
+	        echo Generating ssh ${key_type} host key...
+	        /usr/bin/ssh-keygen -t ${key_type} -f /tmp/ssh_host_${key_type}_key -C '' -N '' >/dev/null 2>&1
+                cp -p /tmp/ssh_host_${key_type}_key /etc/ssh/ssh_host_${key_type}_key
+                cp -p /tmp/ssh_host_${key_type}_key.pub /etc/ssh/ssh_host_${key_type}_key.pub
+            done
+            touch /etc/ssh/ssh_hostkeys_generated
+            /usr/bin/ro
+            if ! ps | grep "[s]shd:" >/dev/null 2>&1 ; then
+	        printf "Restarting sshd with new host keys: "
+                killall sshd
+	        /usr/sbin/sshd
+	        echo "OK"
+            else
+	        echo "Somebody is logged in, please restart sshd later"
+            fi
+        else
+	    printf "Starting sshd: "
+	    /usr/sbin/sshd
+	    touch /var/lock/sshd
+	echo "OK"
+        fi
+    ) &
+    true
+}
+
+stop() {
+	printf "Stopping sshd: "
+	killall sshd
+	rm -f /var/lock/sshd
+	echo "OK"
+}
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  restart|reload)
+	restart
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
+
