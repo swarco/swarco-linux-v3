@@ -4,8 +4,8 @@
 #
 # Implements USB-Memory-Stick software update / recovery
 #
-# Copyright (C) 2007-2017 by Weiss-Electronic GmbH
-#                            SWARCO Traffic Systems GmbH
+# Copyright (C) 2007-2018 by SWARCO Traffic Systems GmbH
+#                            Weiss-Electronic GmbH
 #                            Guido Classen <clagix@gmail.com>
 # All rights reserved.
 #     
@@ -72,26 +72,49 @@ if [ ! -f /etc/.usb-configurated ]; then
 
     touch /etc/.usb-configurated
     mount -oremount,ro /
-    
-    # enable watchdog (without LED display)
-    #killall watchdog 
-    ccm2200_gpio_test /dev/ccm2200_gpio led 0x0000
-    /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x0000
-    /sbin/watchdog -t 1 /dev/ccm2200_watchdog
-    sleep 3
-    killall watchdog
+
+    if [ -c /dev/ccm2200_gpio -a -c /dev/ccm2200_watchdog ] ; then
+        # enable watchdog (without LED display)
+        #killall watchdog 
+        ccm2200_gpio_test /dev/ccm2200_gpio led 0x0000
+        /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x0000
+        /sbin/watchdog -t 1 /dev/ccm2200_watchdog
+        sleep 3
+        killall watchdog
+        
+        if [ $okay != 0 ]; then
+            # display "O" Symbol
+            #ccm2200_gpio_test /dev/ccm2200_gpio led 0x6996
+            /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x6996
+        else
+            # display "F" Symbol
+            #ccm2200_gpio_test /dev/ccm2200_gpio led 0x131F
+            /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x131F
+        fi
+        /sbin/watchdog -t 1 /dev/ccm2200_watchdog
+    fi
     
     if [ $okay != 0 ]; then
-      # display "O" Symbol
-      #ccm2200_gpio_test /dev/ccm2200_gpio led 0x6996
-      /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x6996
-    else
-      # display "F" Symbol
-      #ccm2200_gpio_test /dev/ccm2200_gpio led 0x131F
-      /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x131F
-    fi
-    /sbin/watchdog -t 1 /dev/ccm2200_watchdog
+        cat <<EOF
 
+------------------------------------------------------------------------------
+                       SWARCO Linux V3 UBIFS Autoupdate
+           😁 🎉 👍 Update / Recovery finished successfully :-) 👍 🎉 😁
+------------------------------------------------------------------------------
+
+EOF
+        true
+    else
+        cat <<EOF
+
+------------------------------------------------------------------------------
+                       SWARCO Linux V3 UBIFS Autoupdate
+                   💣 😞 👎 Update / Recovery FAILED!!! 👎 😞 💣
+------------------------------------------------------------------------------
+
+EOF
+        true
+    fi
     while true; do sleep 1; done
 fi
 
