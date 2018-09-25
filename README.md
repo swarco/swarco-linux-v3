@@ -8,7 +8,7 @@ SWARCO Embedded Linux V3 operating system
 
 | Feature              | SWARCO Linux V2       | SWARCO Linux V3                     |
 |----------------------|-----------------------|-------------------------------------|
-| Hardware             | CCM2200               | CCM2200, CCMxCORE, &#8230;          |
+| Hardware             | CCM2200               | CCM2200, CCMxCORE, SCC-Air, &#8230; |
 | first release        | 2007                  | December 2017                       |
 | based on Buildroot   | 2008-12-11            | &ge; 2016.05                        |
 | CPU architecture     | ARM                   | ARM                                 |
@@ -23,12 +23,17 @@ SWARCO Embedded Linux V3 operating system
 | C++ standard         | C++98                 | C++11                               |
 |                      |                       |                                     |
 
-## Compilation for CCM2200 CPU
+## Compilation for CCM2200 CPU or SCC-Air CPU
 
 Prepare CCM2200 configuration:
 
     make swarco_linux_v3_ccm2200_defconfig
     
+Or prepare SCC-Air configuration:
+
+    make swarco_linux_v3_scc_air_defconfig
+    
+
 Compile toolchain, packages, kernel, build rootfs:
 
     make
