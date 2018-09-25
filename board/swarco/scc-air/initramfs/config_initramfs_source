@@ -1,0 +1,4 @@
+CONFIG_BLK_DEV_INITRD=y
+CONFIG_INITRAMFS_SOURCE="../../../board/swarco/scc-air/initramfs/rootfs.cpio.gz"
+CONFIG_INITRAMFS_ROOT_UID=0
+CONFIG_INITRAMFS_ROOT_GID=0
