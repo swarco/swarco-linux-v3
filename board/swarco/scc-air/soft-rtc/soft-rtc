@@ -1,0 +1,2 @@
+SOFT_RTC_FILES=/var/lib/soft-rtc/last-timestamp
+SOFT_RTC_UPDATE=true

@@ -1,0 +1,60 @@
+#!/bin/sh
+#
+# S00soft-rtc
+#
+# Implements Software RTC (remember time periodically)
+#
+# Copyright (C) 2018      by SWARCO Traffic Systems GmbH
+#                         Guido Classen <clagix@gmail.com>
+# All rights reserved.
+#     
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License version
+# 2 or later as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, see <http://www.gnu.org/licenses/>.
+#
+# Modification History:
+#   2018-09-27 gc: initial version
+#
+
+case "$1" in
+  start)
+	# break
+	;;
+  stop)
+  	exit 0
+	;;
+  *)
+	echo $"Usage: $0 {start|stop}"
+	exit 1
+esac
+
+SOFT_RTC_FILES=
+test -d /var/lib/soft-rtc || mkdir /var/lib/soft-rtc
+if ! [ -f /etc/default/soft-rtc ]
+then
+    exit 0
+fi
+
+. /etc/default/soft-rtc
+rw
+
+for TS in $SOFT_RTC_FILES
+do  
+    if [ -r "$TS" ] && [ `date -r "$TS"  '+%s'` -gt `date '+%s'` ] ; then
+        date -s @`date -r "$TS"  '+%s'`
+    fi
+done
+
+
+# Local Variables:
+# mode: shell-script
+# backup-inhibited: t
+# End:
