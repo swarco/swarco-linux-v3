@@ -8,14 +8,14 @@
 #                            Weiss-Electronic GmbH
 #                            Guido Classen <clagix@gmail.com>
 # All rights reserved.
-#     
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License version
 # 2 or later as published by the Free Software Foundation.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.   See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
@@ -27,25 +27,80 @@
 
 case "$1" in
   start)
-	# break
-	;;
+        # break
+        ;;
   stop)
-  	exit 0
-	;;
+        exit 0
+        ;;
   *)
-	echo $"Usage: $0 {start|stop}"
-	exit 1
+        echo $"Usage: $0 {start|stop}"
+        exit 1
 esac
+
+wait_quiet() {
+  local line=""
+  while read -r -t1 line<&3
+  do
+      true
+      # echo "RCV: $line"
+  done
+
+  return 0
+}
+
+init_modem_led() {
+    echo 1 >/sys/class/swarcoio/modem_reset/value
+    echo 0 >/sys/class/swarcoio/modem_vbus//value
+    echo 0 >/sys/class/swarcoio/modem_onoff/value
+    sleep 1
+    echo 1 >/sys/class/swarcoio/modem_vbus//value
+    echo 0 >/sys/class/swarcoio/modem_reset/value
+    echo 1 >/sys/class/swarcoio/modem_onoff/value
+
+    local count=0
+
+    while ! test -c $MODEM_DEVICE
+    do
+        count=$(($count+1))
+        if [ $count -gt 10 ]; then
+            return 1
+        fi
+
+        sleep 1
+    done
+
+    exec 3<>$MODEM_DEVICE
+    if ! stty <&3 115200 -brkint -icrnl -imaxbel -opost -onlcr -isig -icanon -echo -echoe -echok -echoctl -echoke 2>&1 ; then
+
+        # stty may say "no such device"
+        echo "stty failed"
+        # exit 1
+    fi
+
+    wait_quiet
+    echo -ne "AT\r" >&3
+    echo -ne "AT#SLED=1\r" >&3
+}
 
 
 okay=0
-if grep -q "Hardware.*:.*CCM2200" /proc/cpuinfo ; then
-    # CCM2200 hardware
-    if [ $((`ccm2200_gpio_test /dev/ccm2200_gpio sconf` & 1)) != 0 ] ; then
-        # update only enabled if DIP-Switch 5 is set to "on" position
-        exit 0;
-    fi       
-fi
+HW="`awk < /proc/cpuinfo -F ': ' '/^Hardware.*:/ { print $2; }'`"
+
+case "$HW" in
+    *CCM2200*)
+        if [ $((`ccm2200_gpio_test /dev/ccm2200_gpio sconf` & 1)) != 0 ] ; then
+            # update only enabled if DIP-Switch 5 is set to "on" position
+            exit 0;
+        fi
+        ;;
+
+    *"Swarco SCC-3G"*)
+        MODEM_DEVICE=/dev/ttyACM0
+        # start modem initialization in background to save time
+        init_modem_led &
+        MODEM_LED_PID=$!
+        ;;
+esac
 
 if [ ! -f /etc/.usb-configurated ]; then
     mount -oremount,rw /
@@ -55,7 +110,7 @@ if [ ! -f /etc/.usb-configurated ]; then
         # device (Static RAM memory on CCM2200)
         mkdir /dev/mtdblock4
     fi
-        
+
     # 2009-05-26 gc: added support for superfloppy formated usb devices
     for block_device in /dev/sd?? /dev/sd?
     do
@@ -73,27 +128,44 @@ if [ ! -f /etc/.usb-configurated ]; then
     touch /etc/.usb-configurated
     mount -oremount,ro /
 
-    if [ -c /dev/ccm2200_gpio -a -c /dev/ccm2200_watchdog ] ; then
-        # enable watchdog (without LED display)
-        #killall watchdog 
-        ccm2200_gpio_test /dev/ccm2200_gpio led 0x0000
-        /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x0000
-        /sbin/watchdog -t 1 /dev/ccm2200_watchdog
-        sleep 3
-        killall watchdog
-        
-        if [ $okay != 0 ]; then
-            # display "O" Symbol
-            #ccm2200_gpio_test /dev/ccm2200_gpio led 0x6996
-            /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x6996
-        else
-            # display "F" Symbol
-            #ccm2200_gpio_test /dev/ccm2200_gpio led 0x131F
-            /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x131F
-        fi
-        /sbin/watchdog -t 1 /dev/ccm2200_watchdog
-    fi
-    
+    case "$HW" in
+        *CCM2200*)
+            if [ -c /dev/ccm2200_gpio -a -c /dev/ccm2200_watchdog ] ; then
+                # enable watchdog (without LED display)
+                #killall watchdog
+                ccm2200_gpio_test /dev/ccm2200_gpio led 0x0000
+                /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x0000
+                /sbin/watchdog -t 1 /dev/ccm2200_watchdog
+                sleep 3
+                killall watchdog
+
+                if [ $okay != 0 ]; then
+                    # display "O" Symbol
+                    #ccm2200_gpio_test /dev/ccm2200_gpio led 0x6996
+                    /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x6996
+                else
+                    # display "F" Symbol
+                    #ccm2200_gpio_test /dev/ccm2200_gpio led 0x131F
+                    /usr/bin/ccm2200_watchdog /dev/ccm2200_watchdog led 0x131F
+                fi
+                /sbin/watchdog -t 1 /dev/ccm2200_watchdog
+            fi
+            ;;
+
+        *"Swarco SCC-3G"*)
+            exec 3<>$MODEM_DEVICE
+            wait $MODEM_LED_PID
+
+            if [ $okay != 0 ]; then
+                #success
+                echo -ne "AT#SLED=3,10,10\r" >&3
+            else
+                #error
+                echo -ne "AT#SLED=0\r" >&3
+            fi
+            ;;
+    esac
+
     if [ $okay != 0 ]; then
         cat <<EOF
 
