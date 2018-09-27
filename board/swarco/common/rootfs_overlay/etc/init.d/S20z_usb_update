@@ -153,8 +153,8 @@ if [ ! -f /etc/.usb-configurated ]; then
             ;;
 
         *"Swarco SCC-3G"*)
-            exec 3<>$MODEM_DEVICE
             wait $MODEM_LED_PID
+            exec 3<>$MODEM_DEVICE
 
             if [ $okay != 0 ]; then
                 #success
