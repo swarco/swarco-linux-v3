@@ -1,0 +1,5 @@
+config BR2_PACKAGE_QEMACS
+        bool "qemacs Text Editor"
+	default n
+	help
+	  QEmacs Text Editor
