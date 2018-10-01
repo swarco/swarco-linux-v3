@@ -35,6 +35,12 @@ else
     SYS_MESG=/usr/weiss/bin/sys-mesg
 fi
 
+if [ -d /sys/devices/platform/at91_udc/udc/at91_udc/device/gadget/net ] ; then
+    USB_GADGET_IFACE=`cd /sys/devices/platform/at91_udc/udc/at91_udc/device/gadget/net;echo *`
+else
+    USB_GADGET_IFACE=usb0
+fi
+
 start() {
  	echo "Starting network..."
 
@@ -49,10 +55,10 @@ start() {
         # 2007-05-09 gc: ifup seams currently not to work in busybox
 	#/sbin/ifup -a
 	sh /etc/network/ip-config
-	if ifconfig usb0 | grep 169.254.17.101 >/dev/null 2>&1; then
+	if ifconfig $USB_GADGET_IFACE | grep 169.254.17.101 >/dev/null 2>&1; then
 	    # 2016-11-21: force new usb network ip if old one is set
 	    # in ip-config
-	    ifconfig usb0 10.99.99.99 netmask 255.255.255.248
+	    ifconfig $USB_GADGET_IFACE 10.99.99.99 netmask 255.255.255.248
 	fi
 }	
 stop() {
