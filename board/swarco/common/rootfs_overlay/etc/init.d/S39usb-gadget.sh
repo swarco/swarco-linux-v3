@@ -25,18 +25,30 @@
 #   2007 gc: initial version
 #
 
+get_gadget_iface() {
+if [ -d /sys/devices/platform/at91_udc/udc/at91_udc/device/gadget/net ] ; then
+    USB_GADGET_IFACE=`cd /sys/devices/platform/at91_udc/udc/at91_udc/device/gadget/net;echo *`
+else
+    USB_GADGET_IFACE=usb0
+fi
+}
 
 start() {
  	echo "Starting USB device network interface..."
 	insmod /lib/modules/`uname -r`/kernel/drivers/usb/gadget/g_ether.ko \
-                host_addr=00:dc:c8:f7:75:05 dev_addr=00:dd:dc:eb:6d:f1
-        ifconfig usb0 10.99.99.99 netmask 255.255.255.248
+               host_addr=00:dc:c8:f7:75:05 dev_addr=00:dd:dc:eb:6d:f1
+        get_gadget_iface
+        ifconfig ${USB_GADGET_IFACE} 10.99.99.99 netmask 255.255.255.248
         # start dhcp server for USB-gadget RNDIS interface!
-        udhcpd /etc/udhcp-usb0.conf
-}	
+        sed -e "s/^[ \\t]*interface.*\$/interface ${USB_GADGET_IFACE}/" </etc/udhcp-usb0.conf >/tmp/udhcp-${USB_GADGET_IFACE}.conf
+        udhcpd /tmp/udhcp-${USB_GADGET_IFACE}.conf
+        iptables -A INPUT -i ${USB_GADGET_IFACE} -j ACCEPT
+}
+
 stop() {
 	echo -n "Stopping USB device network interface..."
-        ifconfig usb0 down
+        get_gadget_iface
+        ifconfig ${USB_GADGET_IFACE} down
 }
 restart() {
 	stop
