@@ -16,6 +16,7 @@ RUN useradd -ms /bin/bash builduser &&                  \
             ca-certificates                             \
             cpp                                         \
             curl                                        \
+            cvs                                         \
             flex                                        \
             g++                                         \
             gcc                                         \
