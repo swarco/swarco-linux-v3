@@ -49,7 +49,7 @@ make
         fi
     done
     mkdir -p linux-v3.4.113-ccm2200/arch/arm/boot/
-    cp -p  ../images/uImage linux-v3.4.113-ccm2200/arch/arm/boot/uImage
+    cp -p  ../images/uImage-ccm2200-ubifs.bin linux-v3.4.113-ccm2200/arch/arm/boot/uImage-ccm2200-ubifs.bin
 )
 
 # remove download directory, so it will not be part of the created Docker image
