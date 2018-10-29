@@ -59,11 +59,11 @@ init_modem_led() {
 
     local count=0
 
-    while ! test -c $MODEM_DEVICE
+    while ! [ -c $MODEM_DEVICE ]
     do
         count=$(($count+1))
         if [ $count -gt 10 ]; then
-            return 1
+            exit 1
         fi
 
         sleep 1
@@ -74,12 +74,13 @@ init_modem_led() {
 
         # stty may say "no such device"
         echo "stty failed"
-        # exit 1
+        exit 1
     fi
 
     wait_quiet
     echo -ne "AT\r" >&3
     echo -ne "AT#SLED=1\r" >&3
+    exit 0
 }
 
 
@@ -153,15 +154,16 @@ if [ ! -f /etc/.usb-configurated ]; then
             ;;
 
         *"Swarco SCC-3G"*)
-            wait $MODEM_LED_PID
-            exec 3<>$MODEM_DEVICE
+            if wait $MODEM_LED_PID && [ -c $MODEM_DEVICE ]; then
+                exec 3<>$MODEM_DEVICE
 
-            if [ $okay != 0 ]; then
-                #success
-                echo -ne "AT#SLED=3,10,10\r" >&3
-            else
-                #error
-                echo -ne "AT#SLED=0\r" >&3
+                if [ $okay != 0 ]; then
+                    #success
+                    echo -ne "AT#SLED=3,10,10\r" >&3
+                else
+                    #error
+                    echo -ne "AT#SLED=0\r" >&3
+                fi
             fi
             ;;
     esac
