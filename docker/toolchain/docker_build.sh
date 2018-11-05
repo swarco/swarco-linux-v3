@@ -25,6 +25,11 @@ sed -i -e 's/utf8/utf-\\\\\\?8/g' support/dependencies/dependencies.sh
 cat support/dependencies/dependencies.sh
 
 make toolchain
+# build host-gdb if configured
+if grep -e 'BR2_PACKAGE_HOST_GDB=y' .config  ; then
+    make host-gdb
+fi
+
 
 # cleanup build dir so it will not be part of the created Docker image
 (
