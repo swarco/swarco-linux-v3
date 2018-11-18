@@ -1,3 +1,5 @@
+# From https://www.openssl.org/source/openssl-1.0.2p.tar.gz.sha256
+sha256	50a98e07b1a89eb8f6a99477f262df71c6fa7bef77df4dc83025a2845c827d00	openssl-1.0.2p.tar.gz
 # From https://www.openssl.org/source/openssl-1.0.2h.tar.gz.sha256
 sha256	1d4007e53aad94a5b2002fe045ee7bb0b3d98f1a47f8b2bc851dcd1c74332919	openssl-1.0.2h.tar.gz
 # Locally computed
