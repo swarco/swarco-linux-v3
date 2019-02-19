@@ -25,11 +25,21 @@ sed -i -e 's/utf8/utf-\\\\\\?8/g' support/dependencies/dependencies.sh
 cat support/dependencies/dependencies.sh
 
 make toolchain
+
+################################################################################
+# build packages / libraries needed in toolchain image
+################################################################################
+
+make host-pkgconf
+
 # build host-gdb if configured
-if grep -e 'BR2_PACKAGE_HOST_GDB=y' .config  ; then
+if grep -e 'BR2_PACKAGE_HOST_GDB=y' .config >/dev/null 2>&1  ; then
     make host-gdb
 fi
 
+if grep -e 'BR2_PACKAGE_OPENSSL=y' .config >/dev/null 2>&1  ; then
+    make openssl
+fi
 
 # cleanup build dir so it will not be part of the created Docker image
 (
