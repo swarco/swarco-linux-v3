@@ -1,5 +1,5 @@
 # -*- shell-script -*-
-FROM swarco/swarco-linux-v3-toolchain
+FROM swarco/${DOCKER_IMAGE_TOOLCHAIN-swarco-linux-v3-toolchain}
 MAINTAINER Guido Classen <clagix@gmail.com>
 
 LABEL description="Automated Build for SWARCO Embedded Linux V3 operating system (Rootfs/Kernel Images)"
