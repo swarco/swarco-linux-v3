@@ -11,7 +11,7 @@ cd swarco-linux-v3
 # make shallow clone
 git clone --depth 1 https://github.com/swarco/swarco-linux-v3-dl output
 
-make swarco_linux_v3_ccm2200_defconfig
+make ${BUILDROOT_CONFIG-swarco_linux_v3_ccm2200_defconfig}
 
 # disable toolchain locale support
 # sed -i -e "s/BR2_ENABLE_LOCALE=y/# BR2_ENABLE_LOCALE is not set/g" .config
