@@ -1,0 +1,59 @@
+/*
+ * sama5d35-swarco-ethernetrouter.dts - Device Tree for Swarco SAMA5D35-based
+ * Ethernetouter board.
+ *
+ *  Copyright (C) 2013 Atmel,
+ *                2013 Ludovic Desroches <ludovic.desroches@atmel.com>
+ *                2016 Karl Olsen <karl@micro-technic.com>
+ *
+ * Licensed under GPLv2 or later.
+ */
+
+/dts-v1/;
+#include "sama5d35-swarco-router.dtsi"
+
+/ {
+	model = "swarco-ethernetrouter-sama5";
+	compatible = "atmel,sama5d35-swarco-ethernetrouter", "atmel,sama5d35", "atmel,sama5d3", "atmel,sama5";
+
+	ahb {
+		apb {
+			/* SPI */
+			spi1: spi@f8008000 {
+				ksz87x5_spi@0 {
+					/* Micrel KSZ8795 5-port switch */
+					compatible = "micrel,ksz8795";
+					
+					ports {
+						#address-cells = <1>;
+						#size-cells = <0>;
+
+						port0@0 {
+							/* Copper port */
+							reg = <0>;
+							label = "eth3";
+						};
+
+						port1@1 {
+							/* Copper port */
+							reg = <1>;
+							label = "eth4";
+						};
+
+						port2@2 {
+							/* Copper port */
+							reg = <2>;
+							label = "eth5";
+						};
+
+						port3@3 {
+							/* Copper port */
+							reg = <3>;
+							label = "eth2";
+						};
+					};
+				};
+			};
+		};
+	};
+};
