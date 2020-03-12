@@ -1,4 +1,9 @@
 # -*- shell-script -*-
+# run with
+#
+# docker -v ../..:/home/builduser/swarco-linux-v3 build
+
+
 FROM debian:jessie
 MAINTAINER Guido Classen <clagix@gmail.com>
 
@@ -66,7 +71,7 @@ COPY docker_build.sh /home/builduser/
 
 RUN ls -l /home/builduser
 WORKDIR /home/builduser
-RUN ./docker_build.sh
+RUN ./docker_build.sh ${BUILDROOT_CONFIG}
 
 #reset DEBIAN_FRONTEND to default value
 ENV DEBIAN_FRONTEND newt

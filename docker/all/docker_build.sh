@@ -11,7 +11,10 @@ cd swarco-linux-v3
 # make shallow clone
 git clone --depth 1 https://github.com/swarco/swarco-linux-v3-dl output
 
-make ${BUILDROOT_CONFIG-swarco_linux_v3_ccm2200_defconfig}
+CONFIG=${1-swarco_linux_v3_ccm2200_defconfig}
+echo "Using Config: ${CONFIG}"
+exit 0
+make ${CONFIG}
 
 # disable toolchain locale support
 # sed -i -e "s/BR2_ENABLE_LOCALE=y/# BR2_ENABLE_LOCALE is not set/g" .config
@@ -26,6 +29,11 @@ cat support/dependencies/dependencies.sh
 
 #make toolchain
 make
+
+(
+    cd output/images
+    tar cjf ../../../swarco-linux-v3_images.tar.bz2 .
+)
 
 ################################################################################
 # build packages / libraries needed in toolchain image

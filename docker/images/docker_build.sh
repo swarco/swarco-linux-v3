@@ -18,7 +18,7 @@ make
 
 (
     cd output/images
-    tar cJf ../../../swarco-linux-v3_images.tar.bz2 .
+    tar cjf ../../../swarco-linux-v3_images.tar.bz2 .
 )
 
 # cleanup build dir so it will not be part of the created Docker image
