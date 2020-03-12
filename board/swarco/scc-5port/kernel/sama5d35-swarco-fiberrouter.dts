@@ -1,0 +1,78 @@
+/*
+ * sama5d35-swarco-fiberrouter.dts - Device Tree for Swarco SAMA5D35-based Fiber router board
+ *
+ *  Copyright (C) 2013 Atmel,
+ *                2013 Ludovic Desroches <ludovic.desroches@atmel.com>
+ *                2016 Karl Olsen <karl@micro-technic.com>
+ *
+ * Licensed under GPLv2 or later.
+ */
+
+/dts-v1/;
+#include "sama5d35-swarco-router.dtsi"
+
+/ {
+	model = "swarco-fiberrouter-sama5";
+	compatible = "atmel,sama5d35-swarco-fiberrouter", "atmel,sama5d35", "atmel,sama5d3", "atmel,sama5";
+
+	ahb {
+		apb {
+			/* SPI */
+			spi1: spi@f8008000 {
+				ksz87x5_spi@0 {
+					/* Micrel KSZ8765 5-port switch */
+					compatible = "micrel,ksz8765";
+					
+					ports {
+						#address-cells = <1>;
+						#size-cells = <0>;
+
+						port0@0 {
+							/* Fiber port, must be fixed-link */
+							reg = <0>;
+							label = "fib1";
+							fixed-link {
+								speed = <100>;
+								full-duplex;
+							};
+						};
+
+						port1@1 {
+							/* Fiber port, must be fixed-link */
+							reg = <1>;
+							label = "fib2";
+							fixed-link {
+								speed = <100>;
+								full-duplex;
+							};
+						};
+
+						port2@2 {
+							/* Switch copper port with fiber-copper
+							 * converter using two back-to-back phys
+							 * and GPIO link up/down status */
+							reg = <2>;
+							label = "fib3";
+							fixed-link {
+								speed = <100>;
+								full-duplex;
+								/* @@@ As of 4.8-rc6, the GPIO_ACTIVE_LOW
+								 * flag is ignored, but our input is active
+								 * low. Until that is fixed correctly, I
+								 * have inverted the input in
+								 * drivers/net/phy/fixed_phy.c fixed_phy_update().
+								 */
+								link-gpios = <&pioB 27 GPIO_ACTIVE_LOW>;
+							};
+						};
+
+						port3@3 {
+							reg = <3>;
+							label = "eth2";
+						};
+					};
+				};
+			};
+		};
+	};
+};
