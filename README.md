@@ -1,7 +1,7 @@
 SWARCO Embedded Linux V3 operating system
 =========================================
 
-<img src="https://www.swarco.com/var/em_plain_site/storage/images/media/images/swarco-traffic-systems/interurban/primos/primos_compact_ohnetouch_grau/1166093-1-eng-US/Primos_Compact_ohneTouch_grau_315px.jpg" width="200" title="SWARCO CCM2200 CPU" alt="">
+<img src="https://www.swarco.com/sites/default/files/public/product/2018-11/primos_scc_frei.png" width="200" title="SWARCO CCM2200 CPU" alt="">
 
 
 ## Feature comparison SWARCO Linux V2 vs. V3
@@ -33,6 +33,9 @@ Or prepare SCC-Air configuration:
 
     make swarco_linux_v3_scc_air_defconfig
     
+Or prepare SCC-SAMA5 5 port router configuration:
+
+    make swarco_linux_v3_scc_5port_sama5_defconfig
 
 Compile toolchain, packages, kernel, build rootfs:
 
