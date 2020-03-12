@@ -13,7 +13,7 @@ git clone --depth 1 https://github.com/swarco/swarco-linux-v3-dl output
 
 CONFIG=${1-swarco_linux_v3_ccm2200_defconfig}
 echo "Using Config: ${CONFIG}"
-exit 0
+
 make ${CONFIG}
 
 # disable toolchain locale support
