@@ -1,12 +1,15 @@
 #!/bin/bash
 
 set -e -x
+echo "ARG: $1"
 id
+pwd
+cat /etc/debian_version 
 
 # make shallow clone
-git clone --depth 1 https://github.com/swarco/swarco-linux-v3
+#git clone --depth 1 https://github.com/swarco/swarco-linux-v3
 
-cd swarco-linux-v3
+#cd swarco-linux-v3
 
 # make shallow clone
 git clone --depth 1 https://github.com/swarco/swarco-linux-v3-dl output
