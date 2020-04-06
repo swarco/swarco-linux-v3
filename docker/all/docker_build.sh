@@ -2,9 +2,12 @@
 
 set -e -x
 echo "ARG: $1"
+echo "BUILDROOT_CONFIG: $BUILDROOT_CONFIG"
 id
 pwd
 cat /etc/debian_version 
+unset BUILDROOT_CONFIG
+export BUILDROOT_CONFIG
 
 # make shallow clone
 #git clone --depth 1 https://github.com/swarco/swarco-linux-v3
