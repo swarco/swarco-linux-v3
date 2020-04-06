@@ -66,12 +66,14 @@ ENV LANGUAGE C.UTF-8
 ENV LC_ALL C.UTF-8
 
 
-COPY docker_build.sh /home/builduser/
+#COPY docker_build.sh /home/builduser/
 #USER builduser
 
-RUN ls -l /home/builduser
-WORKDIR /home/builduser
-RUN ./docker_build.sh ${BUILDROOT_CONFIG}
+#RUN ls -l /home/builduser
+ADD . /home/builduser/build
+WORKDIR /home/builduser/build
+ARG BUILDROOT_CONFIG
+RUN docker/all/docker_build.sh ${BUILDROOT_CONFIG}
 
 #reset DEBIAN_FRONTEND to default value
 ENV DEBIAN_FRONTEND newt
