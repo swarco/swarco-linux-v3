@@ -54,9 +54,9 @@ RUN useradd -ms /bin/bash builduser &&                  \
     apt-get clean &&                                    \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN ls -l /home
-RUN ls -l /home/builduser
-RUN cat /etc/passwd
+# RUN ls -l /home
+# RUN ls -l /home/builduser
+# RUN cat /etc/passwd
 
 #    locale-gen en_US.utf8 &&                           \
 #    /usr/sbin/update-locale LANG=en_US.utf8 &&         \

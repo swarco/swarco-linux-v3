@@ -4,5 +4,5 @@ echo "Docker build hook: " docker build --build-arg BUILDROOT_CONFIG="$BUILDROOT
 set -x
 pwd
 ls -l
-cd ..
+cd ../..
 docker build --build-arg BUILDROOT_CONFIG="$BUILDROOT_CONFIG" -f "$DOCKERFILE_PATH" -t "$IMAGE_NAME" .
