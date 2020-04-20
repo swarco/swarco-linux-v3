@@ -70,8 +70,8 @@ ENV LC_ALL C.UTF-8
 #USER builduser
 
 #RUN ls -l /home/builduser
-ADD . /home/builduser/build
-WORKDIR /home/builduser/build
+ADD . /home/builduser/swarco-linux-v3
+WORKDIR /home/builduser/swarco-linux-v3
 ARG BUILDROOT_CONFIG
 RUN docker/all/docker_build.sh ${BUILDROOT_CONFIG}
 
