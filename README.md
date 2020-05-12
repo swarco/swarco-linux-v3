@@ -8,13 +8,13 @@ SWARCO Embedded Linux V3 operating system
 
 | Feature              | SWARCO Linux V2       | SWARCO Linux V3                     |
 |----------------------|-----------------------|-------------------------------------|
-| Hardware             | CCM2200               | CCM2200, SCC-Air, 5 Port Router, SCC-Air v2 &#8230; |
+| Hardware             | CCM2200               | SCC-Air v2, SCC-Air, CCM2200, 5 Port Router,  &#8230; |
 | first release        | 2007                  | December 2017                       |
 | based on Buildroot   | 2008-12-11            | &ge; 2016.05                        |
 | CPU architecture     | ARM                   | ARM                                 |
 | min. instruction set | ARMv4T, arm920t       | ARMv4T, arm920t                     |
 | ABI                  | OABI                  | EABI                                |
-| Linux-Kernel         | 3.4.113 (opt. 2.6.21) | SCC-Air 3.3 <br> CCM2200: 3.4.113 |
+| Linux-Kernel         | 3.4.113 (opt. 2.6.21) |  SCC-Air-v2 4.9.47 <br> SCC-Air 3.3 <br> CCM2200: 3.4.113 |
 | Buildroot version    | 20081211              | &ge; 2016.05                        |
 | C-Library            | uClibc version 0.9.29 | glibc version &ge; 2.22             |
 | Thread library       | linuxthreads          | glibc NPTL                          |
@@ -30,17 +30,22 @@ SWARCO Embedded Linux V3 operating system
 
 ### Building Docker Images
 
-Build images for CCM2200 hardware:
+Build images for SCC-Air-v2 hardware:
 
-    docker build -f docker/all/Dockerfile -t swarco/swarco-linux-v3-ccm2200 --build-arg BUILDROOT_CONFIG=swarco_linux_v3_ccm2200_defconfig   .
+    docker build -f docker/all/Dockerfile -t swarco/swarco-linux-v3-scc-air-v2 --build-arg BUILDROOT_CONFIG=swarco_linux_v3_scc-air-v2_sama5_defconfig   .
+
+Build images for SCC-SAMA5 5 Port Router hardware:
+
+    docker build -f docker/all/Dockerfile -t swarco/swarco-linux-v3-scc-5port-sama5 --build-arg BUILDROOT_CONFIG=swarco_linux_v3_scc_5port_sama5_defconfig   .
 
 Build images for SCC-Air hardware:
 
     docker build -f docker/all/Dockerfile -t swarco/swarco-linux-v3-scc-air --build-arg BUILDROOT_CONFIG=swarco_linux_v3_scc_air_defconfig   .
 
-Build images for SCC-SAMA5 5 Port Router hardware:
+Build images for CCM2200 hardware:
 
-    docker build -f docker/all/Dockerfile -t swarco/swarco-linux-v3-scc-5port-sama5 --build-arg BUILDROOT_CONFIG=swarco_linux_v3_scc_5port_sama5_defconfig   .
+    docker build -f docker/all/Dockerfile -t swarco/swarco-linux-v3-ccm2200 --build-arg BUILDROOT_CONFIG=swarco_linux_v3_ccm2200_defconfig   .
+
 
 ### Extract root-fs and kernel images for installation on target CPU from Docker image
 
@@ -53,17 +58,22 @@ Build images for SCC-SAMA5 5 Port Router hardware:
 Recommended Linux distribution is Debian 8 Jessie **
 
 
+Or prepare SCC-Airv-2 configuration:
+
+    make swarco_linux_v3_scc-air-v2_sama5_defconfig
+
+Or prepare SCC-SAMA5 5 port router configuration:
+
+    make swarco_linux_v3_scc_5port_sama5_defconfig
+
+Or prepare SCC-Air configuration:
+
+    make swarco_linux_v3_scc_air_defconfig
+
 Prepare CCM2200 configuration:
 
     make swarco_linux_v3_ccm2200_defconfig
     
-Or prepare SCC-Air configuration:
-
-    make swarco_linux_v3_scc_air_defconfig
-    
-Or prepare SCC-SAMA5 5 port router configuration:
-
-    make swarco_linux_v3_scc_5port_sama5_defconfig
 
 Compile toolchain, packages, kernel, build rootfs:
 
@@ -78,8 +88,8 @@ Then images for the CC2200 CPU are found under
 
 This is a fork of the Buildroot GIT repository (from
 [http://git.buildroot.net/buildroot](http://git.buildroot.net/buildroot)) which is a base for the SWARCO
-Embedded Linux V3 operating system used on the CCM2200 and CCMxCORE
-CPUs.
+Embedded Linux V3 operating system used on the SCC-Air-v2, SCC-Air, CCM2200 and
+other similar SWARCO CPUs.
 
 Buildroot itself and all files in this repository contributed by
 SWARCO are licensed under the
