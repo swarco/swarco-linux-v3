@@ -3,6 +3,7 @@
 # post build script for SWARCO Embedded Linux V3
 # 2017-2018, "Guido Classen"
 #
+set -x
 
 cat >${TARGET_DIR}/etc/issue <<EOF 
 Welcome to SWARCO Traffic Systems GmbH Embedded Linux v3  
