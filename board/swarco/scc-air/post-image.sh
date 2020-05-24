@@ -2,6 +2,7 @@
 #
 # post-image.sh script for SWARCO Embedded Linux V3
 #
+set -x
 
 # Rename output files with name needed for USB stick update
 if [ -f $BINARIES_DIR/rootfs.ubifs ] ; then
