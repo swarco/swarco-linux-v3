@@ -1,6 +1,4 @@
-# Locally calculated after checking pgp signature
-# Also from http://www.openssh.com/txt/release-7.2
-sha256	a72781d1a043876a224ff1b0032daa4094d87565a68528759c1c2cab5482548c	openssh-7.2p2.tar.gz
-sha256  1b1fc4a14e2024293181924ed24872e6f2e06293f3e8926a376b8aec481f19d1        openssh-7.4p1.tar.gz
-sha256  d73be7e684e99efcd024be15a30bffcbe41b012b2f7b3c9084aed621775e6b8f        openssh-7.7p1.tar.gz
-sha256  6b4b3ba2253d84ed3771c8050728d597c91cfce898713beb7b64a305b6f11aad        openssh-7.9p1.tar.gz
+# From https://www.openssh.com/txt/release-8.3 (base64 encoded)
+sha256  f2befbe0472fe7eb75d23340eb17531cb6b3aac24075e2066b41f814e12387b2  openssh-8.3p1.tar.gz
+# Locally calculated
+sha256  73d0db766229670c7b4e1ec5e6baed54977a0694a565e7cc878c45ee834045d7  LICENCE
