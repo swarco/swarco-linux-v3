@@ -49,7 +49,7 @@ Build images for CCM2200 hardware:
 
 ### Extract root-fs and kernel images for installation on target CPU from Docker image
 
-    docker cp <CONTAINER ID>:/home/builduser/build/output/images .
+    docker cp <CONTAINER ID>:/home/builduser/swarco-linux-v3/output/images .
 
 
 ## Compilation for CCM2200 CPU, SCC-Air CPU and SAMA5 5Port Router on host Linux
