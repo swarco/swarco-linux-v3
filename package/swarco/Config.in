@@ -23,5 +23,6 @@ source "package/swarco/qemacs/Config.in"
 # source "swarco/package/tinc/Config.in"
 source "package/swarco/swarco-usermode-tools/Config.in"
 source "package/swarco/mobile-data-connector/Config.in"
+source "package/swarco/libgpiod/Config.in"
 
 endmenu
