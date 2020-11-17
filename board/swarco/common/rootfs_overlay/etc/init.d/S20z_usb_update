@@ -85,21 +85,30 @@ init_modem_led() {
 
 
 okay=0
-HW="`awk < /proc/cpuinfo -F ': ' '/^Hardware.*:/ { print $2; }'`"
+if [ -f /sys/firmware/devicetree/base/model ]
+then
+  HW="`cat /sys/firmware/devicetree/base/model`"
+else
+  HW="`awk </proc/cpuinfo  -F '[ \t]*:[ \t]*' '/Hardware/ { print $2 }'`"
+fi
+
 
 case "$HW" in
-    *CCM2200*)
+    "SWARCO CCM2200")
         if [ $((`ccm2200_gpio_test /dev/ccm2200_gpio sconf` & 1)) != 0 ] ; then
             # update only enabled if DIP-Switch 5 is set to "on" position
             exit 0;
         fi
         ;;
 
-    *"Swarco SCC-3G"*)
+    "Swarco SCC-3G")
         MODEM_DEVICE=/dev/ttyACM0
         # start modem initialization in background to save time
         init_modem_led &
         MODEM_LED_PID=$!
+        ;;
+
+    "swarco-scc-air-mk2-sama5")
         ;;
 esac
 
@@ -130,7 +139,7 @@ if [ ! -f /etc/.usb-configurated ]; then
     mount -oremount,ro /
 
     case "$HW" in
-        *CCM2200*)
+        "SWARCO CCM2200")
             if [ -c /dev/ccm2200_gpio -a -c /dev/ccm2200_watchdog ] ; then
                 # enable watchdog (without LED display)
                 #killall watchdog
@@ -153,7 +162,7 @@ if [ ! -f /etc/.usb-configurated ]; then
             fi
             ;;
 
-        *"Swarco SCC-3G"*)
+        "Swarco SCC-3G")
             if wait $MODEM_LED_PID && [ -c $MODEM_DEVICE ]; then
                 exec 3<>$MODEM_DEVICE
 
@@ -166,14 +175,53 @@ if [ ! -f /etc/.usb-configurated ]; then
                 fi
             fi
             ;;
+
+        "swarco-scc-air-mk2-sama5")
+            for led in 1 2 3 4 5 6
+            do
+                echo 0 > /sys/class/leds/board_led_$led/brightness
+            done
+
+
+            if [ $okay != 0 ]; then
+                # update okay
+                for led in 1 2 3 4 5
+                do
+                    echo 100 > /sys/class/leds/board_led_$led/brightness
+                    usleep 200000
+                done
+            else
+                # update failed
+                while true
+                do
+                    echo   0 > /sys/class/leds/board_led_5/brightness;
+                    echo 100 > /sys/class/leds/board_led_6/brightness;
+                    usleep 100000
+                    echo   0 > /sys/class/leds/board_led_5/brightness;
+                    echo   0 > /sys/class/leds/board_led_6/brightness;
+                    usleep 400000
+                    echo 100 > /sys/class/leds/board_led_5/brightness;
+                    echo   0 > /sys/class/leds/board_led_6/brightness;
+                    usleep 100000
+                    echo   0 > /sys/class/leds/board_led_5/brightness;
+                    echo   0 > /sys/class/leds/board_led_6/brightness;
+                    usleep 400000
+                done
+            fi
+            ;;
+
     esac
 
     if [ $okay != 0 ]; then
+        COL_GN=`echo -e "\033[32;1m"`
+        COL_RED=`echo -e "\033[31;1m"`
+        COL_RST=`echo -e "\033[0m"`
+
         cat <<EOF
 
 ------------------------------------------------------------------------------
-                       SWARCO Linux V3 UBIFS Autoupdate
-           😁 🎉 👍 Update / Recovery finished successfully :-) 👍 🎉 😁
+                   🐧  SWARCO Linux V3 UBIFS Autoupdate  🐧
+           😁 🎉 👍 ${COL_GN}Update / Recovery finished successfully :-)${COL_RST} 👍 🎉 😁
 ------------------------------------------------------------------------------
 
 EOF
@@ -182,8 +230,8 @@ EOF
         cat <<EOF
 
 ------------------------------------------------------------------------------
-                       SWARCO Linux V3 UBIFS Autoupdate
-                   💣 😞 👎 Update / Recovery FAILED!!! 👎 😞 💣
+                   🐧  SWARCO Linux V3 UBIFS Autoupdate  🐧
+                   💣 😞 👎 ${COL_RD}Update / Recovery FAILED!!!${COL_RST] 👎 😞 💣
 ------------------------------------------------------------------------------
 
 EOF
