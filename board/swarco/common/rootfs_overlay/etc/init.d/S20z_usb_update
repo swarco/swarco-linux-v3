@@ -177,6 +177,7 @@ if [ ! -f /etc/.usb-configurated ]; then
             ;;
 
         "swarco-scc-air-mk2-sama5")
+            BUZZER=/dev/swarco/gpio/buzzer
             for led in 1 2 3 4 5 6
             do
                 echo 0 > /sys/class/leds/board_led_$led/brightness
@@ -185,28 +186,45 @@ if [ ! -f /etc/.usb-configurated ]; then
 
             if [ $okay != 0 ]; then
                 # update okay
-                for led in 1 2 3 4 5
-                do
-                    echo 100 > /sys/class/leds/board_led_$led/brightness
-                    usleep 200000
-                done
+                (
+                    for led in 1 2
+                    do
+                        echo 100 > /sys/class/leds/board_led_$led/brightness
+                        echo 1 >$BUZZER ;usleep 50000; echo 0 >$BUZZER
+                        usleep 150000
+                    done
+                    for led in 3 4 5
+                    do
+                        echo 100 > /sys/class/leds/board_led_$led/brightness
+                        usleep 200000
+                    done
+                )&
             else
                 # update failed
-                while true
-                do
-                    echo   0 > /sys/class/leds/board_led_5/brightness;
-                    echo 100 > /sys/class/leds/board_led_6/brightness;
-                    usleep 100000
-                    echo   0 > /sys/class/leds/board_led_5/brightness;
-                    echo   0 > /sys/class/leds/board_led_6/brightness;
-                    usleep 400000
-                    echo 100 > /sys/class/leds/board_led_5/brightness;
-                    echo   0 > /sys/class/leds/board_led_6/brightness;
-                    usleep 100000
-                    echo   0 > /sys/class/leds/board_led_5/brightness;
-                    echo   0 > /sys/class/leds/board_led_6/brightness;
-                    usleep 400000
-                done
+                (
+                    for x in 1 2 3 4 5 6
+                    do
+                        echo 1 >$BUZZER ;usleep 350000; echo 0 >$BUZZER
+                        usleep 50000
+                    done
+                )&
+                (
+                    while true
+                    do
+                        echo   0 > /sys/class/leds/board_led_5/brightness;
+                        echo 100 > /sys/class/leds/board_led_6/brightness;
+                        usleep 100000
+                        echo   0 > /sys/class/leds/board_led_5/brightness;
+                        echo   0 > /sys/class/leds/board_led_6/brightness;
+                        usleep 400000
+                        echo 100 > /sys/class/leds/board_led_5/brightness;
+                        echo   0 > /sys/class/leds/board_led_6/brightness;
+                        usleep 100000
+                        echo   0 > /sys/class/leds/board_led_5/brightness;
+                        echo   0 > /sys/class/leds/board_led_6/brightness;
+                        usleep 400000
+                    done
+                )&
             fi
             ;;
 
@@ -231,7 +249,7 @@ EOF
 
 ------------------------------------------------------------------------------
                    🐧  SWARCO Linux V3 UBIFS Autoupdate  🐧
-                   💣 😞 👎 ${COL_RD}Update / Recovery FAILED!!!${COL_RST] 👎 😞 💣
+                   💣 😞 👎 ${COL_RED}Update / Recovery FAILED!!!${COL_RST} 👎 😞 💣
 ------------------------------------------------------------------------------
 
 EOF
