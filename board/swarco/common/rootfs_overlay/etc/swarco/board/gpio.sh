@@ -206,6 +206,7 @@ then
     echo "   > pioE0 OUTPUT linked to $GPIO_DIR/buzzer"
     echo 128 >/sys/class/gpio/export
     echo 1   >/sys/class/gpio/pioE0/active_low
+    echo 0   >/sys/class/gpio/pioE0/value
     echo out >/sys/class/gpio/pioE0/direction
     echo 0   >/sys/class/gpio/pioE0/value
     ln -s     /sys/class/gpio/pioE0/value      $GPIO_DIR/buzzer
