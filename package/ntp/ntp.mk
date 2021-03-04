@@ -16,7 +16,11 @@ NTP_CONF_OPTS = \
 	--program-transform-name=s,,, \
 	--disable-tickadj \
 	--with-yielding-select=yes \
-	--disable-local-libevent
+	--disable-local-libevent \
+	--enable-MEINBERG \
+	--enable-RAWDCF \
+	--enable-parse-clocks
+
 # 0002-ntp-syscalls-fallback.patch
 NTP_AUTORECONF = YES
 
