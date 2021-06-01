@@ -1,0 +1,408 @@
+/*
+ * sama5d35-swarco-router.dtsi - Device Tree include file with common stuff
+ * for Swarco Fiber Router and Swarco Ethernet Router. These boards are
+ * identical except for the network ports.
+ *
+ *  Copyright (C) 2013 Atmel,
+ *                2013 Ludovic Desroches <ludovic.desroches@atmel.com>
+ *                2016 Karl Olsen <karl@micro-technic.com>
+ *                2020 Guido Classen 
+ *
+ * Licensed under GPLv2 or later.
+ */
+
+#include "sama5d35.dtsi"
+
+/ {
+	model = "Generic Swarco Router board";
+	compatible = "atmel,sama5d35-swarco-router", "atmel,sama5d35", "atmel,sama5d3", "atmel,sama5";
+
+	chosen {
+		stdout-path = "serial0:115200n8";
+		/* bootargs = "rootfstype=ubifs ubi.mtd=2 root=ubi0:rootfs"; */
+	};
+
+	memory {
+		reg = <0x20000000 0x10000000>;
+	};
+
+	clocks {
+		slow_xtal {
+			clock-frequency = <32768>;
+		};
+
+		main_xtal {
+			clock-frequency = <12000000>;
+		};
+	};
+
+	gpioleds {
+		compatible = "gpio-leds";
+		
+		/* D7-B green LED in front */
+		led_status1 {
+			label = "status1";
+			gpios = <&pioD 30 GPIO_ACTIVE_LOW>;
+		};
+
+		/* D1 green SMD LED */
+		led_sw {
+			label = "sw_led";
+			gpios = <&pioC 20 GPIO_ACTIVE_LOW>;
+			default-state = "on";
+			linux,default-trigger = "cpu0";
+		};
+	};
+
+	ahb {
+		apb {
+			/* DBGU (/dev/ttyS0): Console port. RxD, TxD.
+			 * Accessible through USB Device port with FTDI USB-serial converter. */
+			dbgu: serial@ffffee00 {
+				atmel,use-dma-rx;
+				atmel,use-dma-tx;
+				status = "okay";
+			};
+
+			/* USART0 (/dev/ttyS1): RS485. RxD, TxD, RTS.
+			 * CN4 DSUB-9 male on front. */
+			usart0: serial@f001c000 {
+				pinctrl-0 = <&pinctrl_usart0 &pinctrl_usart0_rts>;
+				linux,rs485-enabled-at-boot-time;
+				rs485-rts-delay = <0 0>;
+				status = "okay";
+			};
+
+			/* USART1 (/dev/ttyS2): RS422. RxD, TxD.
+			 * CN5 DSUB-9 male on front. */
+			usart1: serial@f0020000 {
+				status = "okay";
+			};
+
+			/* USART2 (/dev/ttyS3): RS232 with full modem.
+			 * CN3 DSUB-9 male on front. */
+			usart2: serial@f8020000 {
+				pinctrl-0 = <&pinctrl_usart2 &pinctrl_usart2_rts_cts>;
+				dtr-gpios = <&pioE 27 GPIO_ACTIVE_LOW>;
+				rng-gpios = <&pioE 28 GPIO_ACTIVE_LOW>;
+				dsr-gpios = <&pioE 29 GPIO_ACTIVE_LOW>;
+				dcd-gpios = <&pioE 30 GPIO_ACTIVE_LOW>;
+				status = "okay";
+			};
+
+			/* USART3 (/dev/ttyS4): RS232#1. RxD, TxD.
+			 * CN7 10-pin box header. */
+			usart3: serial@f8024000 {
+				status = "okay";
+			};
+
+			/* UART0 (dev(ttyS5): RS232#2. RxD, TxD.
+			 * CN6 10-pin box header. */
+			uart0: serial@f0024000 {
+				status = "okay";
+			};
+
+			/* MicroSD connector */
+			mmc0: mmc@f0000000 {
+				pinctrl-0 = <&pinctrl_mmc0_clk_cmd_dat0 &pinctrl_mmc0_dat1_3 &pinctrl_mmc0_cd>;
+				/* If you want to prevent DMA usage:
+				 * dma-names = "rxtxdlesnotexist"; */
+				status = "okay";
+
+				slot@0 {
+					reg = <0>;
+					bus-width = <4>;
+					cd-gpios = <&pioB 17 GPIO_ACTIVE_LOW>;
+				};
+			};
+
+			/* 10/100 macb with KSZ8041FTLI phy.
+			 * U2 RJ45 magjack on front. */
+			macb1: ethernet@f802c000 {
+				phy-mode = "rmii";
+				#address-cells = <1>;
+				#size-cells = <0>;
+				status = "okay";
+
+				phy0: ethernet-phy@1 {
+					reg = <1>;
+				};
+			};
+
+			/* Gigabit gmac directly connected to a KSZ8795 or
+			 * KSZ8765 5-port switch. We use a platform "fixed"
+			 * MDIO bus (CONFIG_FIXED_PHY) at 1000M always up
+			 * instead of a physical MDIO bus.
+			 * The KSZ87x5 is managed through SPI interface. */
+			macb0: ethernet@f0028000 {
+				pinctrl-0 = <&pinctrl_macb0_data_rgmii &pinctrl_macb0_signal_rgmii_nomdio>;
+				phy-mode = "rgmii";
+				#phy-mode = "rgmii-id";
+				#address-cells = <1>;
+				#size-cells = <0>;
+				status = "okay";
+
+				/* @@kro: Support for "fixed-link" has been patched into
+				 * drivers/net/ethernet/cadence/macb.c.
+				 * Without this macb.c only checks its own mii bus. */
+				fixed-link {
+					speed = <1000>;
+					full-duplex;
+				};
+			};
+
+			/* SPI */
+			spi1: spi@f8008000 {
+				/* The default pinctrl_spi1 covers SPCK, MISO, MOSI.
+				 * Chip select is GPIO which does not need pinctrl. */
+				/*
+                                 * pinctrl-0 = <&pinctrl_spi_ksz>;
+                                 */
+                                cs-gpios = <&pioC 25 GPIO_ACTIVE_LOW>;
+				status = "okay";
+                                /*
+                                 * id = <1>;
+                                 */
+
+				/* ksz87x5_spi@0 { */
+				/* 	/\* Micrel KSZ8795 / KSZ8765 5-port switch *\/ */
+				/* 	compatible = "micrel,ksz8765"; */
+				/* 	reg = <0>; */
+				/* 	reset-gpios = <&pioE 15 GPIO_ACTIVE_LOW>; */
+				/* 	spi-max-frequency = <50000000>; */
+				/* 	#address-cells = <1>; */
+				/* 	#size-cells = <0>; */
+					
+				/* 	ports { */
+				/* 		#address-cells = <1>; */
+				/* 		#size-cells = <0>; */
+
+				/* 		port4@4 { */
+				/* 			reg = <4>; */
+				/* 			label = "cpu"; */
+				/* 			ethernet = <&macb0>; */
+				/* 		}; */
+				/* 	}; */
+				/* }; */
+		                ksz8795: ksz8795@0 {
+                                        /* Micrel KSZ8795  5-port switch */
+			                compatible = "microchip,ksz8795";
+			                reg = <0>;
+                                        reset-gpios = <&pioE 15 GPIO_ACTIVE_LOW>; 
+			                spi-max-frequency = <50000000>;
+			                /*
+                                         * spi-cpha;
+			                 * spi-cpol;
+                                         */
+                                        status = "okay";
+
+			                ports {
+				                #address-cells = <1>;
+				                #size-cells = <0>;
+				                port@0 {
+					                reg = <0>;
+					                label = "lan3";
+				                };
+				                port@1 {
+					                reg = <1>;
+					                label = "lan4";
+				                };
+				                port@2 {
+					                reg = <2>;
+					                label = "lan5";
+				                };
+				                port@3 {
+					                reg = <3>;
+					                label = "lan2";
+				                };
+				                port@4 {
+					                reg = <4>;
+					                label = "cpu";
+					                ethernet = <&macb0>;
+				                        phy-mode = "rgmii-id";
+					                fixed-link {
+						                speed = <1000>;
+						                full-duplex;
+					                };
+				                };
+			                };
+		                };
+                                
+			};
+
+			/* Watchdog */
+			watchdog@fffffe40 {
+				/delete-property/ atmel,dbg-halt;
+				status = "okay";
+			};
+
+			/* RTC */
+			/* Nothing necessary, is automatically enabled */
+
+			/* Main clock crystal frequency */
+			pmc: pmc@fffffc00 {
+				main: mainck {
+					clock-frequency = <12000000>;
+				};
+			};
+
+			pinctrl@fffff200 {
+				board {
+					/* Card Detect GPIO input for MicroSD */
+					pinctrl_mmc0_cd: mmc0_cd-0 {
+						atmel,pins =
+							<AT91_PIOB 17 AT91_PERIPH_GPIO AT91_PINCTRL_PULL_UP_DEGLITCH>;
+					};
+
+					/* VBUS detect GPIO input pin for USB Device */
+					pinctrl_usba_vbus: usba_vbus-0 {
+						atmel,pins =
+							<AT91_PIOD 28 AT91_PERIPH_GPIO AT91_PINCTRL_DEGLITCH>;
+					};
+
+					/* RTS pin for USART0 (RS485) */
+					pinctrl_usart0_rts: usart0_rts-0 {
+						atmel,pins =
+							<AT91_PIOD 16 AT91_PERIPH_A AT91_PINCTRL_NONE>;
+					};
+
+					/* Control signals for macb0 rgmii. Same as pinctrl_macb0_signal_rgmii
+					 * but with PB16 (GMDC) and PB17 (GMDIO) removed. */
+					pinctrl_macb0_signal_rgmii_nomdio: macb0_signal_rgmii_nomdio {
+						atmel,pins =
+							<AT91_PIOB 8 AT91_PERIPH_A AT91_PINCTRL_NONE    /* PB8 periph A GTXCK, conflicts with PWMH2 */
+							 AT91_PIOB 9 AT91_PERIPH_A AT91_PINCTRL_NONE    /* PB9 periph A GTXEN, conflicts with PWML2 */
+							 AT91_PIOB 11 AT91_PERIPH_A AT91_PINCTRL_NONE   /* PB11 periph A GRXCK, conflicts with RD1 */
+							 AT91_PIOB 13 AT91_PERIPH_A AT91_PINCTRL_NONE   /* PB13 periph A GRXER, conflicts with PWML3 */
+							 AT91_PIOB 18 AT91_PERIPH_A AT91_PINCTRL_NONE>; /* PB18 periph A G125CK */
+					};
+
+                                        /* 2020-09-21 gc: pioE 15 GPIO_ACTIVE_LOW */
+                                        pinctrl_spi_ksz: spi_ksz {
+						atmel,pins =
+							<AT91_PIOE 15 AT91_PERIPH_GPIO AT91_PINCTRL_NONE> ; /* GMAC_RESET */
+					};
+
+					/* GPIOs for modem 3G/4G ID. GPI with pullup. */
+					pinctrl_modemid: modemid-0 {
+						atmel,pins =
+							<AT91_PIOE 10 AT91_PERIPH_GPIO AT91_PINCTRL_PULL_UP	/* PE10 = ID_4G_MODEM */
+							 AT91_PIOE 16 AT91_PERIPH_GPIO AT91_PINCTRL_PULL_UP>;	/* PE16 = ID_3G_MODEM */
+					};
+				};
+			};
+		};
+
+		/* USB Device */
+		usb0: gadget@500000 {
+			atmel,vbus-gpio = <&pioD 28 GPIO_ACTIVE_HIGH>;
+			pinctrl-names = "default";
+			/* The modem ID pins have nothing to do with USB Device, but we
+			 * have to configure them somewhere. */
+			pinctrl-0 = <&pinctrl_usba_vbus &pinctrl_modemid>;
+			status = "okay";
+		};
+
+		/* USB Host fullspeed */
+		usb1: ohci@600000 {
+			num-ports = <3>;
+			atmel,vbus-gpio =
+				<0				/* USB_A is device only */
+				 0				/* USB_B: Modem module, VBUS controlled manually by PD24 */
+				 &pioD 29 GPIO_ACTIVE_LOW>;	/* USB_C: Host connector powered through LM3526-L */
+			status = "okay";
+		};
+
+		/* USB Host highspeed */
+		usb2: ehci@700000 {
+			status = "okay";
+		};
+
+                /* 2020-09-21 gc: nand0 => old config  @todo remove */
+		/* 128/256/512 MB NAND flash.
+		 * ECC settings must match with the bootloader. */
+		/* nand0: nand@60000000 { */
+		/* 	nand-bus-width = <8>; */
+		/* 	nand-ecc-mode = "hw"; */
+		/* 	atmel,has-pmecc; */
+		/* 	atmel,pmecc-cap = <8>; */
+		/* 	atmel,pmecc-sector-size = <512>; */
+		/* 	nand-on-flash-bbt; */
+		/* 	status = "okay"; */
+
+		/* 	/\* mtd0: 128 KB (1 block) for bootloader. *\/ */
+		/* 	bootloader@0 { */
+		/* 		label = "bootloader"; */
+		/* 		reg = <0x00000000 0x00020000>;	/\* 128 KB *\/ */
+		/* 	}; */
+
+		/* 	/\* mtd1: Almost 8 MB (63 blocks) for kernel+initramfs. *\/ */
+		/* 	kernel@20000 { */
+		/* 		label = "kernel"; */
+		/* 		reg = <0x00020000 0x007E0000>;	/\* 8064 KB *\/ */
+		/* 	}; */
+
+		/* 	/\* mtd2: The rest (120/248/504 MB) for UBI. This */
+		/* 	 * normally contains one volume called "rootfs". */
+		/* 	 * */
+		/* 	 * The magic value MTDPART_SIZ_FULL (0) isn't mentioned */
+		/* 	 * in the devicetree binding docs, but it works. With */
+		/* 	 * this you don't need separate .dtb files for */
+		/* 	 * different NAND flash sizes. *\/ */
+		/* 	ubi0@800000 { */
+		/* 		label = "ubi0"; */
+		/* 		reg = <0x00800000 0x00000000>;	/\* MTDPART_SIZ_FULL *\/ */
+		/* 	}; */
+		/* }; */
+                ebi: ebi@10000000 { /* NAND has NCS3, which is not a GPIO */
+			pinctrl-0 = <&pinctrl_ebi_nand_addr>;
+			pinctr-name = "default";
+			status = "okay";
+
+			nand_controller: nand-controller {
+				status = "okay";
+
+				nand@3 {
+					reg = <0x3 0x0 0x2>;
+					atmel,rb = <0>;
+					nand-bus-width = <8>;
+					nand-ecc-mode = "hw";
+					nand-ecc-strength = <8>;
+					nand-ecc-step-size = <512>;
+					nand-on-flash-bbt;
+					label = "atmel_nand";
+
+					partitions {
+						compatible = "fixed-partitions";
+						#address-cells = <1>;
+						#size-cells = <1>;
+
+			                        /* mtd0: 128 KB (1 block) for bootloader. */
+			                        bootloader@0 {
+				                        label = "bootloader";
+				                        reg = <0x00000000 0x00020000>;	/* 128 KB */
+			                        };
+                                                
+			                        /* mtd1: Almost 8 MB (63 blocks) for kernel+initramfs. */
+			                        kernel@20000 {
+				                        label = "kernel";
+				                        reg = <0x00020000 0x007E0000>;	/* 8064 KB */
+			                        };
+                                                
+			                        /* mtd2: The rest (120/248/504 MB) for UBI. This
+			                        * normally contains one volume called "rootfs".
+			                        *
+			                        * The magic value MTDPART_SIZ_FULL (0) isn't mentioned
+			                        * in the devicetree binding docs, but it works. With
+			                        * this you don't need separate .dtb files for
+			                        * different NAND flash sizes. */
+			                        ubi0@800000 {
+				                        label = "ubi0";
+				                        reg = <0x00800000 0x00000000>;	/* MTDPART_SIZ_FULL */
+			                        };
+					};
+				};
+			};
+		};                
+	};
+};
