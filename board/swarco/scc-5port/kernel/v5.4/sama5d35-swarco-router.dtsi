@@ -301,6 +301,59 @@
 			 * have to configure them somewhere. */
 			pinctrl-0 = <&pinctrl_usba_vbus &pinctrl_modemid>;
 			status = "okay";
+                        /* 2021-07-29 gc: we must use smaller fifo-sizes than
+                        *                 the default values, because the
+                        *                 USB-Hub chip TUSB2046 used in the
+                        *                 'SCC-SAMA5 5 port router' USB device
+                        *                 port only supports full-speed and 
+                        *                 will crash when we use the default 
+                        *                 fifo-size of 1024.
+                        */
+                        ep@0 {
+		                reg = <0>;
+		                atmel,fifo-size = <64>;
+		                atmel,nb-banks = <1>;
+	                };
+	                ep@1 {
+		                reg = <1>;
+		                atmel,fifo-size = <64>;
+		                atmel,nb-banks = <2>;
+		                atmel,can-dma;
+		                atmel,can-isoc;
+	                };
+	                ep@2 {
+		                reg = <2>;
+		                atmel,fifo-size = <64>;
+		                atmel,nb-banks = <2>;
+		                atmel,can-dma;
+		                atmel,can-isoc;
+	                };
+	                ep@3 {
+		                reg = <3>;
+		                atmel,fifo-size = <16>;
+		                atmel,nb-banks = <2>;
+		                atmel,can-dma;
+	                };
+	                ep@4 {
+		                reg = <4>;
+		                atmel,fifo-size = <16>;
+		                atmel,nb-banks = <2>;
+		                atmel,can-dma;
+	                };
+	                ep@5 {
+		                reg = <5>;
+		                atmel,fifo-size = <64>;
+		                atmel,nb-banks = <2>;
+		                atmel,can-dma;
+		                atmel,can-isoc;
+	                };
+	                ep@6 {
+		                reg = <6>;
+		                atmel,fifo-size = <64>;
+		                atmel,nb-banks = <2>;
+		                atmel,can-dma;
+		                atmel,can-isoc;
+	                };
 		};
 
 		/* USB Host fullspeed */
