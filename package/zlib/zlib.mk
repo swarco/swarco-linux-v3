@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-ZLIB_VERSION = 1.2.8
+ZLIB_VERSION = 1.2.12
 ZLIB_SOURCE = zlib-$(ZLIB_VERSION).tar.xz
-ZLIB_SITE = http://downloads.sourceforge.net/project/libpng/zlib/$(ZLIB_VERSION)
+ZLIB_SITE = https://zlib.net
 ZLIB_LICENSE = zlib license
 ZLIB_LICENSE_FILES = README
 ZLIB_INSTALL_STAGING = YES
@@ -23,10 +23,12 @@ ZLIB_SHARED = --shared
 endif
 
 define ZLIB_CONFIGURE_CMDS
+	echo "------------- ZLIB CONFIGURE ------------------------"
 	(cd $(@D); rm -rf config.cache; \
 		$(TARGET_CONFIGURE_ARGS) \
 		$(TARGET_CONFIGURE_OPTS) \
 		CFLAGS="$(TARGET_CFLAGS) $(ZLIB_PIC)" \
+		cc="$(TARGET_CC)" \
 		./configure \
 		$(ZLIB_SHARED) \
 		--prefix=/usr \
@@ -52,10 +54,12 @@ define HOST_ZLIB_BUILD_CMDS
 endef
 
 define ZLIB_INSTALL_STAGING_CMDS
+	echo "------------- ZLIB INSTALL Staging ------------------------"
 	$(MAKE1) -C $(@D) DESTDIR=$(STAGING_DIR) LDCONFIG=true install
 endef
 
 define ZLIB_INSTALL_TARGET_CMDS
+	echo "------------- ZLIB INSTALL Target ------------------------"
 	$(MAKE1) -C $(@D) DESTDIR=$(TARGET_DIR) LDCONFIG=true install
 endef
 
