@@ -4,7 +4,7 @@
 #
 # Implements USB-Memory-Stick software update / recovery
 #
-# Copyright (C) 2007-2018 by SWARCO Traffic Systems GmbH
+# Copyright (C) 2007-2022 by SWARCO Traffic Systems GmbH
 #                            Weiss-Electronic GmbH
 #                            Guido Classen <clagix@gmail.com>
 # All rights reserved.
@@ -129,6 +129,10 @@ if [ ! -f /etc/.usb-configurated ]; then
         ls -l /mnt/usb
         if [ -f /mnt/usb/.usb-config.sh ]; then
             sh /mnt/usb/.usb-config.sh && okay=1
+            break
+        fi
+        if [ -f /mnt/usb/usb-config.sh ]; then
+            sh /mnt/usb/usb-config.sh && okay=1
             break
         fi
         umount /mnt/usb
