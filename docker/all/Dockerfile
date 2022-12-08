@@ -11,9 +11,21 @@ LABEL description="Automated Build for SWARCO Embedded Linux V3 operating system
 
 # older Docker version don't understand "ARG"
 ENV DEBIAN_FRONTEND noninteractive
+
+# 2022-11-21 gc: globally set apt options
+#                `Acquire::Check-Valid-Until` and `APT::Get::force-yes`
+#                because GPG-keys for APT-packages from Debian Jessie have been
+#                expired. It seams that this keys will not be updated again.
+#                So we must install packages without checking for expired keys!
+#                THIS MY BE DANGEROUS!
+#
 RUN useradd -ms /bin/bash builduser &&                  \
-    apt-get --yes update &&                             \
-    apt-get --yes --no-install-recommends install       \
+    echo Acquire::Check-Valid-Until false\; >/etc/apt/apt.conf.d/allow-insecure-repositories && \
+    echo APT::Get::force-yes true\; >>/etc/apt/apt.conf.d/allow-insecure-repositories && \
+    echo out: &&\
+    cat /etc/apt/apt.conf.d/allow-insecure-repositories &&\
+    apt-get --yes --force-yes update &&                             \
+    apt-get --yes --force-yes --no-install-recommends install       \
             autoconf                                    \
             automake                                    \
             bison                                       \
