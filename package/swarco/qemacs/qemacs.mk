@@ -4,12 +4,10 @@
 #
 ################################################################################
 
-QEMACS_VERSION = "20190327 7:44"
+QEMACS_VERSION = 216b3ff8b77ff138aec22045522d5601b7390e58
 
-#QEMACS_SOURCE = qemacs-$(QEMACS_VERSION).tar.gz
-#QEMACS_SITE = https://bellard.org/qemacs
-QEMACS_SITE=cvs://cvs.savannah.nongnu.org:/sources/qemacs
-#QEMACS_VERSION= HEAD
+QEMACS_SITE=https://github.com/qemacs/qemacs
+QEMACS_SITE_METHOD = git
 QEMACS_LICENSE = LGPLv2.1+
 QEMACS_LICENSE_FILES = COPYING
 #QEMACS_INSTALL_STAGING = YES
