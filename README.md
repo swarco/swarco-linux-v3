@@ -1,5 +1,5 @@
-SWARCO Embedded Linux V3 operating system
-=========================================
+SWARCO Embedded Linux V3.1 operating system
+===========================================
 
 <img src="https://www.swarco.com/sites/default/files/public/product/2018-11/primos_scc_frei.png" width="200" title="SWARCO CCM2200 CPU" alt="">
 

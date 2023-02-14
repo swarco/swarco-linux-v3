@@ -1,12 +1,12 @@
 #!/bin/sh
 #
-# post build script for SWARCO Embedded Linux V3
-# 2017-2018, "Guido Classen"
+# post build script for SWARCO Embedded Linux V3.1
+# 2017-2023, "Guido Classen"
 #
 set -x
 
 cat >${TARGET_DIR}/etc/issue <<EOF 
-Welcome to SWARCO Traffic Systems GmbH Embedded Linux v3  
+Welcome to SWARCO Traffic Systems GmbH Embedded Linux v3.1  
 Version: ${BR2_VERSION_FULL}   Build: `date '+%Y-%m-%d'`
 EOF
 

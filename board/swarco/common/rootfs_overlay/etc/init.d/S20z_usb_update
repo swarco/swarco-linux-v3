@@ -4,7 +4,7 @@
 #
 # Implements USB-Memory-Stick software update / recovery
 #
-# Copyright (C) 2007-2022 by SWARCO Traffic Systems GmbH
+# Copyright (C) 2007-2023 by SWARCO Traffic Systems GmbH
 #                            Weiss-Electronic GmbH
 #                            Guido Classen <clagix@gmail.com>
 # All rights reserved.
@@ -242,7 +242,7 @@ if [ ! -f /etc/.usb-configurated ]; then
         cat <<EOF
 
 ------------------------------------------------------------------------------
-                   🐧  SWARCO Linux V3 UBIFS Autoupdate  🐧
+                  🐧  SWARCO Linux V3.1 UBIFS Autoupdate  🐧
            😁 🎉 👍 ${COL_GN}Update / Recovery finished successfully :-)${COL_RST} 👍 🎉 😁
 ------------------------------------------------------------------------------
 
@@ -252,7 +252,7 @@ EOF
         cat <<EOF
 
 ------------------------------------------------------------------------------
-                   🐧  SWARCO Linux V3 UBIFS Autoupdate  🐧
+                  🐧  SWARCO Linux V3.1 UBIFS Autoupdate  🐧
                    💣 😞 👎 ${COL_RED}Update / Recovery FAILED!!!${COL_RST} 👎 😞 💣
 ------------------------------------------------------------------------------
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 #
-# post build script for SWARCO Embedded Linux V3
-# 2017-2018, "Guido Classen"
+# post build script for SWARCO Embedded Linux V3.1
+# 2017-2023, "Guido Classen"
 #
 set -x
 

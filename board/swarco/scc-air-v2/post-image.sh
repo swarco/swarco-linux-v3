@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# post-image.sh script for SWARCO Embedded Linux V3
+# post-image.sh script for SWARCO Embedded Linux V3.1
 #
 set -x
 

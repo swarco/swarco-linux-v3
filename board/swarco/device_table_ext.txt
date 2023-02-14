@@ -2,9 +2,9 @@
 #
 # device_table_ext.txt
 #
-# SWARCO Linux V3 specific extension of buildroots system/device_table…txt
+# SWARCO Linux V3.1 specific extension of buildroots system/device_table…txt
 #
-# (c) Copyright 2008-2018
+# (c) Copyright 2008-2023
 #     Guido Classen, SWARCO Traffic Systems GmbH <clagix@gmail.com>
 #                    
 # Licensed under the GNU General Public License v2 or later
