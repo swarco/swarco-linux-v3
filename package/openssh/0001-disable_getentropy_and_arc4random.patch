@@ -1,0 +1,74 @@
+--- openssh-org/configure	2023-02-24 14:43:17.212811106 +0100
++++ openssh-9.1p1/configure	2023-02-24 14:43:53.445012084 +0100
+@@ -12911,12 +12911,12 @@
+   printf "%s\n" "#define HAVE_GETCWD 1" >>confdefs.h
+ 
+ fi
+-ac_fn_c_check_func "$LINENO" "getentropy" "ac_cv_func_getentropy"
+-if test "x$ac_cv_func_getentropy" = xyes
+-then :
+-  printf "%s\n" "#define HAVE_GETENTROPY 1" >>confdefs.h
++# ac_fn_c_check_func "$LINENO" "getentropy" "ac_cv_func_getentropy"
++# if test "x$ac_cv_func_getentropy" = xyes
++# then :
++#   printf "%s\n" "#define HAVE_GETENTROPY 1" >>confdefs.h
+ 
+-fi
++# fi
+ ac_fn_c_check_func "$LINENO" "getgrouplist" "ac_cv_func_getgrouplist"
+ if test "x$ac_cv_func_getgrouplist" = xyes
+ then :
+@@ -16489,30 +16489,30 @@
+ 	fi
+ fi
+ 
+-ac_fn_c_check_func "$LINENO" "arc4random" "ac_cv_func_arc4random"
+-if test "x$ac_cv_func_arc4random" = xyes
+-then :
+-  printf "%s\n" "#define HAVE_ARC4RANDOM 1" >>confdefs.h
++# ac_fn_c_check_func "$LINENO" "arc4random" "ac_cv_func_arc4random"
++# if test "x$ac_cv_func_arc4random" = xyes
++# then :
++#   printf "%s\n" "#define HAVE_ARC4RANDOM 1" >>confdefs.h
++
++# fi
++# ac_fn_c_check_func "$LINENO" "arc4random_buf" "ac_cv_func_arc4random_buf"
++# if test "x$ac_cv_func_arc4random_buf" = xyes
++# then :
++#   printf "%s\n" "#define HAVE_ARC4RANDOM_BUF 1" >>confdefs.h
++
++# fi
++# ac_fn_c_check_func "$LINENO" "arc4random_stir" "ac_cv_func_arc4random_stir"
++# if test "x$ac_cv_func_arc4random_stir" = xyes
++# then :
++#   printf "%s\n" "#define HAVE_ARC4RANDOM_STIR 1" >>confdefs.h
++
++# fi
++# ac_fn_c_check_func "$LINENO" "arc4random_uniform" "ac_cv_func_arc4random_uniform"
++# if test "x$ac_cv_func_arc4random_uniform" = xyes
++# then :
++#   printf "%s\n" "#define HAVE_ARC4RANDOM_UNIFORM 1" >>confdefs.h
+ 
+-fi
+-ac_fn_c_check_func "$LINENO" "arc4random_buf" "ac_cv_func_arc4random_buf"
+-if test "x$ac_cv_func_arc4random_buf" = xyes
+-then :
+-  printf "%s\n" "#define HAVE_ARC4RANDOM_BUF 1" >>confdefs.h
+-
+-fi
+-ac_fn_c_check_func "$LINENO" "arc4random_stir" "ac_cv_func_arc4random_stir"
+-if test "x$ac_cv_func_arc4random_stir" = xyes
+-then :
+-  printf "%s\n" "#define HAVE_ARC4RANDOM_STIR 1" >>confdefs.h
+-
+-fi
+-ac_fn_c_check_func "$LINENO" "arc4random_uniform" "ac_cv_func_arc4random_uniform"
+-if test "x$ac_cv_func_arc4random_uniform" = xyes
+-then :
+-  printf "%s\n" "#define HAVE_ARC4RANDOM_UNIFORM 1" >>confdefs.h
+-
+-fi
++# fi
+ 
+ ### Configure cryptographic random number support
+ 
