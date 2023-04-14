@@ -1,13 +1,12 @@
-# -*- shell-script -*-
-# run with
+# -*- dockerfile -*-
 #
-# docker -v ../..:/home/builduser/swarco-linux-v3 build
+# see root README.md file for usage of these Dockerfile
+#
 
-
-FROM debian:jessie
+FROM debian:bullseye
 MAINTAINER Guido Classen <clagix@gmail.com>
 
-LABEL description="Automated Build for SWARCO Embedded Linux V3 operating system"
+LABEL description="Automated Build for SWARCO Embedded Linux V3.1 operating system"
 
 # older Docker version don't understand "ARG"
 ENV DEBIAN_FRONTEND noninteractive
@@ -70,8 +69,8 @@ ENV LC_ALL C.UTF-8
 #USER builduser
 
 #RUN ls -l /home/builduser
-ADD . /home/builduser/swarco-linux-v3
-WORKDIR /home/builduser/swarco-linux-v3
+ADD . /home/builduser/swarco-linux-v3.1
+WORKDIR /home/builduser/swarco-linux-v3.1
 ARG BUILDROOT_CONFIG
 RUN docker/all/docker_build.sh ${BUILDROOT_CONFIG}
 
