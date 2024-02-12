@@ -8,7 +8,7 @@ SWARCO Embedded Linux V3.1 operating system
 
 | Feature              | SWARCO Linux V2       | SWARCO Linux V3                                          | SWARCO Linux V3.1                |
 |----------------------|-----------------------|----------------------------------------------------------|----------------------------------|
-| Hardware             | CCM2200               | SCC-Air Mk II, SCC-Air, CCM2200, 5 Port Router,  &#8230; | SCC-Air Mk II, CCM2200           |
+| Hardware             | CCM2200               | SCC-Air Mk II, SCC-Air, CCM2200, 5 Port Router,  &#8230; | SCC-Air Mk II, SCC-Air, CCM2200  |
 | first release        | 2007                  | December 2017                                            | February 2023                    |
 | based on Buildroot   | 20081211              | &ge; 2016.05                                             | &ge; 2022.02                     |
 | CPU architecture     | ARM                   | ARM                                                      | Cortex-A5 (SCC), arm920t (CCM)   |
@@ -45,7 +45,7 @@ Build images for SCC-SAMA5 5 Port Router hardware: (@todo currently not supporte
 
     docker build -f docker/all/Dockerfile -t swarco/swarco-linux-v3.1-scc-5port-sama5 --build-arg BUILDROOT_CONFIG=swarco_linux_v3.1_scc_5port_sama5_defconfig   .
 
-Build images for SCC-Air hardware: (@todo currently not supported for V3.1)
+Build images for SCC-Air (v1) hardware:
 
     docker build -f docker/all/Dockerfile -t swarco/swarco-linux-v3.1-scc-air --build-arg BUILDROOT_CONFIG=swarco_linux_v3.1_scc_air_defconfig   .
 
@@ -83,7 +83,7 @@ Or prepare SCC-SAMA5 5 port router configuration: (@todo currently not supported
 
     make swarco_linux_v3.1_scc_5port_sama5_defconfig
 
-Or prepare SCC-Air configuration: (@todo currently not supported)
+Or prepare SCC-Air (v1) configuration: 
 
     make swarco_linux_v3.1_scc_air_defconfig
 
