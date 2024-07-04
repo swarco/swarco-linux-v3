@@ -251,7 +251,6 @@ package/ntp/S49ntp.in Variables
 package/ofono/S46ofono Variables
 package/olsr/S50olsr Indent Shellcheck Variables
 package/openntpd/S49ntp Shellcheck Variables
-package/openssh/S50sshd lib_sysv.Indent
 package/openvmtools/shutdown Shellcheck
 package/openvpn/S60openvpn Indent Shellcheck Variables
 package/oracle-mysql/S97mysqld Shellcheck Variables
