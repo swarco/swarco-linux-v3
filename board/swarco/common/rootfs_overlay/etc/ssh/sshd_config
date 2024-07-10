@@ -60,8 +60,7 @@ PermitRootLogin yes
 #RSAAuthentication yes
 #PubkeyAuthentication yes
 PubkeyAuthentication yes
-#2016-03-29 gc: enable dss key support for openssh 7.x
-PubkeyAcceptedKeyTypes  +ssh-dss
+PubkeyAcceptedKeyTypes ssh-ed25519
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
