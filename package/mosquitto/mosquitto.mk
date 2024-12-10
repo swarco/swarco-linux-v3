@@ -112,10 +112,12 @@ define MOSQUITTO_INSTALL_TARGET_CMDS
 		$(TARGET_DIR)/etc/mosquitto/mosquitto.conf
 endef
 
+# changed default execution order form 50 to 42 to to start it before
+# proprietary software
 ifeq ($(BR2_PACKAGE_MOSQUITTO_BROKER),y)
 define MOSQUITTO_INSTALL_INIT_SYSV
 	$(INSTALL) -D -m 0755 package/mosquitto/S50mosquitto \
-		$(TARGET_DIR)/etc/init.d/S50mosquitto
+		$(TARGET_DIR)/etc/init.d/S42mosquitto
 endef
 
 define MOSQUITTO_INSTALL_INIT_SYSTEMD
